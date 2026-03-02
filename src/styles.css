@@ -1,0 +1,7 @@
+/* src/styles.css */
+@import 'tailwindcss';
+
+:root {
+    --color-primary: oklch(47% 0.2 264);
+    --color-destructive: oklch(50% 0.22 27);
+}
