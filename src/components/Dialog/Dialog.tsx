@@ -29,7 +29,10 @@ export const DialogViewport = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <BaseDialog.Viewport
         ref={ref}
-        className={cn('fixed inset-0 flex items-center justify-center p-4', className)}
+        className={cn(
+            'fixed inset-0 flex items-center justify-center p-4',
+            className
+        )}
         {...props}
     />
 ));

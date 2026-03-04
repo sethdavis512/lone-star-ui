@@ -9,5 +9,5 @@ export {
     DrawerHandle,
     DrawerTitle,
     DrawerDescription,
-    DrawerClose,
+    DrawerClose
 } from './Drawer';

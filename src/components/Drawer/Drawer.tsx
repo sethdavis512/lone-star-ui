@@ -89,7 +89,10 @@ export const DrawerHandle = React.forwardRef<
     <div
         ref={ref}
         aria-hidden
-        className={cn('mx-auto mb-4 h-1 w-12 rounded-full bg-pecan/15', className)}
+        className={cn(
+            'mx-auto mb-4 h-1 w-12 rounded-full bg-pecan/15',
+            className
+        )}
         {...props}
     />
 ));

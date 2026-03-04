@@ -9,12 +9,12 @@ import {
     AlertDialogTitle,
     AlertDialogDescription,
     AlertDialogClose,
-    AlertDialogTrigger,
+    AlertDialogTrigger
 } from './AlertDialog';
 
 const meta = {
     title: 'Components/AlertDialog',
-    tags: ['autodocs'],
+    tags: ['autodocs']
 } satisfies Meta;
 
 export default meta;
@@ -22,7 +22,7 @@ export default meta;
 function AlertDialogDemo({
     triggerLabel = 'Delete Item',
     title = 'Are you sure?',
-    description = 'This action cannot be undone.',
+    description = 'This action cannot be undone.'
 }: {
     triggerLabel?: string;
     title?: string;
@@ -36,7 +36,9 @@ function AlertDialogDemo({
                 <AlertDialogViewport>
                     <AlertDialogPopup>
                         <AlertDialogTitle>{title}</AlertDialogTitle>
-                        <AlertDialogDescription>{description}</AlertDialogDescription>
+                        <AlertDialogDescription>
+                            {description}
+                        </AlertDialogDescription>
                         <div className="flex justify-end gap-2">
                             <AlertDialogClose className="border-pecan/25 text-pecan hover:bg-mesa">
                                 Cancel
@@ -62,7 +64,7 @@ export const Default: StoryObj = {
         const cancel = within(dialog).getByRole('button', { name: 'Cancel' });
         await userEvent.click(cancel);
         expect(within(document.body).queryByRole('alertdialog')).toBeNull();
-    },
+    }
 };
 
 export const DiscardDraft: StoryObj = {
@@ -72,7 +74,7 @@ export const DiscardDraft: StoryObj = {
             title="Discard draft?"
             description="You have unsaved changes. Discarding will permanently delete your draft."
         />
-    ),
+    )
 };
 
 export const SignOut: StoryObj = {
@@ -106,8 +108,10 @@ export const SignOut: StoryObj = {
         await userEvent.click(trigger);
         const dialog = within(document.body).getByRole('alertdialog');
         expect(dialog).toBeVisible();
-        const confirm = within(dialog).getByRole('button', { name: 'Sign Out' });
+        const confirm = within(dialog).getByRole('button', {
+            name: 'Sign Out'
+        });
         await userEvent.click(confirm);
         expect(within(document.body).queryByRole('alertdialog')).toBeNull();
-    },
+    }
 };

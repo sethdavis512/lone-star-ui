@@ -29,7 +29,10 @@ export const AlertDialogViewport = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <BaseAlertDialog.Viewport
         ref={ref}
-        className={cn('fixed inset-0 flex items-center justify-center p-4', className)}
+        className={cn(
+            'fixed inset-0 flex items-center justify-center p-4',
+            className
+        )}
         {...props}
     />
 ));

@@ -11,12 +11,12 @@ import {
     DrawerHandle,
     DrawerTitle,
     DrawerDescription,
-    DrawerClose,
+    DrawerClose
 } from './Drawer';
 
 const meta = {
     title: 'Components/Drawer',
-    tags: ['autodocs'],
+    tags: ['autodocs']
 } satisfies Meta;
 
 export default meta;
@@ -33,7 +33,8 @@ function BottomDrawerDemo() {
                         <DrawerContent>
                             <DrawerTitle>Drawer Title</DrawerTitle>
                             <DrawerDescription>
-                                Swipe down or click the button below to close this drawer.
+                                Swipe down or click the button below to close
+                                this drawer.
                             </DrawerDescription>
                             <div className="flex justify-end">
                                 <DrawerClose>Close</DrawerClose>
@@ -57,7 +58,7 @@ export const Default: StoryObj = {
         expect(within(dialog).getByText('Drawer Title')).toBeVisible();
         const close = within(dialog).getByRole('button', { name: 'Close' });
         await userEvent.click(close);
-    },
+    }
 };
 
 export const RightSide: StoryObj = {
@@ -81,7 +82,7 @@ export const RightSide: StoryObj = {
                 </DrawerViewport>
             </DrawerPortal>
         </DrawerRoot>
-    ),
+    )
 };
 
 export const WithActions: StoryObj = {
@@ -99,16 +100,18 @@ export const WithActions: StoryObj = {
                                 You have 3 unread notifications.
                             </DrawerDescription>
                             <ul className="mb-6 space-y-2">
-                                {['New message from Alex', 'Your report is ready', 'Reminder: meeting at 3pm'].map(
-                                    (n) => (
-                                        <li
-                                            key={n}
-                                            className="rounded-lg border border-pecan/10 bg-mesa/30 px-3 py-2.5 text-sm text-pecan"
-                                        >
-                                            {n}
-                                        </li>
-                                    )
-                                )}
+                                {[
+                                    'New message from Alex',
+                                    'Your report is ready',
+                                    'Reminder: meeting at 3pm'
+                                ].map((n) => (
+                                    <li
+                                        key={n}
+                                        className="rounded-lg border border-pecan/10 bg-mesa/30 px-3 py-2.5 text-sm text-pecan"
+                                    >
+                                        {n}
+                                    </li>
+                                ))}
                             </ul>
                             <div className="flex justify-end gap-2">
                                 <DrawerClose className="text-pecan/60 border-pecan/15">
@@ -132,5 +135,5 @@ export const WithActions: StoryObj = {
         expect(within(dialog).getAllByRole('listitem')).toHaveLength(3);
         const close = within(dialog).getByRole('button', { name: 'Done' });
         await userEvent.click(close);
-    },
+    }
 };

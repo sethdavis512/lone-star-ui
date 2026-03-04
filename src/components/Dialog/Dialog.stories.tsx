@@ -9,12 +9,12 @@ import {
     DialogTitle,
     DialogDescription,
     DialogClose,
-    DialogTrigger,
+    DialogTrigger
 } from './Dialog';
 
 const meta = {
     title: 'Components/Dialog',
-    tags: ['autodocs'],
+    tags: ['autodocs']
 } satisfies Meta;
 
 export default meta;
@@ -22,7 +22,7 @@ export default meta;
 function DialogDemo({
     title = 'Example Dialog',
     description = 'This is a dialog. You can put any content here.',
-    confirmLabel = 'Confirm',
+    confirmLabel = 'Confirm'
 }: {
     title?: string;
     description?: string;
@@ -59,7 +59,7 @@ export const Default: StoryObj = {
         const close = within(dialog).getByRole('button', { name: 'Confirm' });
         await userEvent.click(close);
         expect(within(document.body).queryByRole('dialog')).toBeNull();
-    },
+    }
 };
 
 export const WithCustomContent: StoryObj = {
@@ -76,7 +76,11 @@ export const WithCustomContent: StoryObj = {
                         </DialogDescription>
                         <div className="mb-6 space-y-3">
                             <label className="flex items-center gap-3 text-sm text-pecan">
-                                <input type="checkbox" defaultChecked className="rounded" />
+                                <input
+                                    type="checkbox"
+                                    defaultChecked
+                                    className="rounded"
+                                />
                                 Enable notifications
                             </label>
                             <label className="flex items-center gap-3 text-sm text-pecan">
@@ -94,7 +98,7 @@ export const WithCustomContent: StoryObj = {
                 </DialogViewport>
             </DialogPortal>
         </DialogRoot>
-    ),
+    )
 };
 
 export const DestructiveAction: StoryObj = {
@@ -109,8 +113,8 @@ export const DestructiveAction: StoryObj = {
                     <DialogPopup>
                         <DialogTitle>Delete Account?</DialogTitle>
                         <DialogDescription>
-                            This will permanently delete your account and all associated data.
-                            This action cannot be undone.
+                            This will permanently delete your account and all
+                            associated data. This action cannot be undone.
                         </DialogDescription>
                         <div className="flex justify-end gap-2">
                             <DialogClose>Cancel</DialogClose>
@@ -132,7 +136,7 @@ export const DestructiveAction: StoryObj = {
         expect(within(dialog).getByText('Delete Account?')).toBeVisible();
         const cancel = within(dialog).getByRole('button', { name: 'Cancel' });
         await userEvent.click(cancel);
-    },
+    }
 };
 
 export const Nested: StoryObj = {
@@ -149,12 +153,16 @@ export const Nested: StoryObj = {
                         </DialogDescription>
                         <div className="mb-4">
                             <DialogRoot>
-                                <DialogTrigger>Open Nested Dialog</DialogTrigger>
+                                <DialogTrigger>
+                                    Open Nested Dialog
+                                </DialogTrigger>
                                 <DialogPortal>
                                     <DialogBackdrop />
                                     <DialogViewport>
                                         <DialogPopup>
-                                            <DialogTitle>Nested Dialog</DialogTitle>
+                                            <DialogTitle>
+                                                Nested Dialog
+                                            </DialogTitle>
                                             <DialogDescription>
                                                 This is a nested dialog.
                                             </DialogDescription>
@@ -173,5 +181,5 @@ export const Nested: StoryObj = {
                 </DialogViewport>
             </DialogPortal>
         </DialogRoot>
-    ),
+    )
 };

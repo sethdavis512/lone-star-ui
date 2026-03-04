@@ -98,7 +98,7 @@ export {
     DialogTitle,
     DialogDescription,
     DialogClose,
-    DialogTrigger,
+    DialogTrigger
 } from './components/Dialog';
 
 export {
@@ -110,7 +110,7 @@ export {
     AlertDialogTitle,
     AlertDialogDescription,
     AlertDialogClose,
-    AlertDialogTrigger,
+    AlertDialogTrigger
 } from './components/AlertDialog';
 
 export {
@@ -124,8 +124,41 @@ export {
     DrawerHandle,
     DrawerTitle,
     DrawerDescription,
-    DrawerClose,
+    DrawerClose
 } from './components/Drawer';
+
+export {
+    TooltipProvider,
+    TooltipRoot,
+    TooltipPortal,
+    TooltipTrigger,
+    TooltipPositioner,
+    TooltipPopup,
+    TooltipArrow
+} from './components/Tooltip';
+
+export {
+    PopoverRoot,
+    PopoverPortal,
+    PopoverTrigger,
+    PopoverBackdrop,
+    PopoverPositioner,
+    PopoverPopup,
+    PopoverTitle,
+    PopoverDescription,
+    PopoverClose,
+    PopoverArrow
+} from './components/Popover';
+
+export {
+    PreviewCardRoot,
+    PreviewCardPortal,
+    PreviewCardTrigger,
+    PreviewCardBackdrop,
+    PreviewCardPositioner,
+    PreviewCardPopup,
+    PreviewCardArrow
+} from './components/PreviewCard';
 
 // Utilities — exporting cn is optional, but useful for consumers
 // who want consistent class merging with your library
