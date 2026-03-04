@@ -5,6 +5,7 @@ const preview: Preview = {
     parameters: {
         options: {
             storySort: {
+                order: ['Sparks', 'Kindling', 'Bonfire', 'Camps', 'Plains'],
                 method: 'alphabetical'
             }
         },
