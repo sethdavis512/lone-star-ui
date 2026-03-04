@@ -2,6 +2,10 @@
 
 A React 19 component library built with TypeScript, Tailwind CSS 4, and CVA (Class Variance Authority). Publishes ESM-only to npm with full type declarations.
 
+## Design Inspiration
+
+[Allan Peter's Austin TX Logo rebrand](https://www.instagram.com/p/DOeeju3EnLi)
+
 ## Installation
 
 ```bash

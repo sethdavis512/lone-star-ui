@@ -3,11 +3,11 @@ import { cn } from '../../utils/cn';
 import React from 'react';
 
 const inputVariants = cva({
-    base: 'flex w-full rounded-md border bg-white px-3 text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+    base: 'flex w-full rounded-md border bg-white px-3 text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-pecan/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
     variants: {
         variant: {
-            default: 'border-gray-300 focus-visible:ring-blue-600',
-            error: 'border-red-500 focus-visible:ring-red-500'
+            default: 'border-pecan/25 focus-visible:ring-sky',
+            error: 'border-prickly-pear focus-visible:ring-prickly-pear'
         },
         size: {
             sm: 'h-8 text-xs',

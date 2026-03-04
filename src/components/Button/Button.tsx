@@ -5,15 +5,14 @@ const buttonVariants = cva({
     base: 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
     variants: {
         variant: {
-            primary:
-                'bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600',
+            primary: 'bg-sky text-white hover:bg-sky/85 focus-visible:ring-sky',
             secondary:
-                'bg-gray-100 text-gray-900 hover:bg-gray-200 focus-visible:ring-gray-500',
+                'bg-mesa text-pecan hover:bg-mesa/60 focus-visible:ring-pecan',
             destructive:
-                'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-600',
+                'bg-prickly-pear text-white hover:bg-prickly-pear/85 focus-visible:ring-prickly-pear',
             outline:
-                'border border-gray-300 bg-transparent hover:bg-gray-100 focus-visible:ring-gray-500',
-            ghost: 'hover:bg-gray-100 focus-visible:ring-gray-500'
+                'border border-pecan/30 bg-transparent text-pecan hover:bg-mesa focus-visible:ring-pecan',
+            ghost: 'text-pecan hover:bg-mesa focus-visible:ring-pecan'
         },
         size: {
             sm: 'h-8 px-3 text-sm',

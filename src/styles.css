@@ -1,7 +1,24 @@
 /* src/styles.css */
 @import 'tailwindcss';
 
-:root {
-    --color-primary: oklch(47% 0.2 264);
-    --color-destructive: oklch(50% 0.22 27);
+@theme {
+    /* ── Lone Star UI — Texas Palette ─────────────────────────────── */
+    --color-sky: oklch(
+        68% 0.17 205
+    ); /* wide-open Texas sky — teal/turquoise  */
+    --color-longhorn: oklch(
+        71% 0.17 65
+    ); /* burnt amber — UT orange territory     */
+    --color-pecan: oklch(
+        35% 0.07 55
+    ); /* warm brown — Texas state tree         */
+    --color-bluebonnet: oklch(
+        52% 0.19 282
+    ); /* violet/purple — Texas state flower    */
+    --color-mesa: oklch(
+        92% 0.02 78
+    ); /* warm sandstone — neutral backgrounds  */
+    --color-prickly-pear: oklch(
+        62% 0.22 345
+    ); /* pink-magenta — pop/destructive accent */
 }
