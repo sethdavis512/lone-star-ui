@@ -3,7 +3,7 @@ import { expect, within } from 'storybook/test';
 import { Avatar } from './Avatar';
 
 const meta = {
-    title: 'Components/Avatar',
+    title: 'Sparks/Avatar',
     component: Avatar,
     parameters: { layout: 'centered' },
     tags: ['autodocs'],

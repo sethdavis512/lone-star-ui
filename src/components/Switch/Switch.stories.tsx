@@ -4,7 +4,7 @@ import React from 'react';
 import { SwitchRoot, SwitchThumb } from './Switch';
 
 const meta = {
-    title: 'Components/Switch',
+    title: 'Sparks/Switch',
     component: SwitchRoot,
     parameters: { layout: 'centered' },
     tags: ['autodocs'],

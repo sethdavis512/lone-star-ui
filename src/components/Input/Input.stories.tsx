@@ -3,7 +3,7 @@ import { expect, within, userEvent } from 'storybook/test';
 import { Input } from './Input';
 
 const meta = {
-    title: 'Components/Input',
+    title: 'Sparks/Input',
     component: Input,
     parameters: { layout: 'centered' },
     tags: ['autodocs'],
@@ -32,7 +32,7 @@ export const Default: Story = {
         await expect(input).toBeInTheDocument();
         await userEvent.type(input, 'hello');
         await expect(input).toHaveValue('hello');
-    },
+    }
 };
 
 export const Error: Story = {
@@ -41,7 +41,7 @@ export const Error: Story = {
         const canvas = within(canvasElement);
         const input = canvas.getByRole('textbox');
         await expect(input).toHaveClass('border-red-500');
-    },
+    }
 };
 
 export const Small: Story = {
@@ -58,5 +58,5 @@ export const Disabled: Story = {
         const canvas = within(canvasElement);
         const input = canvas.getByRole('textbox');
         await expect(input).toBeDisabled();
-    },
+    }
 };

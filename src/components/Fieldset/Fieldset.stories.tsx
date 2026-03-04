@@ -5,7 +5,7 @@ import { FieldsetRoot, FieldsetLegend } from './Fieldset';
 import { FieldRoot, FieldLabel, FieldControl } from '../Field/Field';
 
 const meta = {
-    title: 'Components/Fieldset',
+    title: 'Sparks/Fieldset',
     component: FieldsetRoot,
     parameters: { layout: 'centered' },
     tags: ['autodocs']

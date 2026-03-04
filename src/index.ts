@@ -160,7 +160,13 @@ export {
     PreviewCardArrow
 } from './components/PreviewCard';
 
-export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from './components/Tabs';
+export {
+    TabsRoot,
+    TabsList,
+    TabsTab,
+    TabsIndicator,
+    TabsPanel
+} from './components/Tabs';
 
 export {
     AccordionRoot,
@@ -170,9 +176,91 @@ export {
     AccordionPanel
 } from './components/Accordion';
 
-export { CollapsibleRoot, CollapsibleTrigger, CollapsiblePanel } from './components/Collapsible';
+export {
+    CollapsibleRoot,
+    CollapsibleTrigger,
+    CollapsiblePanel
+} from './components/Collapsible';
 
 export { SeparatorRoot } from './components/Separator';
+
+// ── v0.7.0 — Menus & Toolbar ─────────────────────────────────────────────────
+
+export {
+    MenuRoot,
+    MenuTrigger,
+    MenuPortal,
+    MenuBackdrop,
+    MenuPositioner,
+    MenuPopup,
+    MenuArrow,
+    MenuItem,
+    MenuLinkItem,
+    MenuSeparator,
+    MenuGroup,
+    MenuGroupLabel,
+    MenuRadioGroup,
+    MenuRadioItem,
+    MenuRadioItemIndicator,
+    MenuCheckboxItem,
+    MenuCheckboxItemIndicator,
+    MenuSubmenuRoot,
+    MenuSubmenuTrigger
+} from './components/Menu';
+
+export {
+    ContextMenuRoot,
+    ContextMenuTrigger,
+    ContextMenuPortal,
+    ContextMenuBackdrop,
+    ContextMenuPositioner,
+    ContextMenuPopup,
+    ContextMenuArrow,
+    ContextMenuItem,
+    ContextMenuLinkItem,
+    ContextMenuSeparator,
+    ContextMenuGroup,
+    ContextMenuGroupLabel,
+    ContextMenuRadioGroup,
+    ContextMenuRadioItem,
+    ContextMenuRadioItemIndicator,
+    ContextMenuCheckboxItem,
+    ContextMenuCheckboxItemIndicator,
+    ContextMenuSubmenuRoot,
+    ContextMenuSubmenuTrigger
+} from './components/ContextMenu';
+
+export { MenubarRoot } from './components/Menubar';
+
+export {
+    ToolbarRoot,
+    ToolbarButton,
+    ToolbarLink,
+    ToolbarSeparator,
+    ToolbarGroup,
+    ToolbarInput
+} from './components/Toolbar';
+
+// ── Kindling ─────────────────────────────────────────────────────────────────
+
+export { SearchField } from './components/SearchField';
+export type { SearchFieldProps } from './components/SearchField';
+
+export { AvatarLabel } from './components/AvatarLabel';
+export type { AvatarLabelProps } from './components/AvatarLabel';
+
+// ── Bonfire ──────────────────────────────────────────────────────────────────
+
+export { ProfileCard } from './components/ProfileCard';
+export type { ProfileCardProps } from './components/ProfileCard';
+
+export { PageHeader } from './components/PageHeader';
+export type { PageHeaderProps } from './components/PageHeader';
+
+export { ConfirmDialog } from './components/ConfirmDialog';
+export type { ConfirmDialogProps } from './components/ConfirmDialog';
+
+// ── Utilities ─────────────────────────────────────────────────────────────────
 
 // Utilities — exporting cn is optional, but useful for consumers
 // who want consistent class merging with your library

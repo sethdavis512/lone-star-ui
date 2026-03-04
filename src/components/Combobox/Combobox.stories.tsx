@@ -142,7 +142,7 @@ const groupedCities: RegionGroup[] = [
 
 // ── Stories ───────────────────────────────────────────────────────────────
 const meta = {
-    title: 'Components/Combobox',
+    title: 'Sparks/Combobox',
     tags: ['autodocs'],
     decorators: [
         (Story) => (

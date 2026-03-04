@@ -11,7 +11,7 @@ import {
 } from './Tooltip';
 
 const meta = {
-    title: 'Components/Tooltip',
+    title: 'Sparks/Tooltip',
     tags: ['autodocs']
 } satisfies Meta;
 

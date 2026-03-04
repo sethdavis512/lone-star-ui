@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './Card';
 import { Button } from '../Button/Button';
 
 const meta = {
-    title: 'Components/Card',
+    title: 'Sparks/Card',
     component: Card,
     parameters: { layout: 'centered' },
     tags: ['autodocs']
@@ -30,9 +30,11 @@ export const Default: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
         await expect(canvas.getByText('Card Title')).toBeInTheDocument();
-        await expect(canvas.getByText('Card content goes here.')).toBeInTheDocument();
+        await expect(
+            canvas.getByText('Card content goes here.')
+        ).toBeInTheDocument();
         await userEvent.click(canvas.getByRole('button', { name: 'Action' }));
-    },
+    }
 };
 
 export const Simple: Story = {

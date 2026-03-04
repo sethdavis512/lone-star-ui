@@ -12,7 +12,7 @@ import {
 } from './Popover';
 
 const meta = {
-    title: 'Components/Popover',
+    title: 'Sparks/Popover',
     tags: ['autodocs']
 } satisfies Meta;
 

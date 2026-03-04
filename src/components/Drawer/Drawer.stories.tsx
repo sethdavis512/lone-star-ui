@@ -15,7 +15,7 @@ import {
 } from './Drawer';
 
 const meta = {
-    title: 'Components/Drawer',
+    title: 'Sparks/Drawer',
     tags: ['autodocs']
 } satisfies Meta;
 

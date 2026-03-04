@@ -20,7 +20,7 @@ import {
 } from './Select';
 
 const meta = {
-    title: 'Components/Select',
+    title: 'Sparks/Select',
     component: SelectRoot,
     parameters: { layout: 'centered' },
     tags: ['autodocs'],

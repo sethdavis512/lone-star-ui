@@ -10,7 +10,7 @@ import {
 } from './PreviewCard';
 
 const meta = {
-    title: 'Components/PreviewCard',
+    title: 'Sparks/PreviewCard',
     tags: ['autodocs']
 } satisfies Meta;
 

@@ -7,7 +7,7 @@ import {
 } from './Collapsible';
 
 const meta = {
-    title: 'Components/Collapsible',
+    title: 'Sparks/Collapsible',
     tags: ['autodocs']
 } satisfies Meta;
 

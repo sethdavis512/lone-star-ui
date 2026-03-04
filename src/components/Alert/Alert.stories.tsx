@@ -3,7 +3,7 @@ import { expect, within } from 'storybook/test';
 import { Alert, AlertTitle, AlertDescription } from './Alert';
 
 const meta = {
-    title: 'Components/Alert',
+    title: 'Sparks/Alert',
     component: Alert,
     parameters: { layout: 'centered' },
     tags: ['autodocs'],

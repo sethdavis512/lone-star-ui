@@ -3,7 +3,7 @@ import { expect, within } from 'storybook/test';
 import { SeparatorRoot } from './Separator';
 
 const meta = {
-    title: 'Components/Separator',
+    title: 'Sparks/Separator',
     tags: ['autodocs']
 } satisfies Meta;
 

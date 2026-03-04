@@ -4,7 +4,7 @@ import React from 'react';
 import { CheckboxRoot, CheckboxIndicator, CheckboxGroup } from './Checkbox';
 
 const meta = {
-    title: 'Components/Checkbox',
+    title: 'Sparks/Checkbox',
     component: CheckboxRoot,
     parameters: { layout: 'centered' },
     tags: ['autodocs'],

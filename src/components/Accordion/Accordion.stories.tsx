@@ -9,7 +9,7 @@ import {
 } from './Accordion';
 
 const meta = {
-    title: 'Components/Accordion',
+    title: 'Sparks/Accordion',
     tags: ['autodocs']
 } satisfies Meta;
 

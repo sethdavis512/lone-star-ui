@@ -10,7 +10,7 @@ import {
 } from './Field';
 
 const meta = {
-    title: 'Components/Field',
+    title: 'Sparks/Field',
     component: FieldRoot,
     parameters: { layout: 'centered' },
     tags: ['autodocs'],

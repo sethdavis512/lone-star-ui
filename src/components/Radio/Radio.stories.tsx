@@ -4,7 +4,7 @@ import React from 'react';
 import { RadioGroup, RadioRoot, RadioIndicator } from './Radio';
 
 const meta = {
-    title: 'Components/Radio',
+    title: 'Sparks/Radio',
     component: RadioGroup,
     parameters: { layout: 'centered' },
     tags: ['autodocs'],

@@ -13,7 +13,7 @@ import {
 } from './Dialog';
 
 const meta = {
-    title: 'Components/Dialog',
+    title: 'Sparks/Dialog',
     tags: ['autodocs']
 } satisfies Meta;
 

@@ -13,7 +13,7 @@ import {
 } from './AlertDialog';
 
 const meta = {
-    title: 'Components/AlertDialog',
+    title: 'Sparks/AlertDialog',
     tags: ['autodocs']
 } satisfies Meta;
 
