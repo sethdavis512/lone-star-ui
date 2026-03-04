@@ -12,7 +12,7 @@ export const ToolbarRoot = React.forwardRef<
     <Toolbar.Root
         ref={ref}
         className={cn(
-            'flex items-center gap-px rounded-md border border-pecan/15 bg-white p-0.5',
+            'flex items-center gap-px rounded-md border border-pecan/15 bg-surface p-0.5',
             className
         )}
         {...props}
@@ -74,7 +74,7 @@ export const ToolbarInput = React.forwardRef<
     <Toolbar.Input
         ref={ref}
         className={cn(
-            'h-7 rounded-sm border border-pecan/15 bg-white px-2 text-sm text-pecan outline-none',
+            'h-7 rounded-sm border border-pecan/15 bg-surface px-2 text-sm text-pecan outline-none',
             'focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-sky-500',
             'data-[disabled]:opacity-50',
             className

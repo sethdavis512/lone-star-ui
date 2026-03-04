@@ -20,7 +20,7 @@ export const ComboboxInput = React.forwardRef<
     <BaseCombobox.Input
         ref={ref}
         className={cn(
-            'flex h-10 w-full rounded-md border border-pecan/25 bg-white px-3.5 text-base text-pecan font-normal transition-colors placeholder:text-pecan/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+            'flex h-10 w-full rounded-md border border-pecan/25 bg-surface px-3.5 text-base text-pecan font-normal transition-colors placeholder:text-pecan/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
             className
         )}
         {...props}
@@ -82,7 +82,7 @@ export const ComboboxPopup = React.forwardRef<
     <BaseCombobox.Popup
         ref={ref}
         className={cn(
-            'w-[var(--anchor-width)] max-h-[min(var(--available-height),22rem)] max-w-[var(--available-width)] overflow-y-auto scroll-py-2 overscroll-contain rounded-lg border border-pecan/15 bg-white py-1.5 shadow-lg shadow-pecan/10 origin-[var(--transform-origin)] transition-[transform,scale,opacity] duration-100 data-[starting-style]:scale-95 data-[starting-style]:opacity-0 data-[ending-style]:scale-95 data-[ending-style]:opacity-0',
+            'w-[var(--anchor-width)] max-h-[min(var(--available-height),22rem)] max-w-[var(--available-width)] overflow-y-auto scroll-py-2 overscroll-contain rounded-lg border border-pecan/15 bg-surface py-1.5 shadow-lg shadow-pecan/10 origin-[var(--transform-origin)] transition-[transform,scale,opacity] duration-100 data-[starting-style]:scale-95 data-[starting-style]:opacity-0 data-[ending-style]:scale-95 data-[ending-style]:opacity-0',
             className
         )}
         {...props}
@@ -195,7 +195,7 @@ export const ComboboxGroupLabel = React.forwardRef<
     <BaseCombobox.GroupLabel
         ref={ref}
         className={cn(
-            'sticky top-0 z-[1] bg-white px-3 pb-1 pt-2.5 text-[0.65rem] font-semibold uppercase tracking-widest text-pecan/50',
+            'sticky top-0 z-[1] bg-surface px-3 pb-1 pt-2.5 text-[0.65rem] font-semibold uppercase tracking-widest text-pecan/50',
             className
         )}
         {...props}

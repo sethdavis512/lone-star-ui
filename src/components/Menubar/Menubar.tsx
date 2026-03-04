@@ -9,7 +9,7 @@ export const MenubarRoot = React.forwardRef<
     <Menubar
         ref={ref}
         className={cn(
-            'flex items-center gap-0.5 rounded-md border border-pecan/15 bg-white p-0.5',
+            'flex items-center gap-0.5 rounded-md border border-pecan/15 bg-surface p-0.5',
             className
         )}
         {...props}

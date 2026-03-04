@@ -46,7 +46,7 @@ export const DialogPopup = React.forwardRef<
     <BaseDialog.Popup
         ref={ref}
         className={cn(
-            'w-full max-w-md rounded-xl border border-pecan/15 bg-white p-6 text-pecan shadow-xl transition-all duration-150 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
+            'w-full max-w-md rounded-xl border border-pecan/15 bg-surface p-6 text-pecan shadow-xl transition-all duration-150 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
             className
         )}
         {...props}
@@ -88,7 +88,7 @@ export const DialogClose = React.forwardRef<
     <BaseDialog.Close
         ref={ref}
         className={cn(
-            'inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-white px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2',
+            'inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-surface px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2',
             className
         )}
         {...props}
@@ -104,7 +104,7 @@ export const DialogTrigger = React.forwardRef<
     <BaseDialog.Trigger
         ref={ref}
         className={cn(
-            'inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-white px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2',
+            'inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-surface px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2',
             className
         )}
         {...props}

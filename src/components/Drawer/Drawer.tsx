@@ -14,7 +14,7 @@ export const DrawerTrigger = React.forwardRef<
     <BaseDrawer.Trigger
         ref={ref}
         className={cn(
-            'inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-white px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2',
+            'inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-surface px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2',
             className
         )}
         {...props}
@@ -60,7 +60,7 @@ export const DrawerPopup = React.forwardRef<
     <BaseDrawer.Popup
         ref={ref}
         className={cn(
-            'box-border w-full max-h-[85vh] -mb-12 overflow-y-auto overscroll-contain rounded-t-2xl border border-b-0 border-pecan/10 bg-white px-6 pb-[calc(3rem+env(safe-area-inset-bottom,0px))] pt-4 text-pecan shadow-2xl transition-transform duration-[450ms] ease-[cubic-bezier(0.32,0.72,0,1)] [transform:translateY(var(--drawer-swipe-movement-y))] data-[swiping]:select-none data-[ending-style]:[transform:translateY(calc(100%-3rem))] data-[starting-style]:[transform:translateY(calc(100%-3rem))] data-[ending-style]:duration-[calc(var(--drawer-swipe-strength)*400ms)]',
+            'box-border w-full max-h-[85vh] -mb-12 overflow-y-auto overscroll-contain rounded-t-2xl border border-b-0 border-pecan/10 bg-surface px-6 pb-[calc(3rem+env(safe-area-inset-bottom,0px))] pt-4 text-pecan shadow-2xl transition-transform duration-[450ms] ease-[cubic-bezier(0.32,0.72,0,1)] [transform:translateY(var(--drawer-swipe-movement-y))] data-[swiping]:select-none data-[ending-style]:[transform:translateY(calc(100%-3rem))] data-[starting-style]:[transform:translateY(calc(100%-3rem))] data-[ending-style]:duration-[calc(var(--drawer-swipe-strength)*400ms)]',
             className
         )}
         {...props}
@@ -132,7 +132,7 @@ export const DrawerClose = React.forwardRef<
     <BaseDrawer.Close
         ref={ref}
         className={cn(
-            'inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-white px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2',
+            'inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-surface px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2',
             className
         )}
         {...props}

@@ -24,7 +24,7 @@ export const RadioRoot = React.forwardRef<
     <BaseRadio.Root
         ref={ref}
         className={cn(
-            'flex size-5 shrink-0 items-center justify-center rounded-full border border-pecan/30 bg-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-[checked]:border-sky data-[checked]:bg-sky data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+            'flex size-5 shrink-0 items-center justify-center rounded-full border border-pecan/30 bg-surface transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-[checked]:border-sky data-[checked]:bg-sky data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
             className
         )}
         {...props}

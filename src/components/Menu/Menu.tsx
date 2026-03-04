@@ -49,7 +49,7 @@ export const MenuPopup = React.forwardRef<
     <Menu.Popup
         ref={ref}
         className={cn(
-            'min-w-[8rem] rounded-md border border-pecan/15 bg-white p-1 shadow-md',
+            'min-w-[8rem] rounded-md border border-pecan/15 bg-surface p-1 shadow-md',
             'origin-[var(--transform-origin)] transition-[transform,scale,opacity] duration-150',
             'data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
             'data-[ending-style]:scale-95 data-[ending-style]:opacity-0',
