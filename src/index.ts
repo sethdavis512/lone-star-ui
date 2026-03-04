@@ -160,6 +160,20 @@ export {
     PreviewCardArrow
 } from './components/PreviewCard';
 
+export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from './components/Tabs';
+
+export {
+    AccordionRoot,
+    AccordionItem,
+    AccordionHeader,
+    AccordionTrigger,
+    AccordionPanel
+} from './components/Accordion';
+
+export { CollapsibleRoot, CollapsibleTrigger, CollapsiblePanel } from './components/Collapsible';
+
+export { SeparatorRoot } from './components/Separator';
+
 // Utilities — exporting cn is optional, but useful for consumers
 // who want consistent class merging with your library
 export { cn } from './utils/cn';

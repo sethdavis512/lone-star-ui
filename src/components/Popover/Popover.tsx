@@ -8,7 +8,8 @@ export const PopoverPortal = BasePopover.Portal;
 
 // ── PopoverTrigger ────────────────────────────────────────────────────────────
 export const PopoverTrigger: React.ForwardRefExoticComponent<
-    React.ComponentPropsWithoutRef<typeof BasePopover.Trigger> & React.RefAttributes<HTMLButtonElement>
+    React.ComponentPropsWithoutRef<typeof BasePopover.Trigger> &
+        React.RefAttributes<HTMLButtonElement>
 > = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BasePopover.Trigger>

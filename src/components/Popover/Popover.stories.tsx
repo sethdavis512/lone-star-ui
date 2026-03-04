@@ -70,10 +70,16 @@ export const RichContent: StoryObj = {
                             Pro plan
                         </PopoverDescription>
                         <div className="flex flex-col gap-1 border-t border-pecan/10 pt-3 text-sm">
-                            <a href="#" className="text-pecan/70 no-underline hover:text-pecan">
+                            <a
+                                href="#"
+                                className="text-pecan/70 no-underline hover:text-pecan"
+                            >
                                 Profile settings
                             </a>
-                            <a href="#" className="text-pecan/70 no-underline hover:text-pecan">
+                            <a
+                                href="#"
+                                className="text-pecan/70 no-underline hover:text-pecan"
+                            >
                                 Log out
                             </a>
                         </div>
