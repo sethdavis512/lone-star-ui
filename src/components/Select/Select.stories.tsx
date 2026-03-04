@@ -16,7 +16,7 @@ import {
     SelectGroupLabel,
     SelectGroup,
     SelectScrollUpArrow,
-    SelectScrollDownArrow,
+    SelectScrollDownArrow
 } from './Select';
 
 const meta = {
@@ -25,8 +25,8 @@ const meta = {
     parameters: { layout: 'centered' },
     tags: ['autodocs'],
     argTypes: {
-        disabled: { control: 'boolean' },
-    },
+        disabled: { control: 'boolean' }
+    }
 } satisfies Meta<typeof SelectRoot>;
 
 export default meta;
@@ -38,10 +38,14 @@ const texasCities = [
     { label: 'Dallas', value: 'dallas' },
     { label: 'San Antonio', value: 'san-antonio' },
     { label: 'Fort Worth', value: 'fort-worth' },
-    { label: 'El Paso', value: 'el-paso' },
+    { label: 'El Paso', value: 'el-paso' }
 ];
 
-function SelectDemo({ items = texasCities, placeholder = 'Select a city...', disabled = false }) {
+function SelectDemo({
+    items = texasCities,
+    placeholder = 'Select a city...',
+    disabled = false
+}) {
     return (
         <SelectRoot items={items} disabled={disabled}>
             <SelectTrigger>
@@ -75,7 +79,7 @@ export const Default: Story = {
         const canvas = within(canvasElement);
         const trigger = canvas.getByRole('combobox');
         await expect(trigger).toBeInTheDocument();
-    },
+    }
 };
 
 export const WithDefaultValue: Story = {
@@ -100,7 +104,7 @@ export const WithDefaultValue: Story = {
                 </SelectPositioner>
             </SelectPortal>
         </SelectRoot>
-    ),
+    )
 };
 
 export const Disabled: Story = {
@@ -109,7 +113,7 @@ export const Disabled: Story = {
         const canvas = within(canvasElement);
         const trigger = canvas.getByRole('combobox');
         await expect(trigger).toBeDisabled();
-    },
+    }
 };
 
 export const Grouped: Story = {
@@ -118,11 +122,15 @@ export const Grouped: Story = {
             { label: 'Austin', value: 'austin', region: 'Central' },
             { label: 'San Antonio', value: 'san-antonio', region: 'Central' },
             { label: 'Houston', value: 'houston', region: 'Gulf Coast' },
-            { label: 'Corpus Christi', value: 'corpus-christi', region: 'Gulf Coast' },
+            {
+                label: 'Corpus Christi',
+                value: 'corpus-christi',
+                region: 'Gulf Coast'
+            },
             { label: 'Dallas', value: 'dallas', region: 'North Texas' },
             { label: 'Fort Worth', value: 'fort-worth', region: 'North Texas' },
             { label: 'Lubbock', value: 'lubbock', region: 'West Texas' },
-            { label: 'El Paso', value: 'el-paso', region: 'West Texas' },
+            { label: 'El Paso', value: 'el-paso', region: 'West Texas' }
         ];
 
         const regions = [...new Set(bigTexasCities.map((c) => c.region))];
@@ -139,13 +147,20 @@ export const Grouped: Story = {
                             <SelectList>
                                 {regions.map((region) => (
                                     <SelectGroup key={region}>
-                                        <SelectGroupLabel>{region}</SelectGroupLabel>
+                                        <SelectGroupLabel>
+                                            {region}
+                                        </SelectGroupLabel>
                                         {bigTexasCities
                                             .filter((c) => c.region === region)
                                             .map(({ label, value }) => (
-                                                <SelectItem key={value} value={value}>
+                                                <SelectItem
+                                                    key={value}
+                                                    value={value}
+                                                >
                                                     <SelectItemIndicator />
-                                                    <SelectItemText>{label}</SelectItemText>
+                                                    <SelectItemText>
+                                                        {label}
+                                                    </SelectItemText>
                                                 </SelectItem>
                                             ))}
                                     </SelectGroup>
@@ -156,5 +171,5 @@ export const Grouped: Story = {
                 </SelectPortal>
             </SelectRoot>
         );
-    },
+    }
 };

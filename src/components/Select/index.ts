@@ -15,5 +15,5 @@ export {
     SelectItemIndicator,
     SelectGroupLabel,
     SelectScrollUpArrow,
-    SelectScrollDownArrow,
+    SelectScrollDownArrow
 } from './Select';

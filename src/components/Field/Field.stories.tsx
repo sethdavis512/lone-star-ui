@@ -1,7 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect, within, userEvent } from 'storybook/test';
 import React from 'react';
-import { FieldRoot, FieldLabel, FieldControl, FieldDescription, FieldError } from './Field';
+import {
+    FieldRoot,
+    FieldLabel,
+    FieldControl,
+    FieldDescription,
+    FieldError
+} from './Field';
 
 const meta = {
     title: 'Components/Field',
@@ -9,8 +15,8 @@ const meta = {
     parameters: { layout: 'centered' },
     tags: ['autodocs'],
     argTypes: {
-        disabled: { control: 'boolean' },
-    },
+        disabled: { control: 'boolean' }
+    }
 } satisfies Meta<typeof FieldRoot>;
 
 export default meta;
@@ -33,7 +39,7 @@ export const Default: Story = {
         await expect(input).toBeInTheDocument();
         await userEvent.type(input, 'Jane Doe');
         await expect(input).toHaveValue('Jane Doe');
-    },
+    }
 };
 
 export const WithDescription: Story = {
@@ -45,10 +51,12 @@ export const WithDescription: Story = {
                 placeholder="you@example.com"
                 className="h-10 w-full rounded-md border border-pecan/25 bg-white px-3 text-sm text-pecan placeholder:text-pecan/40 focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2"
             />
-            <FieldDescription>Used for account recovery and notifications.</FieldDescription>
+            <FieldDescription>
+                Used for account recovery and notifications.
+            </FieldDescription>
         </FieldRoot>
     ),
-    args: {},
+    args: {}
 };
 
 export const WithValidation: Story = {
@@ -61,10 +69,12 @@ export const WithValidation: Story = {
                 className="h-10 w-full rounded-md border border-pecan/25 bg-white px-3 text-sm text-pecan placeholder:text-pecan/40 focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 data-[invalid]:border-prickly-pear data-[invalid]:ring-prickly-pear"
             />
             <FieldError match="valueMissing">Username is required.</FieldError>
-            <FieldDescription>Must be unique across all accounts.</FieldDescription>
+            <FieldDescription>
+                Must be unique across all accounts.
+            </FieldDescription>
         </FieldRoot>
     ),
-    args: {},
+    args: {}
 };
 
 export const Disabled: Story = {
@@ -76,8 +86,10 @@ export const Disabled: Story = {
                 readOnly
                 className="h-10 w-full rounded-md border border-pecan/25 bg-mesa px-3 text-sm text-pecan/50 focus:outline-none"
             />
-            <FieldDescription>Contact support to rotate your API key.</FieldDescription>
+            <FieldDescription>
+                Contact support to rotate your API key.
+            </FieldDescription>
         </FieldRoot>
     ),
-    args: {},
+    args: {}
 };

@@ -8,7 +8,7 @@ const meta = {
     title: 'Components/Fieldset',
     component: FieldsetRoot,
     parameters: { layout: 'centered' },
-    tags: ['autodocs'],
+    tags: ['autodocs']
 } satisfies Meta<typeof FieldsetRoot>;
 
 export default meta;
@@ -49,7 +49,7 @@ export const Default: Story = {
         const canvas = within(canvasElement);
         const inputs = canvas.getAllByRole('textbox');
         await expect(inputs).toHaveLength(3);
-    },
+    }
 };
 
 export const ContactInfo: Story = {
@@ -84,5 +84,5 @@ export const ContactInfo: Story = {
                 />
             </FieldRoot>
         </FieldsetRoot>
-    ),
+    )
 };

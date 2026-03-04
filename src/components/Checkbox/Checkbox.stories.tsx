@@ -10,8 +10,8 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         disabled: { control: 'boolean' },
-        defaultChecked: { control: 'boolean' },
-    },
+        defaultChecked: { control: 'boolean' }
+    }
 } satisfies Meta<typeof CheckboxRoot>;
 
 export default meta;
@@ -33,7 +33,7 @@ export const Default: Story = {
         await expect(checkbox).toBeInTheDocument();
         await userEvent.click(checkbox);
         await expect(checkbox).toBeChecked();
-    },
+    }
 };
 
 export const Checked: Story = {
@@ -45,7 +45,7 @@ export const Checked: Story = {
             Stay signed in
         </label>
     ),
-    args: { defaultChecked: true },
+    args: { defaultChecked: true }
 };
 
 export const Disabled: Story = {
@@ -62,7 +62,7 @@ export const Disabled: Story = {
         const canvas = within(canvasElement);
         const checkbox = canvas.getByRole('checkbox');
         await expect(checkbox).toBeDisabled();
-    },
+    }
 };
 
 export const DisabledChecked: Story = {
@@ -74,7 +74,7 @@ export const DisabledChecked: Story = {
             Locked preference
         </label>
     ),
-    args: { disabled: true, defaultChecked: true },
+    args: { disabled: true, defaultChecked: true }
 };
 
 export const Group: Story = {
@@ -86,9 +86,12 @@ export const Group: Story = {
                     { value: 'central', label: 'Central Texas' },
                     { value: 'coast', label: 'Gulf Coast' },
                     { value: 'west', label: 'West Texas' },
-                    { value: 'panhandle', label: 'Panhandle' },
+                    { value: 'panhandle', label: 'Panhandle' }
                 ].map(({ value, label }) => (
-                    <label key={value} className="flex items-center gap-2 text-sm text-pecan cursor-pointer select-none">
+                    <label
+                        key={value}
+                        className="flex items-center gap-2 text-sm text-pecan cursor-pointer select-none"
+                    >
                         <CheckboxRoot name="region" value={value}>
                             <CheckboxIndicator />
                         </CheckboxRoot>
@@ -103,5 +106,5 @@ export const Group: Story = {
         const checkboxes = canvas.getAllByRole('checkbox');
         await expect(checkboxes).toHaveLength(4);
         await expect(checkboxes[0]).toBeChecked();
-    },
+    }
 };

@@ -10,8 +10,8 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         disabled: { control: 'boolean' },
-        defaultChecked: { control: 'boolean' },
-    },
+        defaultChecked: { control: 'boolean' }
+    }
 } satisfies Meta<typeof SwitchRoot>;
 
 export default meta;
@@ -34,7 +34,7 @@ export const Default: Story = {
         await expect(switchEl).not.toBeChecked();
         await userEvent.click(switchEl);
         await expect(switchEl).toBeChecked();
-    },
+    }
 };
 
 export const Checked: Story = {
@@ -46,7 +46,7 @@ export const Checked: Story = {
             Dark mode
         </label>
     ),
-    args: { defaultChecked: true },
+    args: { defaultChecked: true }
 };
 
 export const Disabled: Story = {
@@ -63,7 +63,7 @@ export const Disabled: Story = {
         const canvas = within(canvasElement);
         const switchEl = canvas.getByRole('switch');
         await expect(switchEl).toBeDisabled();
-    },
+    }
 };
 
 export const MultipleToggles: Story = {
@@ -73,15 +73,29 @@ export const MultipleToggles: Story = {
                 { label: 'Push notifications', defaultChecked: true },
                 { label: 'Email digest', defaultChecked: false },
                 { label: 'SMS alerts', defaultChecked: true },
-                { label: 'Marketing emails', disabled: true, defaultChecked: false },
+                {
+                    label: 'Marketing emails',
+                    disabled: true,
+                    defaultChecked: false
+                }
             ].map(({ label, defaultChecked, disabled }) => (
-                <label key={label} className={`flex items-center justify-between text-sm cursor-pointer select-none ${disabled ? 'text-pecan/50 cursor-not-allowed' : 'text-pecan'}`}>
+                <label
+                    key={label}
+                    className={`flex items-center justify-between text-sm cursor-pointer select-none ${
+                        disabled
+                            ? 'text-pecan/50 cursor-not-allowed'
+                            : 'text-pecan'
+                    }`}
+                >
                     {label}
-                    <SwitchRoot defaultChecked={defaultChecked} disabled={disabled}>
+                    <SwitchRoot
+                        defaultChecked={defaultChecked}
+                        disabled={disabled}
+                    >
                         <SwitchThumb />
                     </SwitchRoot>
                 </label>
             ))}
         </div>
-    ),
+    )
 };

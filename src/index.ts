@@ -47,7 +47,11 @@ export {
     ComboboxIcon
 } from './components/Combobox';
 
-export { CheckboxRoot, CheckboxIndicator, CheckboxGroup } from './components/Checkbox';
+export {
+    CheckboxRoot,
+    CheckboxIndicator,
+    CheckboxGroup
+} from './components/Checkbox';
 
 export { RadioGroup, RadioRoot, RadioIndicator } from './components/Radio';
 
@@ -70,7 +74,7 @@ export {
     SelectItemIndicator,
     SelectGroupLabel,
     SelectScrollUpArrow,
-    SelectScrollDownArrow,
+    SelectScrollDownArrow
 } from './components/Select';
 
 export {
@@ -80,10 +84,48 @@ export {
     FieldDescription,
     FieldError,
     FieldItem,
-    FieldValidity,
+    FieldValidity
 } from './components/Field';
 
 export { FieldsetRoot, FieldsetLegend } from './components/Fieldset';
+
+export {
+    DialogRoot,
+    DialogPortal,
+    DialogBackdrop,
+    DialogViewport,
+    DialogPopup,
+    DialogTitle,
+    DialogDescription,
+    DialogClose,
+    DialogTrigger,
+} from './components/Dialog';
+
+export {
+    AlertDialogRoot,
+    AlertDialogPortal,
+    AlertDialogBackdrop,
+    AlertDialogViewport,
+    AlertDialogPopup,
+    AlertDialogTitle,
+    AlertDialogDescription,
+    AlertDialogClose,
+    AlertDialogTrigger,
+} from './components/AlertDialog';
+
+export {
+    DrawerRoot,
+    DrawerPortal,
+    DrawerTrigger,
+    DrawerBackdrop,
+    DrawerViewport,
+    DrawerPopup,
+    DrawerContent,
+    DrawerHandle,
+    DrawerTitle,
+    DrawerDescription,
+    DrawerClose,
+} from './components/Drawer';
 
 // Utilities — exporting cn is optional, but useful for consumers
 // who want consistent class merging with your library

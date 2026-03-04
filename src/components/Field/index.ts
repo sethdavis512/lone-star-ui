@@ -5,5 +5,5 @@ export {
     FieldDescription,
     FieldError,
     FieldItem,
-    FieldValidity,
+    FieldValidity
 } from './Field';
