@@ -1,0 +1,39 @@
+name: Release
+
+on:
+    push:
+        branches: [main]
+
+concurrency:
+    group: release
+    cancel-in-progress: true
+
+jobs:
+    release:
+        name: Release
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  # Full history needed for changelog generation
+                  fetch-depth: 0
+
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2
+
+            - name: Install dependencies
+              run: bun install --frozen-lockfile
+
+            - name: Create Release PR or Publish
+              id: changesets
+              uses: changesets/action@v1
+              with:
+                  # When changesets exist → opens/updates a "Version Packages" PR
+                  # When that PR is merged → runs this command and publishes to npm
+                  publish: bun run release
+                  title: "chore: version packages"
+                  commit: "chore: version packages"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
