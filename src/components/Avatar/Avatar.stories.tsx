@@ -10,7 +10,14 @@ const meta = {
     argTypes: {
         color: {
             control: 'select',
-            options: ['sky', 'longhorn', 'pecan', 'bluebonnet', 'prickly-pear', 'mesa']
+            options: [
+                'sky',
+                'longhorn',
+                'pecan',
+                'bluebonnet',
+                'prickly-pear',
+                'mesa'
+            ]
         },
         size: {
             control: 'select',

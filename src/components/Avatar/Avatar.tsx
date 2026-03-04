@@ -25,21 +25,34 @@ const avatarVariants = cva({
 });
 
 export interface AvatarProps
-    extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'>,
+    extends
+        Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'>,
         VariantProps<typeof avatarVariants> {
     src?: string;
     alt?: string;
     initials?: string;
 }
 
-export function Avatar({ className, color, size, src, alt, initials, ...props }: AvatarProps) {
+export function Avatar({
+    className,
+    color,
+    size,
+    src,
+    alt,
+    initials,
+    ...props
+}: AvatarProps) {
     return (
         <span
             className={cn(avatarVariants({ color, size }), className)}
             {...props}
         >
             {src ? (
-                <img src={src} alt={alt ?? ''} className="h-full w-full object-cover" />
+                <img
+                    src={src}
+                    alt={alt ?? ''}
+                    className="h-full w-full object-cover"
+                />
             ) : (
                 <span aria-label={alt}>{initials}</span>
             )}

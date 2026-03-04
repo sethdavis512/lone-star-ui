@@ -10,7 +10,14 @@ const meta = {
     argTypes: {
         variant: {
             control: 'select',
-            options: ['sky', 'longhorn', 'pecan', 'bluebonnet', 'prickly-pear', 'outline']
+            options: [
+                'sky',
+                'longhorn',
+                'pecan',
+                'bluebonnet',
+                'prickly-pear',
+                'outline'
+            ]
         }
     }
 } satisfies Meta<typeof Badge>;

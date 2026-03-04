@@ -17,26 +17,38 @@ const alertVariants = cva({
 });
 
 export interface AlertProps
-    extends React.HTMLAttributes<HTMLDivElement>,
+    extends
+        React.HTMLAttributes<HTMLDivElement>,
         VariantProps<typeof alertVariants> {}
 
 export function Alert({ className, variant, ...props }: AlertProps) {
     return (
-        <div role="alert" className={cn(alertVariants({ variant }), className)} {...props} />
-    );
-}
-
-export function AlertTitle({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
-    return (
-        <h5
-            className={cn('mb-1 font-semibold leading-none tracking-tight', className)}
+        <div
+            role="alert"
+            className={cn(alertVariants({ variant }), className)}
             {...props}
         />
     );
 }
 
-export function AlertDescription({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
+export function AlertTitle({
+    className,
+    ...props
+}: React.HTMLAttributes<HTMLHeadingElement>) {
     return (
-        <p className={cn('text-sm opacity-90', className)} {...props} />
+        <h5
+            className={cn(
+                'mb-1 font-semibold leading-none tracking-tight',
+                className
+            )}
+            {...props}
+        />
     );
+}
+
+export function AlertDescription({
+    className,
+    ...props
+}: React.HTMLAttributes<HTMLParagraphElement>) {
+    return <p className={cn('text-sm opacity-90', className)} {...props} />;
 }
