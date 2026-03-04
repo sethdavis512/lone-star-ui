@@ -1,5 +1,11 @@
 # lone-star-ui
 
+## 0.2.2
+
+### Patch Changes
+
+- 536465a: Fix runtime crash by using production JSX transform instead of dev-only jsxDEV
+
 ## 0.2.1
 
 ### Patch Changes
