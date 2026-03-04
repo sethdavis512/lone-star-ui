@@ -1,9 +1,10 @@
+import { Input as BaseInput } from '@base-ui/react/input';
 import { cva, type VariantProps } from 'cva';
 import { cn } from '../../utils/cn';
 import React from 'react';
 
 const inputVariants = cva({
-    base: 'flex w-full rounded-md border bg-white px-3 text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-pecan/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+    base: 'flex w-full rounded-md border bg-white px-3 text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-pecan/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
     variants: {
         variant: {
             default: 'border-pecan/25 focus-visible:ring-sky',
@@ -22,14 +23,13 @@ const inputVariants = cva({
 });
 
 export interface InputProps
-    extends
-        Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
+    extends Omit<React.ComponentPropsWithoutRef<typeof BaseInput>, 'size'>,
         VariantProps<typeof inputVariants> {}
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ className, variant, size, ...props }, ref) => {
         return (
-            <input
+            <BaseInput
                 ref={ref}
                 className={cn(inputVariants({ variant, size }), className)}
                 {...props}

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**lone-star-ui** is a React 19 component library built with TypeScript, Tailwind CSS 4, and CVA (Class Variance Authority). It publishes ESM-only to npm with full type declarations.
+**lone-star-ui** is a React 19 component library built with TypeScript, Tailwind CSS 4, CVA (Class Variance Authority), and **Base UI** (`@base-ui/react`) as the accessible primitive layer. It publishes ESM-only to npm with full type declarations.
 
 ## Commands
 
@@ -30,14 +30,16 @@ bun test                 # Run unit tests (bun:test)
 
 Each component lives in `src/components/<Name>/` with three files:
 
-- `<Name>.tsx` — implementation using CVA for variants + `cn()` for class merging
+- `<Name>.tsx` — implementation using **Base UI primitives** as the root element, CVA for variants, and `cn()` for class merging
 - `<Name>.stories.tsx` — Storybook stories with interactive `play` tests
 - `index.ts` — barrel export
 
 Components follow these conventions:
 
+- **Base UI primitives** are the root element for Button (`@base-ui/react/button`), Input (`@base-ui/react/input`), and Avatar (`@base-ui/react/avatar`). Components without a Base UI equivalent (Alert, Badge, Card) use plain HTML elements.
 - **CVA variants** define the styling API (variant, size, etc.)
-- **Props extend native HTML element attributes** plus CVA's `VariantProps`
+- **Disabled states** use `data-[disabled]:` Tailwind modifier (Base UI sets `data-disabled` attribute instead of the CSS `:disabled` pseudo-class)
+- **Props extend Base UI component props** (via `React.ComponentPropsWithoutRef<typeof BaseXxx>`) plus CVA's `VariantProps`
 - **`cn()` utility** (`clsx` + `twMerge`) merges base classes with consumer `className` overrides
 - **`React.forwardRef`** is used on components that need DOM ref access (Input, Card)
 - **Composite components** (Card) export sub-components (CardHeader, CardTitle, CardContent, CardFooter)
