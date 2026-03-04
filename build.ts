@@ -3,8 +3,11 @@ const result = await Bun.build({
     outdir: './dist',
     format: 'esm',
     target: 'browser',
-    external: ['react', 'react-dom', 'react/jsx-runtime'],
-    sourcemap: 'external'
+    external: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
+    sourcemap: 'external',
+    define: {
+        'process.env.NODE_ENV': '"production"'
+    }
 });
 
 if (!result.success) {
