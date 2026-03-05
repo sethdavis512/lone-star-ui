@@ -1,6 +1,11 @@
-# lone-star-ui
+# Lone Star UI
+
+[![npm version](https://img.shields.io/npm/v/lone-star-ui)](https://www.npmjs.com/package/lone-star-ui)
+[![license](https://img.shields.io/npm/l/lone-star-ui)](./LICENSE)
 
 A React 19 component library built with TypeScript, Tailwind CSS 4, and CVA (Class Variance Authority). Publishes ESM-only to npm with full type declarations.
+
+![Storybook user interface](./storybook-example.png)
 
 ## Design Inspiration
 
@@ -50,6 +55,10 @@ Each component lives in `src/components/<Name>/` with three files:
 
 Styling uses Tailwind CSS 4 with CSS custom properties in oklch color space. Consumers must import `lone-star-ui/styles` for Tailwind classes to work.
 
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to get started.
+
 ## License
 
-MIT
+[MIT](./LICENSE)

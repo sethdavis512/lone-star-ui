@@ -22,6 +22,28 @@
         "dist"
     ],
     "private": false,
+    "license": "MIT",
+    "description": "A React 19 component library built with TypeScript, Tailwind CSS 4, and CVA. Publishes ESM-only to npm with full type declarations.",
+    "author": "Seth Davis",
+    "homepage": "https://sethdavis512.github.io/lone-star-ui",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sethdavis512/lone-star-ui.git"
+    },
+    "bugs": {
+        "url": "https://github.com/sethdavis512/lone-star-ui/issues"
+    },
+    "keywords": [
+        "react",
+        "component-library",
+        "tailwindcss",
+        "typescript",
+        "ui",
+        "design-system",
+        "cva",
+        "base-ui",
+        "accessible"
+    ],
     "scripts": {
         "build-storybook": "storybook build",
         "build": "bun run build.ts && tsc",
