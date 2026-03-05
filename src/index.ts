@@ -260,6 +260,106 @@ export type { PageHeaderProps } from './components/PageHeader';
 export { ConfirmDialog } from './components/ConfirmDialog';
 export type { ConfirmDialogProps } from './components/ConfirmDialog';
 
+// ── v0.8.0 — New primitives ───────────────────────────────────────────────────
+
+export {
+    SliderRoot,
+    SliderControl,
+    SliderTrack,
+    SliderIndicator,
+    SliderThumb,
+    SliderValue
+} from './components/Slider';
+
+export {
+    ProgressRoot,
+    ProgressLabel,
+    ProgressTrack,
+    ProgressIndicator,
+    ProgressValue
+} from './components/Progress';
+
+export {
+    MeterRoot,
+    MeterLabel,
+    MeterTrack,
+    MeterIndicator,
+    MeterValue
+} from './components/Meter';
+
+export { ToggleRoot } from './components/Toggle';
+
+export { ToggleGroupRoot } from './components/ToggleGroup';
+
+export {
+    NumberFieldRoot,
+    NumberFieldGroup,
+    NumberFieldDecrement,
+    NumberFieldIncrement,
+    NumberFieldInput,
+    NumberFieldScrubArea,
+    NumberFieldScrubAreaCursor
+} from './components/NumberField';
+
+export {
+    ScrollAreaRoot,
+    ScrollAreaViewport,
+    ScrollAreaContent,
+    ScrollAreaScrollbar,
+    ScrollAreaThumb,
+    ScrollAreaCorner
+} from './components/ScrollArea';
+
+export { FormRoot } from './components/Form';
+
+export {
+    ToastProvider,
+    ToastPortal,
+    ToastViewport,
+    ToastRoot,
+    ToastContent,
+    ToastTitle,
+    ToastDescription,
+    ToastClose,
+    ToastAction,
+    ToastPositioner,
+    Toaster,
+    useToastManager,
+    createToastManager
+} from './components/Toast';
+
+export {
+    NavigationMenuPortal,
+    NavigationMenuRoot,
+    NavigationMenuList,
+    NavigationMenuItem,
+    NavigationMenuTrigger,
+    NavigationMenuIcon,
+    NavigationMenuPositioner,
+    NavigationMenuViewport,
+    NavigationMenuPopup,
+    NavigationMenuContent,
+    NavigationMenuLink
+} from './components/NavigationMenu';
+
+export {
+    AutocompleteRoot,
+    AutocompleteValue,
+    AutocompletePortal,
+    AutocompleteGroup,
+    AutocompleteCollection,
+    AutocompleteInput,
+    AutocompleteTrigger,
+    AutocompleteIcon,
+    AutocompleteClear,
+    AutocompletePositioner,
+    AutocompletePopup,
+    AutocompleteList,
+    AutocompleteItem,
+    AutocompleteEmpty,
+    AutocompleteGroupLabel
+} from './components/Autocomplete';
+
 // ── Utilities ─────────────────────────────────────────────────────────────────
 
 // Utilities — exporting cn is optional, but useful for consumers
