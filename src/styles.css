@@ -36,7 +36,7 @@
     --color-pecan: oklch(85% 0.04 55);
     --color-bluebonnet: oklch(62% 0.17 282);
     --color-mesa: oklch(28% 0.02 78);
-    --color-prickly-pear: oklch(68% 0.20 345);
+    --color-prickly-pear: oklch(68% 0.2 345);
     --color-surface: oklch(18% 0.015 78);
     --tw-ring-offset-color: var(--color-surface);
 }

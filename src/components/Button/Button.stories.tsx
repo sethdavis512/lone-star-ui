@@ -29,7 +29,7 @@ export const Primary: Story = {
         const canvas = within(canvasElement);
         const button = canvas.getByRole('button', { name: 'Button' });
         await expect(button).toBeInTheDocument();
-        await expect(button).toHaveClass('bg-blue-600');
+        await expect(button).toHaveClass('bg-bluebonnet');
         await userEvent.click(button);
     }
 };

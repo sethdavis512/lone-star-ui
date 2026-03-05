@@ -1,0 +1,12 @@
+/**
+ * Storybook-only styles — never shipped to consumers.
+ *
+ * When `withThemeByClassName` applies the `dark` class to <html>,
+ * --color-surface resolves to the Stars at Night background token
+ * defined in src/styles.css. These rules propagate that surface
+ * color to the viewport and Storybook's docs preview containers.
+ */
+html.dark,
+html.dark .sbdocs-preview {
+    background-color: var(--color-surface) !important;
+}

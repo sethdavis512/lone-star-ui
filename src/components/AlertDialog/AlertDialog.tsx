@@ -14,7 +14,7 @@ export const AlertDialogBackdrop = React.forwardRef<
     <BaseAlertDialog.Backdrop
         ref={ref}
         className={cn(
-            'fixed inset-0 min-h-dvh bg-black/40 transition-all duration-150 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 supports-[-webkit-touch-callout:none]:absolute',
+            'fixed inset-0 z-50 min-h-dvh bg-black/40 transition-all duration-150 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 supports-[-webkit-touch-callout:none]:absolute',
             className
         )}
         {...props}
@@ -30,7 +30,7 @@ export const AlertDialogViewport = React.forwardRef<
     <BaseAlertDialog.Viewport
         ref={ref}
         className={cn(
-            'fixed inset-0 flex items-center justify-center p-4',
+            'fixed inset-0 z-50 flex items-center justify-center p-4',
             className
         )}
         {...props}

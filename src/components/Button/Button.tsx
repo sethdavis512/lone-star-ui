@@ -7,7 +7,7 @@ const buttonVariants = cva({
     variants: {
         variant: {
             primary:
-                'bg-sky text-white hover:not-data-[disabled]:bg-sky/85 focus-visible:ring-sky',
+                'bg-bluebonnet text-white hover:not-data-[disabled]:bg-bluebonnet/85 focus-visible:ring-bluebonnet',
             secondary:
                 'bg-mesa text-pecan hover:not-data-[disabled]:bg-mesa/60 focus-visible:ring-pecan',
             destructive:

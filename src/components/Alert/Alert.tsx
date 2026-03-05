@@ -5,9 +5,9 @@ const alertVariants = cva({
     base: 'relative w-full rounded-lg border-l-4 p-4',
     variants: {
         variant: {
-            info: 'border-l-sky bg-sky/8 text-pecan',
-            warning: 'border-l-longhorn bg-longhorn/8 text-pecan',
-            error: 'border-l-prickly-pear bg-prickly-pear/8 text-pecan',
+            info: 'border-l-sky bg-sky/8 text-pecan dark:bg-sky/15 dark:text-sky',
+            warning: 'border-l-longhorn bg-longhorn/8 text-pecan dark:bg-longhorn/15 dark:text-longhorn',
+            error: 'border-l-prickly-pear bg-prickly-pear/8 text-pecan dark:bg-prickly-pear/15 dark:text-prickly-pear',
             default: 'border-l-pecan bg-mesa text-pecan'
         }
     },
