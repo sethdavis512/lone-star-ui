@@ -161,7 +161,7 @@ function ContactsDirectoryPage() {
                         No contacts found for "{search}"
                     </p>
                 ) : (
-                    <div className="overflow-hidden rounded-lg border border-pecan/10 bg-white">
+                    <div className="overflow-hidden rounded-lg border border-pecan/10 bg-surface">
                         {filtered.map((contact) => (
                             <div
                                 key={contact.id}
@@ -264,7 +264,7 @@ function ContactProfilePage({ contact }: { contact: Contact }) {
                     }
                 />
 
-                <div className="rounded-lg border border-pecan/10 bg-white p-6 space-y-4">
+                <div className="rounded-lg border border-pecan/10 bg-surface p-6 space-y-4">
                     <h2 className="text-sm font-semibold uppercase tracking-wider text-pecan/50">
                         Contact Info
                     </h2>

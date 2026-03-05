@@ -68,7 +68,7 @@ export const ContactsList: Story = {
 
                 <SearchField placeholder="[Search placeholder…]" disabled />
 
-                <div className="overflow-hidden rounded-lg border border-pecan/10 bg-white">
+                <div className="overflow-hidden rounded-lg border border-pecan/10 bg-surface">
                     {Array.from({ length: 6 }).map((_, i) => (
                         <SkeletonRow key={i} />
                     ))}
