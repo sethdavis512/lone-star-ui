@@ -221,7 +221,9 @@ function StatCard({ label, value = '—' }: { label: string; value?: string }) {
                 <p className="text-xs font-medium uppercase tracking-wide text-pecan/40">
                     {label}
                 </p>
-                <p className="mt-1 text-3xl font-semibold text-pecan">{value}</p>
+                <p className="mt-1 text-3xl font-semibold text-pecan">
+                    {value}
+                </p>
             </CardContent>
         </Card>
     );
@@ -235,7 +237,11 @@ export const Dashboard: Story = {
                 <PageHeader
                     title="[Dashboard Title]"
                     subtitle="[Subtitle or date range]"
-                    actions={<Button size="sm" disabled>[+ New Record]</Button>}
+                    actions={
+                        <Button size="sm" disabled>
+                            [+ New Record]
+                        </Button>
+                    }
                 />
 
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -261,7 +267,15 @@ export const Dashboard: Story = {
                                 ))}
                             </div>
                             <div className="mt-2 flex justify-between text-xs text-pecan/30">
-                                {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((d) => (
+                                {[
+                                    'Mon',
+                                    'Tue',
+                                    'Wed',
+                                    'Thu',
+                                    'Fri',
+                                    'Sat',
+                                    'Sun'
+                                ].map((d) => (
                                     <span key={d}>{d}</span>
                                 ))}
                             </div>
@@ -344,9 +358,12 @@ export const EmptyState: Story = {
                     <div className="h-14 w-14 rounded-full bg-pecan/15" />
                 </div>
                 <div className="space-y-2">
-                    <h2 className="text-xl font-semibold text-pecan">[No Records Yet]</h2>
+                    <h2 className="text-xl font-semibold text-pecan">
+                        [No Records Yet]
+                    </h2>
                     <p className="text-sm text-pecan/50">
-                        [Explain what this section is for and what the user should do to get started.]
+                        [Explain what this section is for and what the user
+                        should do to get started.]
                     </p>
                 </div>
                 <div className="flex justify-center gap-3">
@@ -395,7 +412,11 @@ export const NotificationInbox: Story = {
                                 </div>
                                 <SkeletonLine w="w-full" h="h-3" />
                                 {i % 2 === 0 && (
-                                    <Badge variant={i === 0 ? 'prickly-pear' : 'sky'}>
+                                    <Badge
+                                        variant={
+                                            i === 0 ? 'prickly-pear' : 'sky'
+                                        }
+                                    >
                                         {NOTIF_LABELS[i % NOTIF_LABELS.length]}
                                     </Badge>
                                 )}

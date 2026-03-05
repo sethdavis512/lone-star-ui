@@ -7,10 +7,21 @@ import { AvatarLabel } from '../components/AvatarLabel';
 import { ConfirmDialog } from '../components/ConfirmDialog';
 import { Button } from '../components/Button';
 import { Badge } from '../components/Badge';
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '../components/Card';
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardContent,
+    CardFooter
+} from '../components/Card';
 import { Input } from '../components/Input';
 import { SwitchRoot, SwitchThumb } from '../components/Switch';
-import { FieldRoot, FieldLabel, FieldControl, FieldDescription } from '../components/Field';
+import {
+    FieldRoot,
+    FieldLabel,
+    FieldControl,
+    FieldDescription
+} from '../components/Field';
 import { Alert, AlertTitle, AlertDescription } from '../components/Alert';
 import { TabsRoot, TabsList, TabsTab, TabsPanel } from '../components/Tabs';
 
@@ -322,9 +333,21 @@ function DashboardPage() {
 
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                     {[
-                        { label: 'Total', value: CONTACTS.length, color: 'text-pecan' },
-                        { label: 'Friends', value: statusCounts['Friend'] ?? 0, color: 'text-longhorn' },
-                        { label: 'Colleagues', value: statusCounts['Colleague'] ?? 0, color: 'text-bluebonnet' },
+                        {
+                            label: 'Total',
+                            value: CONTACTS.length,
+                            color: 'text-pecan'
+                        },
+                        {
+                            label: 'Friends',
+                            value: statusCounts['Friend'] ?? 0,
+                            color: 'text-longhorn'
+                        },
+                        {
+                            label: 'Colleagues',
+                            value: statusCounts['Colleague'] ?? 0,
+                            color: 'text-bluebonnet'
+                        },
                         { label: 'Cities', value: cityCount, color: 'text-sky' }
                     ].map(({ label, value, color }) => (
                         <Card key={label}>
@@ -332,7 +355,11 @@ function DashboardPage() {
                                 <p className="text-xs font-medium uppercase tracking-wide text-pecan/40">
                                     {label}
                                 </p>
-                                <p className={`mt-1 text-3xl font-semibold ${color}`}>{value}</p>
+                                <p
+                                    className={`mt-1 text-3xl font-semibold ${color}`}
+                                >
+                                    {value}
+                                </p>
                             </CardContent>
                         </Card>
                     ))}
@@ -344,18 +371,33 @@ function DashboardPage() {
                             <CardTitle>By Status</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-3">
-                            {Object.entries(statusCounts).map(([status, count]) => (
-                                <div key={status} className="flex items-center gap-3">
-                                    <span className="w-28 shrink-0 text-sm text-pecan/60">{status}</span>
-                                    <div className="h-2 flex-1 overflow-hidden rounded-full bg-pecan/10">
-                                        <div
-                                            className="h-full rounded-full bg-sky transition-all"
-                                            style={{ width: `${(count / CONTACTS.length) * 100}%` }}
-                                        />
+                            {Object.entries(statusCounts).map(
+                                ([status, count]) => (
+                                    <div
+                                        key={status}
+                                        className="flex items-center gap-3"
+                                    >
+                                        <span className="w-28 shrink-0 text-sm text-pecan/60">
+                                            {status}
+                                        </span>
+                                        <div className="h-2 flex-1 overflow-hidden rounded-full bg-pecan/10">
+                                            <div
+                                                className="h-full rounded-full bg-sky transition-all"
+                                                style={{
+                                                    width: `${
+                                                        (count /
+                                                            CONTACTS.length) *
+                                                        100
+                                                    }%`
+                                                }}
+                                            />
+                                        </div>
+                                        <span className="w-4 text-right text-sm font-medium">
+                                            {count}
+                                        </span>
                                     </div>
-                                    <span className="w-4 text-right text-sm font-medium">{count}</span>
-                                </div>
-                            ))}
+                                )
+                            )}
                         </CardContent>
                     </Card>
 
@@ -388,7 +430,12 @@ export const Dashboard: Story = {
 
 // ── Page: New Contact ─────────────────────────────────────────────────────────
 
-const STATUS_OPTIONS = ['Friend', 'Colleague', 'Acquaintance', 'Family'] as const;
+const STATUS_OPTIONS = [
+    'Friend',
+    'Colleague',
+    'Acquaintance',
+    'Family'
+] as const;
 
 function NewContactPage() {
     const [firstName, setFirstName] = React.useState('');
@@ -413,7 +460,8 @@ function NewContactPage() {
                     <Alert variant="info">
                         <AlertTitle>Contact saved!</AlertTitle>
                         <AlertDescription>
-                            {firstName} {lastName} has been added to your contacts.
+                            {firstName} {lastName} has been added to your
+                            contacts.
                         </AlertDescription>
                     </Alert>
                 )}
@@ -429,7 +477,9 @@ function NewContactPage() {
                                             <Input
                                                 placeholder="Willie"
                                                 value={firstName}
-                                                onChange={(e) => setFirstName(e.target.value)}
+                                                onChange={(e) =>
+                                                    setFirstName(e.target.value)
+                                                }
                                             />
                                         }
                                     />
@@ -441,7 +491,9 @@ function NewContactPage() {
                                             <Input
                                                 placeholder="Nelson"
                                                 value={lastName}
-                                                onChange={(e) => setLastName(e.target.value)}
+                                                onChange={(e) =>
+                                                    setLastName(e.target.value)
+                                                }
                                             />
                                         }
                                     />
@@ -456,7 +508,9 @@ function NewContactPage() {
                                             type="email"
                                             placeholder="willie@austin.tx"
                                             value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
+                                            onChange={(e) =>
+                                                setEmail(e.target.value)
+                                            }
                                         />
                                     }
                                 />
@@ -471,7 +525,9 @@ function NewContactPage() {
                                                 type="tel"
                                                 placeholder="(512) 555-0101"
                                                 value={phone}
-                                                onChange={(e) => setPhone(e.target.value)}
+                                                onChange={(e) =>
+                                                    setPhone(e.target.value)
+                                                }
                                             />
                                         }
                                     />
@@ -483,7 +539,9 @@ function NewContactPage() {
                                             <Input
                                                 placeholder="Austin"
                                                 value={city}
-                                                onChange={(e) => setCity(e.target.value)}
+                                                onChange={(e) =>
+                                                    setCity(e.target.value)
+                                                }
                                             />
                                         }
                                     />
@@ -491,7 +549,9 @@ function NewContactPage() {
                             </div>
 
                             <div className="space-y-2">
-                                <p className="text-sm font-medium text-pecan">Status</p>
+                                <p className="text-sm font-medium text-pecan">
+                                    Status
+                                </p>
                                 <div className="flex flex-wrap gap-2">
                                     {STATUS_OPTIONS.map((s) => (
                                         <button
@@ -576,7 +636,10 @@ function SettingsPage() {
     return (
         <div className="min-h-screen bg-mesa/20 font-sans text-pecan">
             <div className="mx-auto max-w-2xl space-y-8 px-6 py-8">
-                <PageHeader title="Settings" subtitle="Manage your account and preferences" />
+                <PageHeader
+                    title="Settings"
+                    subtitle="Manage your account and preferences"
+                />
 
                 <TabsRoot defaultValue="profile">
                     <TabsList>
@@ -589,7 +652,9 @@ function SettingsPage() {
                         {profileSaved && (
                             <Alert variant="info">
                                 <AlertTitle>Profile updated</AlertTitle>
-                                <AlertDescription>Your changes have been saved.</AlertDescription>
+                                <AlertDescription>
+                                    Your changes have been saved.
+                                </AlertDescription>
                             </Alert>
                         )}
                         <Card>
@@ -641,40 +706,54 @@ function SettingsPage() {
                                 {[
                                     {
                                         label: 'Email notifications',
-                                        description: 'Receive updates and activity via email.',
+                                        description:
+                                            'Receive updates and activity via email.',
                                         checked: emailNotifs,
                                         onChange: setEmailNotifs
                                     },
                                     {
                                         label: 'Push notifications',
-                                        description: 'Get alerts sent to your device.',
+                                        description:
+                                            'Get alerts sent to your device.',
                                         checked: pushNotifs,
                                         onChange: setPushNotifs
                                     },
                                     {
                                         label: 'Weekly digest',
-                                        description: 'A summary of activity every Monday.',
+                                        description:
+                                            'A summary of activity every Monday.',
                                         checked: weeklyDigest,
                                         onChange: setWeeklyDigest
                                     }
-                                ].map(({ label, description, checked, onChange }) => (
-                                    <div
-                                        key={label}
-                                        className="flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0"
-                                    >
-                                        <div>
-                                            <p className="text-sm font-medium text-pecan">{label}</p>
-                                            <p className="text-xs text-pecan/50">{description}</p>
-                                        </div>
-                                        <SwitchRoot
-                                            checked={checked}
-                                            onCheckedChange={onChange}
-                                            aria-label={label}
+                                ].map(
+                                    ({
+                                        label,
+                                        description,
+                                        checked,
+                                        onChange
+                                    }) => (
+                                        <div
+                                            key={label}
+                                            className="flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0"
                                         >
-                                            <SwitchThumb />
-                                        </SwitchRoot>
-                                    </div>
-                                ))}
+                                            <div>
+                                                <p className="text-sm font-medium text-pecan">
+                                                    {label}
+                                                </p>
+                                                <p className="text-xs text-pecan/50">
+                                                    {description}
+                                                </p>
+                                            </div>
+                                            <SwitchRoot
+                                                checked={checked}
+                                                onCheckedChange={onChange}
+                                                aria-label={label}
+                                            >
+                                                <SwitchThumb />
+                                            </SwitchRoot>
+                                        </div>
+                                    )
+                                )}
                             </CardContent>
                         </Card>
                     </TabsPanel>
@@ -684,9 +763,13 @@ function SettingsPage() {
                             <CardContent className="pt-6">
                                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                                     <div>
-                                        <p className="font-medium text-prickly-pear">Delete account</p>
+                                        <p className="font-medium text-prickly-pear">
+                                            Delete account
+                                        </p>
                                         <p className="mt-0.5 text-sm text-pecan/60">
-                                            Permanently remove your account and all associated data. This cannot be undone.
+                                            Permanently remove your account and
+                                            all associated data. This cannot be
+                                            undone.
                                         </p>
                                     </div>
                                     <ConfirmDialog
@@ -697,7 +780,9 @@ function SettingsPage() {
                                         variant="destructive"
                                         onConfirm={() => setDeleted(true)}
                                         trigger={
-                                            <Button variant="destructive">Delete Account</Button>
+                                            <Button variant="destructive">
+                                                Delete Account
+                                            </Button>
                                         }
                                     />
                                 </div>
@@ -729,11 +814,46 @@ interface Notification {
 }
 
 const NOTIFICATIONS: Notification[] = [
-    { id: 1, type: 'mention', message: 'Willie Nelson commented on your note.', contact: CONTACTS[0]!, time: '2m ago', read: false },
-    { id: 2, type: 'reminder', message: "Don't forget to follow up with Selena.", contact: CONTACTS[1]!, time: '1h ago', read: false },
-    { id: 3, type: 'milestone', message: 'Barbara Jordan joined 1 year ago today.', contact: CONTACTS[3]!, time: '3h ago', read: true },
-    { id: 4, type: 'system', message: 'Your export is ready to download.', contact: CONTACTS[4]!, time: 'Yesterday', read: true },
-    { id: 5, type: 'mention', message: 'Sam Houston was added to your colleagues.', contact: CONTACTS[5]!, time: '2d ago', read: true }
+    {
+        id: 1,
+        type: 'mention',
+        message: 'Willie Nelson commented on your note.',
+        contact: CONTACTS[0]!,
+        time: '2m ago',
+        read: false
+    },
+    {
+        id: 2,
+        type: 'reminder',
+        message: "Don't forget to follow up with Selena.",
+        contact: CONTACTS[1]!,
+        time: '1h ago',
+        read: false
+    },
+    {
+        id: 3,
+        type: 'milestone',
+        message: 'Barbara Jordan joined 1 year ago today.',
+        contact: CONTACTS[3]!,
+        time: '3h ago',
+        read: true
+    },
+    {
+        id: 4,
+        type: 'system',
+        message: 'Your export is ready to download.',
+        contact: CONTACTS[4]!,
+        time: 'Yesterday',
+        read: true
+    },
+    {
+        id: 5,
+        type: 'mention',
+        message: 'Sam Houston was added to your colleagues.',
+        contact: CONTACTS[5]!,
+        time: '2d ago',
+        read: true
+    }
 ];
 
 const NOTIF_BADGE: Record<NotifType, BadgeVariant> = {
@@ -757,10 +877,18 @@ function NotificationInboxPage() {
             <div className="mx-auto max-w-2xl space-y-6 px-6 py-8">
                 <PageHeader
                     title="Notifications"
-                    subtitle={unreadCount > 0 ? `${unreadCount} unread` : 'All caught up'}
+                    subtitle={
+                        unreadCount > 0
+                            ? `${unreadCount} unread`
+                            : 'All caught up'
+                    }
                     actions={
                         unreadCount > 0 ? (
-                            <Button variant="ghost" size="sm" onClick={markAllRead}>
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={markAllRead}
+                            >
                                 Mark all read
                             </Button>
                         ) : undefined
@@ -786,10 +914,17 @@ function NotificationInboxPage() {
                             />
                             <div className="flex-1 space-y-1">
                                 <div className="flex items-start justify-between gap-3">
-                                    <p className="text-sm text-pecan">{notif.message}</p>
-                                    <span className="shrink-0 text-xs text-pecan/40">{notif.time}</span>
+                                    <p className="text-sm text-pecan">
+                                        {notif.message}
+                                    </p>
+                                    <span className="shrink-0 text-xs text-pecan/40">
+                                        {notif.time}
+                                    </span>
                                 </div>
-                                <Badge variant={NOTIF_BADGE[notif.type]} className="capitalize">
+                                <Badge
+                                    variant={NOTIF_BADGE[notif.type]}
+                                    className="capitalize"
+                                >
                                     {notif.type}
                                 </Badge>
                             </div>
