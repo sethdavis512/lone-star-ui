@@ -2,7 +2,6 @@ import { Combobox as BaseCombobox } from '@base-ui/react/combobox';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── Pass-through parts (no styling needed) ────────────────────────────────
 export const ComboboxRoot = BaseCombobox.Root;
 export const ComboboxPortal = BaseCombobox.Portal;
 export const ComboboxGroup = BaseCombobox.Group;
@@ -12,7 +11,6 @@ export const ComboboxChips = BaseCombobox.Chips;
 export const ComboboxChip = BaseCombobox.Chip;
 export const ComboboxChipRemove = BaseCombobox.ChipRemove;
 
-// ── ComboboxInput ─────────────────────────────────────────────────────────
 export const ComboboxInput = React.forwardRef<
     HTMLInputElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.Input>
@@ -28,7 +26,6 @@ export const ComboboxInput = React.forwardRef<
 ));
 ComboboxInput.displayName = 'ComboboxInput';
 
-// ── ComboboxTrigger ───────────────────────────────────────────────────────
 export const ComboboxTrigger = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.Trigger>
@@ -44,7 +41,6 @@ export const ComboboxTrigger = React.forwardRef<
 ));
 ComboboxTrigger.displayName = 'ComboboxTrigger';
 
-// ── ComboboxClear ─────────────────────────────────────────────────────────
 export const ComboboxClear = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.Clear>
@@ -60,7 +56,6 @@ export const ComboboxClear = React.forwardRef<
 ));
 ComboboxClear.displayName = 'ComboboxClear';
 
-// ── ComboboxPositioner ────────────────────────────────────────────────────
 export const ComboboxPositioner = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.Positioner>
@@ -74,7 +69,6 @@ export const ComboboxPositioner = React.forwardRef<
 ));
 ComboboxPositioner.displayName = 'ComboboxPositioner';
 
-// ── ComboboxPopup ─────────────────────────────────────────────────────────
 export const ComboboxPopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.Popup>
@@ -82,7 +76,7 @@ export const ComboboxPopup = React.forwardRef<
     <BaseCombobox.Popup
         ref={ref}
         className={cn(
-            'w-[var(--anchor-width)] max-h-[min(var(--available-height),22rem)] max-w-[var(--available-width)] overflow-y-auto scroll-py-2 overscroll-contain rounded-lg border border-pecan/15 bg-surface py-1.5 shadow-lg shadow-pecan/10 origin-[var(--transform-origin)] transition-[transform,scale,opacity] duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0',
+            'w-(--anchor-width) max-h-[min(var(--available-height),22rem)] max-w-(--available-width) overflow-y-auto scroll-py-2 overscroll-contain rounded-lg border border-pecan/15 bg-surface py-1.5 shadow-lg shadow-pecan/10 origin-(--transform-origin) transition-[transform,scale,opacity] duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0',
             className
         )}
         {...props}
@@ -90,7 +84,6 @@ export const ComboboxPopup = React.forwardRef<
 ));
 ComboboxPopup.displayName = 'ComboboxPopup';
 
-// ── ComboboxList ──────────────────────────────────────────────────────────
 export const ComboboxList = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.List>
@@ -103,7 +96,6 @@ export const ComboboxList = React.forwardRef<
 ));
 ComboboxList.displayName = 'ComboboxList';
 
-// ── ComboboxItem ──────────────────────────────────────────────────────────
 export const ComboboxItem = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.Item>
@@ -121,7 +113,6 @@ export const ComboboxItem = React.forwardRef<
 ));
 ComboboxItem.displayName = 'ComboboxItem';
 
-// ── ComboboxItemIndicator ─────────────────────────────────────────────────
 export const ComboboxItemIndicator = React.forwardRef<
     HTMLSpanElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.ItemIndicator>
@@ -149,7 +140,6 @@ export const ComboboxItemIndicator = React.forwardRef<
 ));
 ComboboxItemIndicator.displayName = 'ComboboxItemIndicator';
 
-// ── ComboboxItemText ──────────────────────────────────────────────────────
 export function ComboboxItemText({
     className,
     ...props
@@ -157,7 +147,6 @@ export function ComboboxItemText({
     return <div className={cn('col-start-2', className)} {...props} />;
 }
 
-// ── ComboboxEmpty ─────────────────────────────────────────────────────────
 export const ComboboxEmpty = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.Empty>
@@ -173,7 +162,6 @@ export const ComboboxEmpty = React.forwardRef<
 ));
 ComboboxEmpty.displayName = 'ComboboxEmpty';
 
-// ── ComboboxSeparator ─────────────────────────────────────────────────────
 export function ComboboxSeparator({
     className,
     ...props
@@ -187,7 +175,6 @@ export function ComboboxSeparator({
     );
 }
 
-// ── ComboboxGroupLabel ────────────────────────────────────────────────────
 export const ComboboxGroupLabel = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.GroupLabel>
@@ -195,7 +182,7 @@ export const ComboboxGroupLabel = React.forwardRef<
     <BaseCombobox.GroupLabel
         ref={ref}
         className={cn(
-            'sticky top-0 z-[1] bg-surface px-3 pb-1 pt-2.5 text-[0.65rem] font-semibold uppercase tracking-widest text-pecan/50',
+            'sticky top-0 z-1 bg-surface px-3 pb-1 pt-2.5 text-[0.65rem] font-semibold uppercase tracking-widest text-pecan/50',
             className
         )}
         {...props}
@@ -203,7 +190,6 @@ export const ComboboxGroupLabel = React.forwardRef<
 ));
 ComboboxGroupLabel.displayName = 'ComboboxGroupLabel';
 
-// ── ComboboxStatus ────────────────────────────────────────────────────────
 export const ComboboxStatus = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.Status>
@@ -219,7 +205,6 @@ export const ComboboxStatus = React.forwardRef<
 ));
 ComboboxStatus.displayName = 'ComboboxStatus';
 
-// ── ComboboxIcon ──────────────────────────────────────────────────────────
 export const ComboboxIcon = React.forwardRef<
     HTMLSpanElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.Icon>

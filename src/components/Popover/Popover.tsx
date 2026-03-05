@@ -2,11 +2,9 @@ import { Popover as BasePopover } from '@base-ui/react/popover';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── Pass-through parts ────────────────────────────────────────────────────────
 export const PopoverRoot = BasePopover.Root;
 export const PopoverPortal = BasePopover.Portal;
 
-// ── PopoverTrigger ────────────────────────────────────────────────────────────
 export const PopoverTrigger: React.ForwardRefExoticComponent<
     React.ComponentPropsWithoutRef<typeof BasePopover.Trigger> &
         React.RefAttributes<HTMLButtonElement>
@@ -25,7 +23,6 @@ export const PopoverTrigger: React.ForwardRefExoticComponent<
 ));
 PopoverTrigger.displayName = 'PopoverTrigger';
 
-// ── PopoverBackdrop ───────────────────────────────────────────────────────────
 export const PopoverBackdrop = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BasePopover.Backdrop>
@@ -38,7 +35,6 @@ export const PopoverBackdrop = React.forwardRef<
 ));
 PopoverBackdrop.displayName = 'PopoverBackdrop';
 
-// ── PopoverPositioner ─────────────────────────────────────────────────────────
 export const PopoverPositioner = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BasePopover.Positioner>
@@ -52,7 +48,6 @@ export const PopoverPositioner = React.forwardRef<
 ));
 PopoverPositioner.displayName = 'PopoverPositioner';
 
-// ── PopoverPopup ──────────────────────────────────────────────────────────────
 export const PopoverPopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BasePopover.Popup>
@@ -68,7 +63,6 @@ export const PopoverPopup = React.forwardRef<
 ));
 PopoverPopup.displayName = 'PopoverPopup';
 
-// ── PopoverTitle ──────────────────────────────────────────────────────────────
 export const PopoverTitle = React.forwardRef<
     HTMLHeadingElement,
     React.ComponentPropsWithoutRef<typeof BasePopover.Title>
@@ -81,7 +75,6 @@ export const PopoverTitle = React.forwardRef<
 ));
 PopoverTitle.displayName = 'PopoverTitle';
 
-// ── PopoverDescription ────────────────────────────────────────────────────────
 export const PopoverDescription = React.forwardRef<
     HTMLParagraphElement,
     React.ComponentPropsWithoutRef<typeof BasePopover.Description>
@@ -94,7 +87,6 @@ export const PopoverDescription = React.forwardRef<
 ));
 PopoverDescription.displayName = 'PopoverDescription';
 
-// ── PopoverClose ──────────────────────────────────────────────────────────────
 export const PopoverClose = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BasePopover.Close>
@@ -110,7 +102,6 @@ export const PopoverClose = React.forwardRef<
 ));
 PopoverClose.displayName = 'PopoverClose';
 
-// ── PopoverArrow ──────────────────────────────────────────────────────────────
 export const PopoverArrow = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BasePopover.Arrow>

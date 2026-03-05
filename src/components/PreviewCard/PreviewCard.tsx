@@ -2,11 +2,9 @@ import { PreviewCard as BasePreviewCard } from '@base-ui/react/preview-card';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── Pass-through parts ────────────────────────────────────────────────────────
 export const PreviewCardRoot = BasePreviewCard.Root;
 export const PreviewCardPortal = BasePreviewCard.Portal;
 
-// ── PreviewCardTrigger ────────────────────────────────────────────────────────
 // PreviewCard.Trigger renders an <a> element — use HTMLAnchorElement
 export const PreviewCardTrigger = React.forwardRef<
     HTMLAnchorElement,
@@ -23,7 +21,6 @@ export const PreviewCardTrigger = React.forwardRef<
 ));
 PreviewCardTrigger.displayName = 'PreviewCardTrigger';
 
-// ── PreviewCardBackdrop ───────────────────────────────────────────────────────
 export const PreviewCardBackdrop = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BasePreviewCard.Backdrop>
@@ -36,7 +33,6 @@ export const PreviewCardBackdrop = React.forwardRef<
 ));
 PreviewCardBackdrop.displayName = 'PreviewCardBackdrop';
 
-// ── PreviewCardPositioner ─────────────────────────────────────────────────────
 export const PreviewCardPositioner = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BasePreviewCard.Positioner>
@@ -50,7 +46,6 @@ export const PreviewCardPositioner = React.forwardRef<
 ));
 PreviewCardPositioner.displayName = 'PreviewCardPositioner';
 
-// ── PreviewCardPopup ──────────────────────────────────────────────────────────
 export const PreviewCardPopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BasePreviewCard.Popup>
@@ -66,7 +61,6 @@ export const PreviewCardPopup = React.forwardRef<
 ));
 PreviewCardPopup.displayName = 'PreviewCardPopup';
 
-// ── PreviewCardArrow ──────────────────────────────────────────────────────────
 export const PreviewCardArrow = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BasePreviewCard.Arrow>

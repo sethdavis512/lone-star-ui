@@ -2,12 +2,10 @@ import { Tooltip as BaseTooltip } from '@base-ui/react/tooltip';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── Pass-through parts ────────────────────────────────────────────────────────
 export const TooltipProvider = BaseTooltip.Provider;
 export const TooltipRoot = BaseTooltip.Root;
 export const TooltipPortal = BaseTooltip.Portal;
 
-// ── TooltipTrigger ─────────────────────────────────────────────────────────────
 export const TooltipTrigger = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseTooltip.Trigger>
@@ -23,7 +21,6 @@ export const TooltipTrigger = React.forwardRef<
 ));
 TooltipTrigger.displayName = 'TooltipTrigger';
 
-// ── TooltipPositioner ─────────────────────────────────────────────────────────
 export const TooltipPositioner = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseTooltip.Positioner>
@@ -37,7 +34,6 @@ export const TooltipPositioner = React.forwardRef<
 ));
 TooltipPositioner.displayName = 'TooltipPositioner';
 
-// ── TooltipPopup ──────────────────────────────────────────────────────────────
 export const TooltipPopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseTooltip.Popup>
@@ -53,7 +49,6 @@ export const TooltipPopup = React.forwardRef<
 ));
 TooltipPopup.displayName = 'TooltipPopup';
 
-// ── TooltipArrow ──────────────────────────────────────────────────────────────
 export const TooltipArrow = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseTooltip.Arrow>

@@ -2,11 +2,9 @@ import { Dialog as BaseDialog } from '@base-ui/react/dialog';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── Pass-through parts ────────────────────────────────────────────────────────
 export const DialogRoot = BaseDialog.Root;
 export const DialogPortal = BaseDialog.Portal;
 
-// ── DialogBackdrop ─────────────────────────────────────────────────────────────
 export const DialogBackdrop = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseDialog.Backdrop>
@@ -22,7 +20,6 @@ export const DialogBackdrop = React.forwardRef<
 ));
 DialogBackdrop.displayName = 'DialogBackdrop';
 
-// ── DialogViewport ─────────────────────────────────────────────────────────────
 export const DialogViewport = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseDialog.Viewport>
@@ -38,7 +35,6 @@ export const DialogViewport = React.forwardRef<
 ));
 DialogViewport.displayName = 'DialogViewport';
 
-// ── DialogPopup ────────────────────────────────────────────────────────────────
 export const DialogPopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseDialog.Popup>
@@ -54,7 +50,6 @@ export const DialogPopup = React.forwardRef<
 ));
 DialogPopup.displayName = 'DialogPopup';
 
-// ── DialogTitle ────────────────────────────────────────────────────────────────
 export const DialogTitle = React.forwardRef<
     HTMLHeadingElement,
     React.ComponentPropsWithoutRef<typeof BaseDialog.Title>
@@ -67,7 +62,6 @@ export const DialogTitle = React.forwardRef<
 ));
 DialogTitle.displayName = 'DialogTitle';
 
-// ── DialogDescription ──────────────────────────────────────────────────────────
 export const DialogDescription = React.forwardRef<
     HTMLParagraphElement,
     React.ComponentPropsWithoutRef<typeof BaseDialog.Description>
@@ -80,7 +74,6 @@ export const DialogDescription = React.forwardRef<
 ));
 DialogDescription.displayName = 'DialogDescription';
 
-// ── DialogClose ────────────────────────────────────────────────────────────────
 export const DialogClose = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseDialog.Close>
@@ -96,7 +89,6 @@ export const DialogClose = React.forwardRef<
 ));
 DialogClose.displayName = 'DialogClose';
 
-// ── DialogTrigger ──────────────────────────────────────────────────────────────
 export const DialogTrigger = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseDialog.Trigger>

@@ -19,7 +19,6 @@ import {
     ComboboxCollection
 } from './Combobox';
 
-// ── Icons ─────────────────────────────────────────────────────────────────
 function ChevronDownIcon(props: React.ComponentProps<'svg'>) {
     return (
         <svg
@@ -61,7 +60,6 @@ function XIcon(props: React.ComponentProps<'svg'>) {
     );
 }
 
-// ── Data ──────────────────────────────────────────────────────────────────
 interface City {
     label: string;
     value: string;
@@ -140,7 +138,6 @@ const groupedCities: RegionGroup[] = [
     }
 ];
 
-// ── Stories ───────────────────────────────────────────────────────────────
 const meta = {
     title: 'Sparks/Combobox',
     tags: ['autodocs'],
@@ -156,7 +153,6 @@ export default meta;
 
 type Story = StoryObj;
 
-// ── Simple ────────────────────────────────────────────────────────────────
 export const Default: Story = {
     render() {
         const id = React.useId();
@@ -170,7 +166,7 @@ export const Default: Story = {
                         <ComboboxInput
                             id={id}
                             placeholder="e.g. Austin"
-                            className="pr-[calc(0.5rem+1.75rem)]"
+                            className="pr-9"
                         />
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 text-pecan/50">
                             <ChevronDownIcon />
@@ -205,7 +201,6 @@ export const Default: Story = {
     }
 };
 
-// ── With Clear Button ─────────────────────────────────────────────────────
 export const WithClear: Story = {
     render() {
         const id = React.useId();
@@ -219,7 +214,7 @@ export const WithClear: Story = {
                         <ComboboxInput
                             id={id}
                             placeholder="Pick your hometown…"
-                            className="pr-[calc(0.5rem+3.5rem)]"
+                            className="pr-16"
                         />
                         <div className="absolute inset-y-0 right-1 flex items-center gap-0.5">
                             <ComboboxClear aria-label="Clear selection">
@@ -259,7 +254,6 @@ export const WithClear: Story = {
     }
 };
 
-// ── Grouped ───────────────────────────────────────────────────────────────
 export const Grouped: Story = {
     render() {
         const id = React.useId();
@@ -273,7 +267,7 @@ export const Grouped: Story = {
                         <ComboboxInput
                             id={id}
                             placeholder="Search by region…"
-                            className="pr-[calc(0.5rem+3.5rem)]"
+                            className="pr-16"
                         />
                         <div className="absolute inset-y-0 right-1 flex items-center gap-0.5">
                             <ComboboxClear aria-label="Clear">
@@ -289,7 +283,7 @@ export const Grouped: Story = {
                         <ComboboxPositioner>
                             <ComboboxPopup className="w-56">
                                 <ComboboxEmpty>No cities found.</ComboboxEmpty>
-                                <ComboboxList className="max-h-[20rem] overflow-y-auto scroll-pt-9">
+                                <ComboboxList className="max-h-80 overflow-y-auto scroll-pt-9">
                                     {(group: RegionGroup) => (
                                         <ComboboxGroup
                                             key={group.value}

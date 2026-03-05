@@ -2,12 +2,10 @@ import * as React from 'react';
 import { Toast } from '@base-ui/react/toast';
 import { cn } from '../../utils/cn';
 
-// ── Pass-through parts ─────────────────────────────────────────────────────────
 export const ToastProvider = Toast.Provider;
 export const ToastPortal: typeof Toast.Portal = Toast.Portal;
 export const { useToastManager, createToastManager } = Toast;
 
-// ── ToastViewport ──────────────────────────────────────────────────────────────
 export const ToastViewport = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Toast.Viewport>
@@ -23,7 +21,6 @@ export const ToastViewport = React.forwardRef<
 ));
 ToastViewport.displayName = 'ToastViewport';
 
-// ── ToastRoot ──────────────────────────────────────────────────────────────────
 export const ToastRoot = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Toast.Root>
@@ -40,7 +37,6 @@ export const ToastRoot = React.forwardRef<
 ));
 ToastRoot.displayName = 'ToastRoot';
 
-// ── ToastContent ───────────────────────────────────────────────────────────────
 export const ToastContent = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Toast.Content>
@@ -53,7 +49,6 @@ export const ToastContent = React.forwardRef<
 ));
 ToastContent.displayName = 'ToastContent';
 
-// ── ToastTitle ─────────────────────────────────────────────────────────────────
 export const ToastTitle = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Toast.Title>
@@ -66,7 +61,6 @@ export const ToastTitle = React.forwardRef<
 ));
 ToastTitle.displayName = 'ToastTitle';
 
-// ── ToastDescription ───────────────────────────────────────────────────────────
 export const ToastDescription = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Toast.Description>
@@ -79,7 +73,6 @@ export const ToastDescription = React.forwardRef<
 ));
 ToastDescription.displayName = 'ToastDescription';
 
-// ── ToastClose ─────────────────────────────────────────────────────────────────
 export const ToastClose = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof Toast.Close>
@@ -113,7 +106,6 @@ export const ToastClose = React.forwardRef<
 ));
 ToastClose.displayName = 'ToastClose';
 
-// ── ToastAction ────────────────────────────────────────────────────────────────
 export const ToastAction = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof Toast.Action>
@@ -129,7 +121,6 @@ export const ToastAction = React.forwardRef<
 ));
 ToastAction.displayName = 'ToastAction';
 
-// ── ToastPositioner ────────────────────────────────────────────────────────────
 export const ToastPositioner = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Toast.Positioner>
@@ -142,7 +133,6 @@ export const ToastPositioner = React.forwardRef<
 ));
 ToastPositioner.displayName = 'ToastPositioner';
 
-// ── Toaster ────────────────────────────────────────────────────────────────────
 // Convenience component: renders all active toasts. Place inside ToastProvider.
 export function Toaster() {
     const { toasts } = Toast.useToastManager();

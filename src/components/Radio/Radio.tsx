@@ -3,7 +3,6 @@ import { RadioGroup as BaseRadioGroup } from '@base-ui/react/radio-group';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── RadioGroup ────────────────────────────────────────────────────────────────
 export const RadioGroup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseRadioGroup>
@@ -16,7 +15,6 @@ export const RadioGroup = React.forwardRef<
 ));
 RadioGroup.displayName = 'RadioGroup';
 
-// ── RadioRoot ─────────────────────────────────────────────────────────────────
 export const RadioRoot = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseRadio.Root>
@@ -32,7 +30,6 @@ export const RadioRoot = React.forwardRef<
 ));
 RadioRoot.displayName = 'RadioRoot';
 
-// ── RadioIndicator ────────────────────────────────────────────────────────────
 export const RadioIndicator = React.forwardRef<
     HTMLSpanElement,
     React.ComponentPropsWithoutRef<typeof BaseRadio.Indicator>

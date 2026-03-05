@@ -2,7 +2,6 @@ import { Select as BaseSelect } from '@base-ui/react/select';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── Icons ─────────────────────────────────────────────────────────────────────
 function CheckIcon(props: React.ComponentProps<'svg'>) {
     return (
         <svg
@@ -36,14 +35,12 @@ function ChevronUpDownIcon(props: React.ComponentProps<'svg'>) {
     );
 }
 
-// ── Pass-through parts ────────────────────────────────────────────────────────
 export const SelectRoot = BaseSelect.Root;
 export const SelectPortal = BaseSelect.Portal;
 export const SelectBackdrop = BaseSelect.Backdrop;
 export const SelectGroup = BaseSelect.Group;
 export const SelectSeparator = BaseSelect.Separator;
 
-// ── SelectTrigger ─────────────────────────────────────────────────────────────
 export const SelectTrigger = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.Trigger>
@@ -59,7 +56,6 @@ export const SelectTrigger = React.forwardRef<
 ));
 SelectTrigger.displayName = 'SelectTrigger';
 
-// ── SelectValue ───────────────────────────────────────────────────────────────
 export const SelectValue = React.forwardRef<
     HTMLSpanElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.Value>
@@ -72,7 +68,6 @@ export const SelectValue = React.forwardRef<
 ));
 SelectValue.displayName = 'SelectValue';
 
-// ── SelectIcon ────────────────────────────────────────────────────────────────
 export const SelectIcon = React.forwardRef<
     HTMLSpanElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.Icon>
@@ -87,7 +82,6 @@ export const SelectIcon = React.forwardRef<
 ));
 SelectIcon.displayName = 'SelectIcon';
 
-// ── SelectPositioner ──────────────────────────────────────────────────────────
 export const SelectPositioner = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.Positioner>
@@ -101,7 +95,6 @@ export const SelectPositioner = React.forwardRef<
 ));
 SelectPositioner.displayName = 'SelectPositioner';
 
-// ── SelectPopup ───────────────────────────────────────────────────────────────
 export const SelectPopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.Popup>
@@ -117,7 +110,6 @@ export const SelectPopup = React.forwardRef<
 ));
 SelectPopup.displayName = 'SelectPopup';
 
-// ── SelectList ────────────────────────────────────────────────────────────────
 export const SelectList = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.List>
@@ -130,7 +122,6 @@ export const SelectList = React.forwardRef<
 ));
 SelectList.displayName = 'SelectList';
 
-// ── SelectItem ────────────────────────────────────────────────────────────────
 export const SelectItem = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.Item>
@@ -147,7 +138,6 @@ export const SelectItem = React.forwardRef<
 ));
 SelectItem.displayName = 'SelectItem';
 
-// ── SelectItemText ────────────────────────────────────────────────────────────
 export const SelectItemText = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.ItemText>
@@ -160,7 +150,6 @@ export const SelectItemText = React.forwardRef<
 ));
 SelectItemText.displayName = 'SelectItemText';
 
-// ── SelectItemIndicator ───────────────────────────────────────────────────────
 export const SelectItemIndicator = React.forwardRef<
     HTMLSpanElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.ItemIndicator>
@@ -175,7 +164,6 @@ export const SelectItemIndicator = React.forwardRef<
 ));
 SelectItemIndicator.displayName = 'SelectItemIndicator';
 
-// ── SelectGroupLabel ──────────────────────────────────────────────────────────
 export const SelectGroupLabel = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.GroupLabel>
@@ -191,7 +179,6 @@ export const SelectGroupLabel = React.forwardRef<
 ));
 SelectGroupLabel.displayName = 'SelectGroupLabel';
 
-// ── SelectScrollUpArrow ───────────────────────────────────────────────────────
 export const SelectScrollUpArrow = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.ScrollUpArrow>
@@ -207,7 +194,6 @@ export const SelectScrollUpArrow = React.forwardRef<
 ));
 SelectScrollUpArrow.displayName = 'SelectScrollUpArrow';
 
-// ── SelectScrollDownArrow ─────────────────────────────────────────────────────
 export const SelectScrollDownArrow = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.ScrollDownArrow>

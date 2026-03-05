@@ -2,7 +2,6 @@ import { Fieldset as BaseFieldset } from '@base-ui/react/fieldset';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── FieldsetRoot ──────────────────────────────────────────────────────────────
 export const FieldsetRoot = React.forwardRef<
     HTMLFieldSetElement,
     React.ComponentPropsWithoutRef<typeof BaseFieldset.Root>
@@ -15,7 +14,6 @@ export const FieldsetRoot = React.forwardRef<
 ));
 FieldsetRoot.displayName = 'FieldsetRoot';
 
-// ── FieldsetLegend ────────────────────────────────────────────────────────────
 export const FieldsetLegend = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseFieldset.Legend>

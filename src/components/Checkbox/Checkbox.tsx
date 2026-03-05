@@ -3,7 +3,6 @@ import { CheckboxGroup as BaseCheckboxGroup } from '@base-ui/react/checkbox-grou
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── Icons ─────────────────────────────────────────────────────────────────────
 function CheckIcon(props: React.ComponentProps<'svg'>) {
     return (
         <svg
@@ -37,7 +36,6 @@ function MinusIcon(props: React.ComponentProps<'svg'>) {
     );
 }
 
-// ── CheckboxGroup ─────────────────────────────────────────────────────────────
 export const CheckboxGroup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseCheckboxGroup>
@@ -50,7 +48,6 @@ export const CheckboxGroup = React.forwardRef<
 ));
 CheckboxGroup.displayName = 'CheckboxGroup';
 
-// ── CheckboxRoot ──────────────────────────────────────────────────────────────
 export const CheckboxRoot = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseCheckbox.Root>
@@ -66,7 +63,6 @@ export const CheckboxRoot = React.forwardRef<
 ));
 CheckboxRoot.displayName = 'CheckboxRoot';
 
-// ── CheckboxIndicator ─────────────────────────────────────────────────────────
 export const CheckboxIndicator = React.forwardRef<
     HTMLSpanElement,
     React.ComponentPropsWithoutRef<typeof BaseCheckbox.Indicator> & {

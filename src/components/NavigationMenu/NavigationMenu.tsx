@@ -2,10 +2,8 @@ import * as React from 'react';
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import { cn } from '../../utils/cn';
 
-// ── Pass-through parts ─────────────────────────────────────────────────────────
 export const NavigationMenuPortal = NavigationMenu.Portal;
 
-// ── NavigationMenuRoot ─────────────────────────────────────────────────────────
 export const NavigationMenuRoot = React.forwardRef<
     HTMLElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.Root>
@@ -18,7 +16,6 @@ export const NavigationMenuRoot = React.forwardRef<
 ));
 NavigationMenuRoot.displayName = 'NavigationMenuRoot';
 
-// ── NavigationMenuList ─────────────────────────────────────────────────────────
 export const NavigationMenuList = React.forwardRef<
     HTMLUListElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.List>
@@ -34,7 +31,6 @@ export const NavigationMenuList = React.forwardRef<
 ));
 NavigationMenuList.displayName = 'NavigationMenuList';
 
-// ── NavigationMenuItem ─────────────────────────────────────────────────────────
 export const NavigationMenuItem = React.forwardRef<
     HTMLLIElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.Item>
@@ -47,7 +43,6 @@ export const NavigationMenuItem = React.forwardRef<
 ));
 NavigationMenuItem.displayName = 'NavigationMenuItem';
 
-// ── NavigationMenuTrigger ──────────────────────────────────────────────────────
 export const NavigationMenuTrigger = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.Trigger>
@@ -63,7 +58,6 @@ export const NavigationMenuTrigger = React.forwardRef<
 ));
 NavigationMenuTrigger.displayName = 'NavigationMenuTrigger';
 
-// ── NavigationMenuIcon ─────────────────────────────────────────────────────────
 export const NavigationMenuIcon = React.forwardRef<
     HTMLSpanElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.Icon>
@@ -96,7 +90,6 @@ export const NavigationMenuIcon = React.forwardRef<
 ));
 NavigationMenuIcon.displayName = 'NavigationMenuIcon';
 
-// ── NavigationMenuPositioner ───────────────────────────────────────────────────
 export const NavigationMenuPositioner = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.Positioner>
@@ -109,7 +102,6 @@ export const NavigationMenuPositioner = React.forwardRef<
 ));
 NavigationMenuPositioner.displayName = 'NavigationMenuPositioner';
 
-// ── NavigationMenuViewport ─────────────────────────────────────────────────────
 export const NavigationMenuViewport = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.Viewport>
@@ -126,7 +118,6 @@ export const NavigationMenuViewport = React.forwardRef<
 ));
 NavigationMenuViewport.displayName = 'NavigationMenuViewport';
 
-// ── NavigationMenuPopup ────────────────────────────────────────────────────────
 export const NavigationMenuPopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.Popup>
@@ -139,7 +130,6 @@ export const NavigationMenuPopup = React.forwardRef<
 ));
 NavigationMenuPopup.displayName = 'NavigationMenuPopup';
 
-// ── NavigationMenuContent ──────────────────────────────────────────────────────
 export const NavigationMenuContent = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.Content>
@@ -152,7 +142,6 @@ export const NavigationMenuContent = React.forwardRef<
 ));
 NavigationMenuContent.displayName = 'NavigationMenuContent';
 
-// ── NavigationMenuLink ─────────────────────────────────────────────────────────
 export const NavigationMenuLink = React.forwardRef<
     HTMLAnchorElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.Link>

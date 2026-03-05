@@ -2,14 +2,12 @@ import { Autocomplete } from '@base-ui/react/autocomplete';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── Pass-through parts ─────────────────────────────────────────────────────────
 export const AutocompleteRoot = Autocomplete.Root;
 export const AutocompleteValue = Autocomplete.Value;
 export const AutocompletePortal = Autocomplete.Portal;
 export const AutocompleteGroup = Autocomplete.Group;
 export const AutocompleteCollection = Autocomplete.Collection;
 
-// ── AutocompleteInput ──────────────────────────────────────────────────────────
 export const AutocompleteInput = React.forwardRef<
     HTMLInputElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.Input>
@@ -25,7 +23,6 @@ export const AutocompleteInput = React.forwardRef<
 ));
 AutocompleteInput.displayName = 'AutocompleteInput';
 
-// ── AutocompleteTrigger ────────────────────────────────────────────────────────
 export const AutocompleteTrigger = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.Trigger>
@@ -41,7 +38,6 @@ export const AutocompleteTrigger = React.forwardRef<
 ));
 AutocompleteTrigger.displayName = 'AutocompleteTrigger';
 
-// ── AutocompleteIcon ───────────────────────────────────────────────────────────
 export const AutocompleteIcon = React.forwardRef<
     HTMLSpanElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.Icon>
@@ -71,7 +67,6 @@ export const AutocompleteIcon = React.forwardRef<
 ));
 AutocompleteIcon.displayName = 'AutocompleteIcon';
 
-// ── AutocompleteClear ──────────────────────────────────────────────────────────
 export const AutocompleteClear = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.Clear>
@@ -87,7 +82,6 @@ export const AutocompleteClear = React.forwardRef<
 ));
 AutocompleteClear.displayName = 'AutocompleteClear';
 
-// ── AutocompletePositioner ─────────────────────────────────────────────────────
 export const AutocompletePositioner = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.Positioner>
@@ -101,7 +95,6 @@ export const AutocompletePositioner = React.forwardRef<
 ));
 AutocompletePositioner.displayName = 'AutocompletePositioner';
 
-// ── AutocompletePopup ──────────────────────────────────────────────────────────
 export const AutocompletePopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.Popup>
@@ -109,7 +102,7 @@ export const AutocompletePopup = React.forwardRef<
     <Autocomplete.Popup
         ref={ref}
         className={cn(
-            'w-[var(--anchor-width)] max-h-[min(var(--available-height),22rem)] max-w-[var(--available-width)] overflow-y-auto scroll-py-2 overscroll-contain rounded-lg border border-pecan/15 bg-surface py-1.5 shadow-lg shadow-pecan/10 origin-[var(--transform-origin)] transition-[transform,scale,opacity] duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0',
+            'w-(--anchor-width) max-h-[min(var(--available-height),22rem)] max-w-(--available-width) overflow-y-auto scroll-py-2 overscroll-contain rounded-lg border border-pecan/15 bg-surface py-1.5 shadow-lg shadow-pecan/10 origin-(--transform-origin) transition-[transform,scale,opacity] duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0',
             className
         )}
         {...props}
@@ -117,7 +110,6 @@ export const AutocompletePopup = React.forwardRef<
 ));
 AutocompletePopup.displayName = 'AutocompletePopup';
 
-// ── AutocompleteList ───────────────────────────────────────────────────────────
 export const AutocompleteList = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.List>
@@ -130,7 +122,6 @@ export const AutocompleteList = React.forwardRef<
 ));
 AutocompleteList.displayName = 'AutocompleteList';
 
-// ── AutocompleteItem ───────────────────────────────────────────────────────────
 export const AutocompleteItem = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.Item>
@@ -147,7 +138,6 @@ export const AutocompleteItem = React.forwardRef<
 ));
 AutocompleteItem.displayName = 'AutocompleteItem';
 
-// ── AutocompleteEmpty ──────────────────────────────────────────────────────────
 export const AutocompleteEmpty = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.Empty>
@@ -160,7 +150,6 @@ export const AutocompleteEmpty = React.forwardRef<
 ));
 AutocompleteEmpty.displayName = 'AutocompleteEmpty';
 
-// ── AutocompleteGroupLabel ─────────────────────────────────────────────────────
 export const AutocompleteGroupLabel = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.GroupLabel>
@@ -168,7 +157,7 @@ export const AutocompleteGroupLabel = React.forwardRef<
     <Autocomplete.GroupLabel
         ref={ref}
         className={cn(
-            'sticky top-0 z-[1] bg-surface px-3 pb-1 pt-2.5 text-[0.65rem] font-semibold uppercase tracking-widest text-pecan/50',
+            'sticky top-0 z-1 bg-surface px-3 pb-1 pt-2.5 text-[0.65rem] font-semibold uppercase tracking-widest text-pecan/50',
             className
         )}
         {...props}

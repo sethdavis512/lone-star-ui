@@ -34,7 +34,6 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-// ── Seed data ─────────────────────────────────────────────────────────────────
 
 type AvatarColor =
     | 'sky'
@@ -137,7 +136,6 @@ const CONTACTS: Contact[] = [
     }
 ];
 
-// ── Page: Contacts Directory ──────────────────────────────────────────────────
 
 function ContactsDirectoryPage() {
     const [search, setSearch] = React.useState('');
@@ -212,7 +210,6 @@ export const ContactsDirectory: Story = {
     render: () => <ContactsDirectoryPage />
 };
 
-// ── Page: Contact Profile ─────────────────────────────────────────────────────
 
 function ContactProfilePage({ contact }: { contact: Contact }) {
     const [deleted, setDeleted] = React.useState(false);
@@ -313,7 +310,6 @@ export const ContactProfileIcons: Story = {
     render: () => <ContactProfilePage contact={CONTACTS[3]!} />
 };
 
-// ── Page: Dashboard ───────────────────────────────────────────────────────────
 
 function DashboardPage() {
     const statusCounts = CONTACTS.reduce<Record<string, number>>((acc, c) => {
@@ -428,7 +424,6 @@ export const Dashboard: Story = {
     render: () => <DashboardPage />
 };
 
-// ── Page: New Contact ─────────────────────────────────────────────────────────
 
 const STATUS_OPTIONS = [
     'Friend',
@@ -602,7 +597,6 @@ export const NewContact: Story = {
     render: () => <NewContactPage />
 };
 
-// ── Page: Settings ────────────────────────────────────────────────────────────
 
 function SettingsPage() {
     const [name, setName] = React.useState('Willie Nelson');
@@ -800,7 +794,6 @@ export const Settings: Story = {
     render: () => <SettingsPage />
 };
 
-// ── Page: Notification Inbox ──────────────────────────────────────────────────
 
 type NotifType = 'mention' | 'reminder' | 'milestone' | 'system';
 

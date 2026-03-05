@@ -2,11 +2,9 @@ import { DrawerPreview as BaseDrawer } from '@base-ui/react/drawer';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── Pass-through parts ────────────────────────────────────────────────────────
 export const DrawerRoot = BaseDrawer.Root;
 export const DrawerPortal = BaseDrawer.Portal;
 
-// ── DrawerTrigger ─────────────────────────────────────────────────────────────
 export const DrawerTrigger = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseDrawer.Trigger>
@@ -22,7 +20,6 @@ export const DrawerTrigger = React.forwardRef<
 ));
 DrawerTrigger.displayName = 'DrawerTrigger';
 
-// ── DrawerBackdrop ────────────────────────────────────────────────────────────
 export const DrawerBackdrop = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseDrawer.Backdrop>
@@ -38,7 +35,6 @@ export const DrawerBackdrop = React.forwardRef<
 ));
 DrawerBackdrop.displayName = 'DrawerBackdrop';
 
-// ── DrawerViewport ────────────────────────────────────────────────────────────
 // Bottom-sheet layout by default; override className for side drawers
 export const DrawerViewport = React.forwardRef<
     HTMLDivElement,
@@ -52,7 +48,6 @@ export const DrawerViewport = React.forwardRef<
 ));
 DrawerViewport.displayName = 'DrawerViewport';
 
-// ── DrawerPopup ───────────────────────────────────────────────────────────────
 export const DrawerPopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseDrawer.Popup>
@@ -68,7 +63,6 @@ export const DrawerPopup = React.forwardRef<
 ));
 DrawerPopup.displayName = 'DrawerPopup';
 
-// ── DrawerContent ─────────────────────────────────────────────────────────────
 export const DrawerContent = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseDrawer.Content>
@@ -81,7 +75,6 @@ export const DrawerContent = React.forwardRef<
 ));
 DrawerContent.displayName = 'DrawerContent';
 
-// ── DrawerHandle (decorative drag indicator) ───────────────────────────────────
 export const DrawerHandle = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<'div'>
@@ -98,7 +91,6 @@ export const DrawerHandle = React.forwardRef<
 ));
 DrawerHandle.displayName = 'DrawerHandle';
 
-// ── DrawerTitle ───────────────────────────────────────────────────────────────
 export const DrawerTitle = React.forwardRef<
     HTMLHeadingElement,
     React.ComponentPropsWithoutRef<typeof BaseDrawer.Title>
@@ -111,7 +103,6 @@ export const DrawerTitle = React.forwardRef<
 ));
 DrawerTitle.displayName = 'DrawerTitle';
 
-// ── DrawerDescription ─────────────────────────────────────────────────────────
 export const DrawerDescription = React.forwardRef<
     HTMLParagraphElement,
     React.ComponentPropsWithoutRef<typeof BaseDrawer.Description>
@@ -124,7 +115,6 @@ export const DrawerDescription = React.forwardRef<
 ));
 DrawerDescription.displayName = 'DrawerDescription';
 
-// ── DrawerClose ───────────────────────────────────────────────────────────────
 export const DrawerClose = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseDrawer.Close>

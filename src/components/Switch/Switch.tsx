@@ -2,7 +2,6 @@ import { Switch as BaseSwitch } from '@base-ui/react/switch';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── SwitchRoot ────────────────────────────────────────────────────────────────
 export const SwitchRoot = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseSwitch.Root>
@@ -18,7 +17,6 @@ export const SwitchRoot = React.forwardRef<
 ));
 SwitchRoot.displayName = 'SwitchRoot';
 
-// ── SwitchThumb ───────────────────────────────────────────────────────────────
 export const SwitchThumb = React.forwardRef<
     HTMLSpanElement,
     React.ComponentPropsWithoutRef<typeof BaseSwitch.Thumb>

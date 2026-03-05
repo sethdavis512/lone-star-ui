@@ -22,7 +22,6 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-// ── Shared placeholder primitives ─────────────────────────────────────────────
 
 function SkeletonLine({ w = 'w-40', h = 'h-4' }: { w?: string; h?: string }) {
     return <div className={`${h} ${w} rounded bg-pecan/10`} />;
@@ -45,7 +44,6 @@ function SkeletonRow() {
     );
 }
 
-// ── Template: Contacts List ───────────────────────────────────────────────────
 
 export const ContactsList: Story = {
     name: 'Contacts List',
@@ -85,7 +83,6 @@ export const ContactsList: Story = {
     )
 };
 
-// ── Template: Contact Detail ──────────────────────────────────────────────────
 
 export const ContactDetail: Story = {
     name: 'Contact Detail',
@@ -155,7 +152,6 @@ export const ContactDetail: Story = {
     )
 };
 
-// ── Template: Settings ────────────────────────────────────────────────────────
 
 export const Settings: Story = {
     name: 'Settings',
@@ -212,7 +208,6 @@ export const Settings: Story = {
     )
 };
 
-// ── Template: Dashboard ───────────────────────────────────────────────────────
 
 function StatCard({ label, value = '—' }: { label: string; value?: string }) {
     return (
@@ -304,7 +299,6 @@ export const Dashboard: Story = {
     )
 };
 
-// ── Template: Sign In ─────────────────────────────────────────────────────────
 
 export const SignIn: Story = {
     name: 'Sign In',
@@ -347,7 +341,6 @@ export const SignIn: Story = {
     )
 };
 
-// ── Template: Empty State ─────────────────────────────────────────────────────
 
 export const EmptyState: Story = {
     name: 'Empty State',
@@ -377,7 +370,6 @@ export const EmptyState: Story = {
     )
 };
 
-// ── Template: Notification Inbox ──────────────────────────────────────────────
 
 type NotifKind = 'info' | 'warning' | 'error' | 'default';
 const NOTIF_KINDS: NotifKind[] = ['default', 'info', 'warning', 'error'];

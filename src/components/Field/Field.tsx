@@ -2,7 +2,6 @@ import { Field as BaseField } from '@base-ui/react/field';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── FieldRoot ─────────────────────────────────────────────────────────────────
 export const FieldRoot = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseField.Root>
@@ -15,7 +14,6 @@ export const FieldRoot = React.forwardRef<
 ));
 FieldRoot.displayName = 'FieldRoot';
 
-// ── FieldLabel ────────────────────────────────────────────────────────────────
 export const FieldLabel = React.forwardRef<
     HTMLLabelElement,
     React.ComponentPropsWithoutRef<typeof BaseField.Label>
@@ -31,11 +29,9 @@ export const FieldLabel = React.forwardRef<
 ));
 FieldLabel.displayName = 'FieldLabel';
 
-// ── FieldControl ──────────────────────────────────────────────────────────────
 // Pass-through — Field.Control is typically replaced by a Base UI input component
 export const FieldControl = BaseField.Control;
 
-// ── FieldDescription ──────────────────────────────────────────────────────────
 export const FieldDescription = React.forwardRef<
     HTMLParagraphElement,
     React.ComponentPropsWithoutRef<typeof BaseField.Description>
@@ -48,7 +44,6 @@ export const FieldDescription = React.forwardRef<
 ));
 FieldDescription.displayName = 'FieldDescription';
 
-// ── FieldError ────────────────────────────────────────────────────────────────
 export const FieldError = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseField.Error>
@@ -61,7 +56,6 @@ export const FieldError = React.forwardRef<
 ));
 FieldError.displayName = 'FieldError';
 
-// ── FieldItem ─────────────────────────────────────────────────────────────────
 // Used to group individual checkbox/radio items with their label
 export const FieldItem = React.forwardRef<
     HTMLDivElement,
@@ -75,6 +69,5 @@ export const FieldItem = React.forwardRef<
 ));
 FieldItem.displayName = 'FieldItem';
 
-// ── FieldValidity ─────────────────────────────────────────────────────────────
 // Pass-through — children must be a render function
 export const FieldValidity = BaseField.Validity;

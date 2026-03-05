@@ -2,11 +2,9 @@ import { AlertDialog as BaseAlertDialog } from '@base-ui/react/alert-dialog';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
-// ── Pass-through parts ────────────────────────────────────────────────────────
 export const AlertDialogRoot = BaseAlertDialog.Root;
 export const AlertDialogPortal = BaseAlertDialog.Portal;
 
-// ── AlertDialogBackdrop ────────────────────────────────────────────────────────
 export const AlertDialogBackdrop = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Backdrop>
@@ -22,7 +20,6 @@ export const AlertDialogBackdrop = React.forwardRef<
 ));
 AlertDialogBackdrop.displayName = 'AlertDialogBackdrop';
 
-// ── AlertDialogViewport ────────────────────────────────────────────────────────
 export const AlertDialogViewport = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Viewport>
@@ -38,7 +35,6 @@ export const AlertDialogViewport = React.forwardRef<
 ));
 AlertDialogViewport.displayName = 'AlertDialogViewport';
 
-// ── AlertDialogPopup ──────────────────────────────────────────────────────────
 export const AlertDialogPopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Popup>
@@ -54,7 +50,6 @@ export const AlertDialogPopup = React.forwardRef<
 ));
 AlertDialogPopup.displayName = 'AlertDialogPopup';
 
-// ── AlertDialogTitle ──────────────────────────────────────────────────────────
 export const AlertDialogTitle = React.forwardRef<
     HTMLHeadingElement,
     React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Title>
@@ -67,7 +62,6 @@ export const AlertDialogTitle = React.forwardRef<
 ));
 AlertDialogTitle.displayName = 'AlertDialogTitle';
 
-// ── AlertDialogDescription ────────────────────────────────────────────────────
 export const AlertDialogDescription = React.forwardRef<
     HTMLParagraphElement,
     React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Description>
@@ -80,7 +74,6 @@ export const AlertDialogDescription = React.forwardRef<
 ));
 AlertDialogDescription.displayName = 'AlertDialogDescription';
 
-// ── AlertDialogClose ──────────────────────────────────────────────────────────
 export const AlertDialogClose = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Close>
@@ -96,7 +89,6 @@ export const AlertDialogClose = React.forwardRef<
 ));
 AlertDialogClose.displayName = 'AlertDialogClose';
 
-// ── AlertDialogTrigger ────────────────────────────────────────────────────────
 export const AlertDialogTrigger = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Trigger>
