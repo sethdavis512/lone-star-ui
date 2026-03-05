@@ -25,18 +25,16 @@ if (!result.success) {
     process.exit(1);
 }
 
-const css = await Bun.build({
-    entrypoints: ['src/styles.css'],
-    outdir: './dist'
-});
+const cssProc = Bun.spawnSync([
+    'bunx', '@tailwindcss/cli',
+    '-i', 'src/styles.css',
+    '-o', 'dist/styles.css',
+    '--minify'
+]);
 
-if (!css.success) {
+if (cssProc.exitCode !== 0) {
     console.error('CSS build failed');
-
-    for (const message of css.logs) {
-        console.error(message);
-    }
-
+    console.error(cssProc.stderr.toString());
     process.exit(1);
 }
 

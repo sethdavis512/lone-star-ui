@@ -46,7 +46,7 @@ Components follow these conventions:
 
 ### Build Pipeline
 
-`build.ts` uses `Bun.build()` to bundle `src/index.ts` → `dist/index.js` (ESM, browser target) and `src/styles.css` → `dist/styles.css`. React/ReactDOM are externalized as peer deps. `tsc` generates declaration files only.
+`build.ts` uses `Bun.build()` to bundle `src/index.ts` → `dist/index.js` (ESM, browser target). CSS is processed separately by `@tailwindcss/cli`, which compiles `src/styles.css` → `dist/styles.css` with all utility classes pre-compiled and minified. This means consumers only need `@import 'lone-star-ui/styles'` — no `@source` directive required. React/ReactDOM are externalized as peer deps. `tsc` generates declaration files only.
 
 ### Styling
 

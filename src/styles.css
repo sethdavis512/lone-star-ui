@@ -1,5 +1,6 @@
 /* src/styles.css */
 @import 'tailwindcss';
+@source "./components/";
 
 /* ── Dark mode: class-based toggle ─────────────────────────────── */
 @custom-variant dark (&:where(.dark, .dark *));
