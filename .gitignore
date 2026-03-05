@@ -35,3 +35,6 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 *storybook.log
 storybook-static
+
+# Claude Code local settings (user-specific permissions)
+.claude/settings.local.json
