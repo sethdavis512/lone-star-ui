@@ -25,7 +25,10 @@ export const NavigationMenuList = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <NavigationMenu.List
         ref={ref}
-        className={cn('flex flex-1 list-none items-center justify-center gap-1', className)}
+        className={cn(
+            'flex flex-1 list-none items-center justify-center gap-1',
+            className
+        )}
         {...props}
     />
 ));

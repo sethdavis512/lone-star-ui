@@ -29,7 +29,11 @@ export const Default: Story = {
             </FieldRoot>
             <FieldRoot name="email">
                 <FieldLabel>Email</FieldLabel>
-                <FieldControl render={<Input type="email" placeholder="jane@example.com" />} />
+                <FieldControl
+                    render={
+                        <Input type="email" placeholder="jane@example.com" />
+                    }
+                />
                 <FieldError />
             </FieldRoot>
             <Button type="submit" className="w-full">

@@ -17,12 +17,12 @@ type Story = StoryObj;
 
 export const Default: Story = {
     render: () => (
-        <div className="w-72 space-y-1">
-            <div className="flex items-center justify-between">
-                <MeterLabel>Storage used</MeterLabel>
-                <MeterValue />
-            </div>
-            <MeterRoot value={65} min={0} max={100}>
+        <div className="w-72">
+            <MeterRoot value={65} min={0} max={100} className="gap-1">
+                <div className="flex items-center justify-between">
+                    <MeterLabel>Storage used</MeterLabel>
+                    <MeterValue />
+                </div>
                 <MeterTrack>
                     <MeterIndicator />
                 </MeterTrack>
@@ -33,9 +33,9 @@ export const Default: Story = {
 
 export const Low: Story = {
     render: () => (
-        <div className="w-72 space-y-1">
-            <MeterLabel>Battery</MeterLabel>
-            <MeterRoot value={15} min={0} max={100}>
+        <div className="w-72">
+            <MeterRoot value={15} min={0} max={100} className="gap-1">
+                <MeterLabel>Battery</MeterLabel>
                 <MeterTrack>
                     <MeterIndicator className="bg-prickly-pear" />
                 </MeterTrack>
@@ -46,9 +46,9 @@ export const Low: Story = {
 
 export const Full: Story = {
     render: () => (
-        <div className="w-72 space-y-1">
-            <MeterLabel>Capacity</MeterLabel>
-            <MeterRoot value={100} min={0} max={100}>
+        <div className="w-72">
+            <MeterRoot value={100} min={0} max={100} className="gap-1">
+                <MeterLabel>Capacity</MeterLabel>
                 <MeterTrack>
                     <MeterIndicator className="bg-longhorn" />
                 </MeterTrack>

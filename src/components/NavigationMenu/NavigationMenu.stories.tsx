@@ -38,25 +38,34 @@ export const Default: Story = {
                                         <ul className="grid w-64 gap-1">
                                             <li>
                                                 <NavigationMenuLink href="#">
-                                                    <div className="font-semibold">Analytics</div>
+                                                    <div className="font-semibold">
+                                                        Analytics
+                                                    </div>
                                                     <p className="mt-0.5 text-xs text-pecan/60">
-                                                        Track performance metrics.
+                                                        Track performance
+                                                        metrics.
                                                     </p>
                                                 </NavigationMenuLink>
                                             </li>
                                             <li>
                                                 <NavigationMenuLink href="#">
-                                                    <div className="font-semibold">Automation</div>
+                                                    <div className="font-semibold">
+                                                        Automation
+                                                    </div>
                                                     <p className="mt-0.5 text-xs text-pecan/60">
-                                                        Streamline your workflows.
+                                                        Streamline your
+                                                        workflows.
                                                     </p>
                                                 </NavigationMenuLink>
                                             </li>
                                             <li>
                                                 <NavigationMenuLink href="#">
-                                                    <div className="font-semibold">Integrations</div>
+                                                    <div className="font-semibold">
+                                                        Integrations
+                                                    </div>
                                                     <p className="mt-0.5 text-xs text-pecan/60">
-                                                        Connect your favorite tools.
+                                                        Connect your favorite
+                                                        tools.
                                                     </p>
                                                 </NavigationMenuLink>
                                             </li>
@@ -80,13 +89,19 @@ export const Default: Story = {
                                     <NavigationMenuContent>
                                         <ul className="grid w-48 gap-1">
                                             <li>
-                                                <NavigationMenuLink href="#">About</NavigationMenuLink>
+                                                <NavigationMenuLink href="#">
+                                                    About
+                                                </NavigationMenuLink>
                                             </li>
                                             <li>
-                                                <NavigationMenuLink href="#">Blog</NavigationMenuLink>
+                                                <NavigationMenuLink href="#">
+                                                    Blog
+                                                </NavigationMenuLink>
                                             </li>
                                             <li>
-                                                <NavigationMenuLink href="#">Careers</NavigationMenuLink>
+                                                <NavigationMenuLink href="#">
+                                                    Careers
+                                                </NavigationMenuLink>
                                             </li>
                                         </ul>
                                     </NavigationMenuContent>
@@ -97,7 +112,10 @@ export const Default: Story = {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                    <NavigationMenuLink href="#" className="px-3 py-2 text-sm font-medium">
+                    <NavigationMenuLink
+                        href="#"
+                        className="px-3 py-2 text-sm font-medium"
+                    >
                         Docs
                     </NavigationMenuLink>
                 </NavigationMenuItem>

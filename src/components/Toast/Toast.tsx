@@ -153,9 +153,13 @@ export function Toaster() {
                     <ToastContent>
                         {toast.title && <ToastTitle>{toast.title}</ToastTitle>}
                         {toast.description && (
-                            <ToastDescription>{toast.description}</ToastDescription>
+                            <ToastDescription>
+                                {toast.description}
+                            </ToastDescription>
                         )}
-                        {toast.actionProps && <ToastAction {...toast.actionProps} />}
+                        {toast.actionProps && (
+                            <ToastAction {...toast.actionProps} />
+                        )}
                     </ToastContent>
                     <ToastClose />
                 </ToastRoot>

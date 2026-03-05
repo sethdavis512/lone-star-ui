@@ -61,7 +61,10 @@ export const Default: Story = {
                             <line x1="6" y1="6" x2="18" y2="18" />
                         </svg>
                     </AutocompleteClear>
-                    <AutocompleteTrigger aria-label="Open" className="absolute right-0">
+                    <AutocompleteTrigger
+                        aria-label="Open"
+                        className="absolute right-0"
+                    >
                         <AutocompleteIcon />
                     </AutocompleteTrigger>
                 </div>
@@ -74,7 +77,9 @@ export const Default: Story = {
                                         {fw}
                                     </AutocompleteItem>
                                 ))}
-                                <AutocompleteEmpty>No frameworks found.</AutocompleteEmpty>
+                                <AutocompleteEmpty>
+                                    No frameworks found.
+                                </AutocompleteEmpty>
                             </AutocompleteList>
                         </AutocompletePopup>
                     </AutocompletePositioner>
@@ -87,7 +92,10 @@ export const Default: Story = {
 const STATES = [
     { group: 'South', items: ['Texas', 'Louisiana', 'Arkansas', 'Oklahoma'] },
     { group: 'West', items: ['California', 'Colorado', 'Arizona', 'Nevada'] },
-    { group: 'Northeast', items: ['New York', 'Massachusetts', 'Vermont', 'Maine'] }
+    {
+        group: 'Northeast',
+        items: ['New York', 'Massachusetts', 'Vermont', 'Maine']
+    }
 ];
 
 const ALL_STATES = STATES.flatMap((g) => g.items);
@@ -98,7 +106,10 @@ export const Grouped: Story = {
             <AutocompleteRoot items={ALL_STATES}>
                 <div className="relative flex items-center">
                     <AutocompleteInput placeholder="Search states…" />
-                    <AutocompleteTrigger aria-label="Open" className="absolute right-0">
+                    <AutocompleteTrigger
+                        aria-label="Open"
+                        className="absolute right-0"
+                    >
                         <AutocompleteIcon />
                     </AutocompleteTrigger>
                 </div>
@@ -111,7 +122,9 @@ export const Grouped: Story = {
                                         {s}
                                     </AutocompleteItem>
                                 ))}
-                                <AutocompleteEmpty>No states found.</AutocompleteEmpty>
+                                <AutocompleteEmpty>
+                                    No states found.
+                                </AutocompleteEmpty>
                             </AutocompleteList>
                         </AutocompletePopup>
                     </AutocompletePositioner>

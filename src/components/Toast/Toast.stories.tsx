@@ -11,7 +11,13 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-function ToastDemo({ title, description }: { title: string; description?: string }) {
+function ToastDemo({
+    title,
+    description
+}: {
+    title: string;
+    description?: string;
+}) {
     const { add } = useToastManager();
     return (
         <Button onClick={() => add({ title, description })}>Show Toast</Button>
@@ -21,7 +27,10 @@ function ToastDemo({ title, description }: { title: string; description?: string
 export const Default: Story = {
     render: () => (
         <ToastProvider>
-            <ToastDemo title="Saved successfully" description="Your changes have been saved." />
+            <ToastDemo
+                title="Saved successfully"
+                description="Your changes have been saved."
+            />
             <Toaster />
         </ToastProvider>
     )
@@ -46,7 +55,10 @@ export const WithAction: Story = {
                         add({
                             title: 'Item deleted',
                             description: 'The item has been removed.',
-                            actionProps: { children: 'Undo', onClick: () => alert('Undone!') }
+                            actionProps: {
+                                children: 'Undo',
+                                onClick: () => alert('Undone!')
+                            }
                         })
                     }
                 >
@@ -73,7 +85,8 @@ export const ErrorType: Story = {
                     onClick={() =>
                         add({
                             title: 'Upload failed',
-                            description: 'The file could not be uploaded. Please try again.',
+                            description:
+                                'The file could not be uploaded. Please try again.',
                             type: 'error'
                         })
                     }
