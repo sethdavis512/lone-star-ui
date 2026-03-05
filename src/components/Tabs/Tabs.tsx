@@ -26,7 +26,7 @@ export const TabsTab = React.forwardRef<
     <Tabs.Tab
         ref={ref}
         className={cn(
-            'flex h-8 items-center justify-center border-0 px-3 text-sm font-medium text-pecan/60 outline-none select-none transition-colors hover:text-pecan focus-visible:relative focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-inset data-[active]:text-pecan data-[disabled]:pointer-events-none data-[disabled]:opacity-40',
+            'flex h-8 items-center justify-center border-0 px-3 text-sm font-medium text-pecan/60 outline-none select-none transition-colors hover:text-pecan focus-visible:relative focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-inset data-active:text-pecan data-disabled:pointer-events-none data-disabled:opacity-40',
             className
         )}
         {...props}

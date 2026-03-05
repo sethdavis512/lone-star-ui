@@ -45,7 +45,7 @@ export const TooltipPopup = React.forwardRef<
     <BaseTooltip.Popup
         ref={ref}
         className={cn(
-            'origin-[var(--transform-origin)] rounded-md bg-pecan px-2.5 py-1.5 text-xs font-medium text-white shadow-sm transition-[transform,opacity] duration-150 data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[instant]:transition-none data-[starting-style]:scale-90 data-[starting-style]:opacity-0',
+            'origin-[var(--transform-origin)] rounded-md bg-pecan px-2.5 py-1.5 text-xs font-medium text-white shadow-sm transition-[transform,opacity] duration-150 data-ending-style:scale-90 data-ending-style:opacity-0 data-instant:transition-none data-starting-style:scale-90 data-starting-style:opacity-0',
             className
         )}
         {...props}

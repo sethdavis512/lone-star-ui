@@ -32,7 +32,7 @@ export const ToastRoot = React.forwardRef<
         ref={ref}
         className={cn(
             'group relative flex w-full items-start gap-3 rounded-xl border border-pecan/15 bg-surface p-4 shadow-lg shadow-pecan/10',
-            'transition-all duration-300 data-[starting-style]:translate-y-2 data-[starting-style]:opacity-0 data-[ending-style]:translate-y-2 data-[ending-style]:opacity-0',
+            'transition-all duration-300 data-starting-style:translate-y-2 data-starting-style:opacity-0 data-ending-style:translate-y-2 data-ending-style:opacity-0',
             className
         )}
         {...props}

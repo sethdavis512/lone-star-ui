@@ -60,7 +60,7 @@ export const DrawerPopup = React.forwardRef<
     <BaseDrawer.Popup
         ref={ref}
         className={cn(
-            'box-border w-full max-h-[85vh] -mb-12 overflow-y-auto overscroll-contain rounded-t-2xl border border-b-0 border-pecan/10 bg-surface px-6 pb-[calc(3rem+env(safe-area-inset-bottom,0px))] pt-4 text-pecan shadow-2xl transition-transform duration-[450ms] ease-[cubic-bezier(0.32,0.72,0,1)] [transform:translateY(var(--drawer-swipe-movement-y))] data-[swiping]:select-none data-[ending-style]:[transform:translateY(calc(100%-3rem))] data-[starting-style]:[transform:translateY(calc(100%-3rem))] data-[ending-style]:duration-[calc(var(--drawer-swipe-strength)*400ms)]',
+            'box-border w-full max-h-[85vh] -mb-12 overflow-y-auto overscroll-contain rounded-t-2xl border border-b-0 border-pecan/10 bg-surface px-6 pb-[calc(3rem+env(safe-area-inset-bottom,0px))] pt-4 text-pecan shadow-2xl transition-transform duration-[450ms] ease-[cubic-bezier(0.32,0.72,0,1)] [transform:translateY(var(--drawer-swipe-movement-y))] data-swiping:select-none data-ending-style:[transform:translateY(calc(100%-3rem))] data-starting-style:[transform:translateY(calc(100%-3rem))] data-ending-style:duration-[calc(var(--drawer-swipe-strength)*400ms)]',
             className
         )}
         {...props}

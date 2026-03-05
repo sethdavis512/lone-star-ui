@@ -10,7 +10,7 @@ export const SwitchRoot = React.forwardRef<
     <BaseSwitch.Root
         ref={ref}
         className={cn(
-            'relative flex h-6 w-10 cursor-pointer rounded-full border border-pecan/20 bg-pecan/20 p-0.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-[checked]:border-sky data-[checked]:bg-sky data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+            'relative flex h-6 w-10 cursor-pointer rounded-full border border-pecan/20 bg-pecan/20 p-0.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-checked:border-sky data-checked:bg-sky data-disabled:cursor-not-allowed data-disabled:opacity-50',
             className
         )}
         {...props}
@@ -26,7 +26,7 @@ export const SwitchThumb = React.forwardRef<
     <BaseSwitch.Thumb
         ref={ref}
         className={cn(
-            'aspect-square h-full rounded-full bg-white shadow-sm transition-transform duration-150 data-[checked]:translate-x-4',
+            'aspect-square h-full rounded-full bg-white shadow-sm transition-transform duration-150 data-checked:translate-x-4',
             className
         )}
         {...props}

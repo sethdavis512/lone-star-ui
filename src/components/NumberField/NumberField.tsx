@@ -36,7 +36,7 @@ export const NumberFieldDecrement = React.forwardRef<
     <NumberField.Decrement
         ref={ref}
         className={cn(
-            'flex h-full w-9 shrink-0 items-center justify-center border-r border-pecan/15 text-pecan/60 transition-colors hover:bg-mesa/40 hover:text-pecan focus-visible:outline-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+            'flex h-full w-9 shrink-0 items-center justify-center border-r border-pecan/15 text-pecan/60 transition-colors hover:bg-mesa/40 hover:text-pecan focus-visible:outline-none data-disabled:cursor-not-allowed data-disabled:opacity-50',
             className
         )}
         {...props}
@@ -64,7 +64,7 @@ export const NumberFieldIncrement = React.forwardRef<
     <NumberField.Increment
         ref={ref}
         className={cn(
-            'flex h-full w-9 shrink-0 items-center justify-center border-l border-pecan/15 text-pecan/60 transition-colors hover:bg-mesa/40 hover:text-pecan focus-visible:outline-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+            'flex h-full w-9 shrink-0 items-center justify-center border-l border-pecan/15 text-pecan/60 transition-colors hover:bg-mesa/40 hover:text-pecan focus-visible:outline-none data-disabled:cursor-not-allowed data-disabled:opacity-50',
             className
         )}
         {...props}

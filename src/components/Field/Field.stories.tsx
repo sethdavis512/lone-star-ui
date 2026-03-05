@@ -66,7 +66,7 @@ export const WithValidation: Story = {
             <FieldControl
                 required
                 placeholder="Required"
-                className="h-10 w-full rounded-md border border-pecan/25 bg-white px-3 text-sm text-pecan placeholder:text-pecan/40 focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 data-[invalid]:border-prickly-pear data-[invalid]:ring-prickly-pear"
+                className="h-10 w-full rounded-md border border-pecan/25 bg-white px-3 text-sm text-pecan placeholder:text-pecan/40 focus:outline-none focus:ring-2 focus:ring-sky focus:ring-offset-2 data-invalid:border-prickly-pear data-invalid:ring-prickly-pear"
             />
             <FieldError match="valueMissing">Username is required.</FieldError>
             <FieldDescription>

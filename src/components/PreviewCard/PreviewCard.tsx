@@ -15,7 +15,7 @@ export const PreviewCardTrigger = React.forwardRef<
     <BasePreviewCard.Trigger
         ref={ref}
         className={cn(
-            'text-sky underline decoration-sky/60 decoration-1 underline-offset-2 outline-none hover:decoration-sky focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-sky data-[popup-open]:decoration-sky',
+            'text-sky underline decoration-sky/60 decoration-1 underline-offset-2 outline-none hover:decoration-sky focus-visible:rounded-sm focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-sky data-popup-open:decoration-sky',
             className
         )}
         {...props}
@@ -58,7 +58,7 @@ export const PreviewCardPopup = React.forwardRef<
     <BasePreviewCard.Popup
         ref={ref}
         className={cn(
-            'origin-[var(--transform-origin)] rounded-lg border border-pecan/15 bg-surface text-pecan shadow-lg transition-[transform,opacity] duration-150 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
+            'origin-[var(--transform-origin)] rounded-lg border border-pecan/15 bg-surface text-pecan shadow-lg transition-[transform,opacity] duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0',
             className
         )}
         {...props}

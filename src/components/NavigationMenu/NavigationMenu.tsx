@@ -55,7 +55,7 @@ export const NavigationMenuTrigger = React.forwardRef<
     <NavigationMenu.Trigger
         ref={ref}
         className={cn(
-            'group inline-flex h-9 items-center justify-center gap-1 rounded-md bg-transparent px-3 py-2 text-sm font-medium text-pecan transition-colors hover:bg-mesa/40 hover:text-pecan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky data-[popup-open]:bg-mesa/40',
+            'group inline-flex h-9 items-center justify-center gap-1 rounded-md bg-transparent px-3 py-2 text-sm font-medium text-pecan transition-colors hover:bg-mesa/40 hover:text-pecan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky data-popup-open:bg-mesa/40',
             className
         )}
         {...props}
@@ -71,7 +71,7 @@ export const NavigationMenuIcon = React.forwardRef<
     <NavigationMenu.Icon
         ref={ref}
         className={cn(
-            'relative top-px ml-0.5 transition-transform duration-200 group-data-[popup-open]:rotate-180',
+            'relative top-px ml-0.5 transition-transform duration-200 group-data-popup-open:rotate-180',
             className
         )}
         {...props}

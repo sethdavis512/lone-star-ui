@@ -23,7 +23,7 @@ export const FieldLabel = React.forwardRef<
     <BaseField.Label
         ref={ref}
         className={cn(
-            'text-sm font-medium leading-none text-pecan data-[disabled]:text-pecan/50',
+            'text-sm font-medium leading-none text-pecan data-disabled:text-pecan/50',
             className
         )}
         {...props}

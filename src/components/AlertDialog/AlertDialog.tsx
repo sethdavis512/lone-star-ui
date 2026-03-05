@@ -14,7 +14,7 @@ export const AlertDialogBackdrop = React.forwardRef<
     <BaseAlertDialog.Backdrop
         ref={ref}
         className={cn(
-            'fixed inset-0 z-50 min-h-dvh bg-black/40 transition-all duration-150 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 supports-[-webkit-touch-callout:none]:absolute',
+            'fixed inset-0 z-50 min-h-dvh bg-black/40 transition-all duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 supports-[-webkit-touch-callout:none]:absolute',
             className
         )}
         {...props}
@@ -46,7 +46,7 @@ export const AlertDialogPopup = React.forwardRef<
     <BaseAlertDialog.Popup
         ref={ref}
         className={cn(
-            'w-full max-w-md rounded-xl border border-pecan/15 bg-surface p-6 text-pecan shadow-xl transition-all duration-150 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
+            'w-full max-w-md rounded-xl border border-pecan/15 bg-surface p-6 text-pecan shadow-xl transition-all duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0',
             className
         )}
         {...props}

@@ -68,7 +68,7 @@ export const RightSide: StoryObj = {
             <DrawerPortal>
                 <DrawerBackdrop />
                 <DrawerViewport className="fixed inset-0 flex items-stretch justify-end">
-                    <DrawerPopup className="box-border w-80 max-h-none h-full mb-0 rounded-none rounded-l-2xl border-r-0 px-6 py-6 [transform:translateX(var(--drawer-swipe-movement-x))] data-[ending-style]:[transform:translateX(calc(100%-0rem))] data-[starting-style]:[transform:translateX(calc(100%-0rem))]">
+                    <DrawerPopup className="box-border w-80 max-h-none h-full mb-0 rounded-none rounded-l-2xl border-r-0 px-6 py-6 [transform:translateX(var(--drawer-swipe-movement-x))] data-ending-style:[transform:translateX(calc(100%-0rem))] data-starting-style:[transform:translateX(calc(100%-0rem))]">
                         <DrawerContent className="max-w-none">
                             <DrawerTitle>Side Drawer</DrawerTitle>
                             <DrawerDescription>

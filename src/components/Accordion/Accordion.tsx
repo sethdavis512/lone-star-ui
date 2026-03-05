@@ -41,14 +41,14 @@ export const AccordionTrigger = React.forwardRef<
     <Accordion.Trigger
         ref={ref}
         className={cn(
-            'group flex w-full items-center justify-between py-3 text-left text-sm font-medium text-pecan transition-colors hover:text-pecan/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-inset data-[disabled]:pointer-events-none data-[disabled]:opacity-40',
+            'group flex w-full items-center justify-between py-3 text-left text-sm font-medium text-pecan transition-colors hover:text-pecan/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-inset data-disabled:pointer-events-none data-disabled:opacity-40',
             className
         )}
         {...props}
     >
         {children}
         <svg
-            className="size-4 shrink-0 text-pecan/50 transition-transform duration-200 ease-out group-data-[panel-open]:rotate-180"
+            className="size-4 shrink-0 text-pecan/50 transition-transform duration-200 ease-out group-data-panel-open:rotate-180"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -68,7 +68,7 @@ export const AccordionPanel = React.forwardRef<
     <Accordion.Panel
         ref={ref}
         className={cn(
-            'h-[var(--accordion-panel-height)] overflow-hidden text-sm text-pecan/70 transition-[height] duration-200 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0',
+            'h-[var(--accordion-panel-height)] overflow-hidden text-sm text-pecan/70 transition-[height] duration-200 ease-out data-ending-style:h-0 data-starting-style:h-0',
             className
         )}
         {...props}

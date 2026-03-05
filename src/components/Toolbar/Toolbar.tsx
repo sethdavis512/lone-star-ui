@@ -29,9 +29,9 @@ export const ToolbarButton = React.forwardRef<
         className={cn(
             'flex h-8 min-w-8 cursor-default items-center justify-center rounded-sm px-2 text-sm font-medium text-pecan/70 select-none outline-none',
             'hover:bg-mesa/60 focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-sky-500',
-            'active:bg-mesa data-[pressed]:bg-mesa/60 data-[pressed]:text-pecan',
-            'data-[popup-open]:bg-mesa/60',
-            'data-[disabled]:opacity-50',
+            'active:bg-mesa data-pressed:bg-mesa/60 data-pressed:text-pecan',
+            'data-popup-open:bg-mesa/60',
+            'data-disabled:opacity-50',
             className
         )}
         {...props}
@@ -76,7 +76,7 @@ export const ToolbarInput = React.forwardRef<
         className={cn(
             'h-7 rounded-sm border border-pecan/15 bg-surface px-2 text-sm text-pecan outline-none',
             'focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-sky-500',
-            'data-[disabled]:opacity-50',
+            'data-disabled:opacity-50',
             className
         )}
         {...props}

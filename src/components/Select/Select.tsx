@@ -51,7 +51,7 @@ export const SelectTrigger = React.forwardRef<
     <BaseSelect.Trigger
         ref={ref}
         className={cn(
-            'flex h-10 min-w-36 items-center justify-between gap-2 rounded-md border border-pecan/25 bg-surface px-3 text-sm text-pecan transition-colors select-none hover:not-data-[disabled]:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-[popup-open]:bg-mesa data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+            'flex h-10 min-w-36 items-center justify-between gap-2 rounded-md border border-pecan/25 bg-surface px-3 text-sm text-pecan transition-colors select-none hover:not-data-disabled:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-popup-open:bg-mesa data-disabled:cursor-not-allowed data-disabled:opacity-50',
             className
         )}
         {...props}
@@ -66,7 +66,7 @@ export const SelectValue = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <BaseSelect.Value
         ref={ref}
-        className={cn('data-[placeholder]:text-pecan/40', className)}
+        className={cn('data-placeholder:text-pecan/40', className)}
         {...props}
     />
 ));
@@ -109,7 +109,7 @@ export const SelectPopup = React.forwardRef<
     <BaseSelect.Popup
         ref={ref}
         className={cn(
-            'min-w-[var(--anchor-width)] max-h-[min(var(--available-height),22rem)] overflow-y-auto rounded-lg border border-pecan/15 bg-surface py-1 shadow-lg shadow-pecan/10 origin-[var(--transform-origin)] transition-[transform,scale,opacity] duration-100 data-[starting-style]:scale-95 data-[starting-style]:opacity-0 data-[ending-style]:scale-95 data-[ending-style]:opacity-0',
+            'min-w-[var(--anchor-width)] max-h-[min(var(--available-height),22rem)] overflow-y-auto rounded-lg border border-pecan/15 bg-surface py-1 shadow-lg shadow-pecan/10 origin-[var(--transform-origin)] transition-[transform,scale,opacity] duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0',
             className
         )}
         {...props}
@@ -138,8 +138,8 @@ export const SelectItem = React.forwardRef<
     <BaseSelect.Item
         ref={ref}
         className={cn(
-            'relative grid cursor-default select-none grid-cols-[0.875rem_1fr] items-center gap-2 px-3 py-2 text-sm text-pecan outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
-            'data-[highlighted]:before:absolute data-[highlighted]:before:inset-x-1.5 data-[highlighted]:before:inset-y-0 data-[highlighted]:before:z-[-1] data-[highlighted]:before:rounded-md data-[highlighted]:before:bg-pecan data-[highlighted]:before:content-[""] data-[highlighted]:relative data-[highlighted]:z-0 data-[highlighted]:text-white',
+            'relative grid cursor-default select-none grid-cols-[0.875rem_1fr] items-center gap-2 px-3 py-2 text-sm text-pecan outline-none data-disabled:pointer-events-none data-disabled:opacity-50',
+            'data-highlighted:before:absolute data-highlighted:before:inset-x-1.5 data-highlighted:before:inset-y-0 data-highlighted:before:z-[-1] data-highlighted:before:rounded-md data-highlighted:before:bg-pecan data-highlighted:before:content-[""] data-highlighted:relative data-highlighted:z-0 data-highlighted:text-white',
             className
         )}
         {...props}

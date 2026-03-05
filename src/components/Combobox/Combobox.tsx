@@ -20,7 +20,7 @@ export const ComboboxInput = React.forwardRef<
     <BaseCombobox.Input
         ref={ref}
         className={cn(
-            'flex h-10 w-full rounded-md border border-pecan/25 bg-surface px-3.5 text-base text-pecan font-normal transition-colors placeholder:text-pecan/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+            'flex h-10 w-full rounded-md border border-pecan/25 bg-surface px-3.5 text-base text-pecan font-normal transition-colors placeholder:text-pecan/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky data-disabled:cursor-not-allowed data-disabled:opacity-50',
             className
         )}
         {...props}
@@ -36,7 +36,7 @@ export const ComboboxTrigger = React.forwardRef<
     <BaseCombobox.Trigger
         ref={ref}
         className={cn(
-            'flex h-10 w-7 items-center justify-center rounded-r-md border-0 bg-transparent p-0 text-pecan/60 transition-colors hover:not-data-[disabled]:text-pecan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-1 data-[disabled]:opacity-50',
+            'flex h-10 w-7 items-center justify-center rounded-r-md border-0 bg-transparent p-0 text-pecan/60 transition-colors hover:not-data-disabled:text-pecan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-1 data-disabled:opacity-50',
             className
         )}
         {...props}
@@ -52,7 +52,7 @@ export const ComboboxClear = React.forwardRef<
     <BaseCombobox.Clear
         ref={ref}
         className={cn(
-            'flex h-10 w-7 items-center justify-center rounded-md border-0 bg-transparent p-0 text-pecan/50 transition-colors hover:not-data-[disabled]:text-prickly-pear focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-1',
+            'flex h-10 w-7 items-center justify-center rounded-md border-0 bg-transparent p-0 text-pecan/50 transition-colors hover:not-data-disabled:text-prickly-pear focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-1',
             className
         )}
         {...props}
@@ -82,7 +82,7 @@ export const ComboboxPopup = React.forwardRef<
     <BaseCombobox.Popup
         ref={ref}
         className={cn(
-            'w-[var(--anchor-width)] max-h-[min(var(--available-height),22rem)] max-w-[var(--available-width)] overflow-y-auto scroll-py-2 overscroll-contain rounded-lg border border-pecan/15 bg-surface py-1.5 shadow-lg shadow-pecan/10 origin-[var(--transform-origin)] transition-[transform,scale,opacity] duration-100 data-[starting-style]:scale-95 data-[starting-style]:opacity-0 data-[ending-style]:scale-95 data-[ending-style]:opacity-0',
+            'w-[var(--anchor-width)] max-h-[min(var(--available-height),22rem)] max-w-[var(--available-width)] overflow-y-auto scroll-py-2 overscroll-contain rounded-lg border border-pecan/15 bg-surface py-1.5 shadow-lg shadow-pecan/10 origin-[var(--transform-origin)] transition-[transform,scale,opacity] duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0',
             className
         )}
         {...props}
@@ -97,7 +97,7 @@ export const ComboboxList = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <BaseCombobox.List
         ref={ref}
-        className={cn('outline-none data-[empty]:p-0', className)}
+        className={cn('outline-none data-empty:p-0', className)}
         {...props}
     />
 ));
@@ -111,9 +111,9 @@ export const ComboboxItem = React.forwardRef<
     <BaseCombobox.Item
         ref={ref}
         className={cn(
-            'relative grid cursor-default select-none grid-cols-[0.875rem_1fr] items-center gap-2 px-3 py-2 text-sm text-pecan outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+            'relative grid cursor-default select-none grid-cols-[0.875rem_1fr] items-center gap-2 px-3 py-2 text-sm text-pecan outline-none data-disabled:pointer-events-none data-disabled:opacity-50',
             // Highlighted: warm pecan background — like a Texas night sky
-            'data-[highlighted]:before:absolute data-[highlighted]:before:inset-x-1.5 data-[highlighted]:before:inset-y-0 data-[highlighted]:before:z-[-1] data-[highlighted]:before:rounded-md data-[highlighted]:before:bg-pecan data-[highlighted]:before:content-[""] data-[highlighted]:relative data-[highlighted]:z-0 data-[highlighted]:text-white',
+            'data-highlighted:before:absolute data-highlighted:before:inset-x-1.5 data-highlighted:before:inset-y-0 data-highlighted:before:z-[-1] data-highlighted:before:rounded-md data-highlighted:before:bg-pecan data-highlighted:before:content-[""] data-highlighted:relative data-highlighted:z-0 data-highlighted:text-white',
             className
         )}
         {...props}
@@ -129,7 +129,7 @@ export const ComboboxItemIndicator = React.forwardRef<
     <BaseCombobox.ItemIndicator
         ref={ref}
         className={cn(
-            'col-start-1 flex items-center justify-center text-longhorn data-[highlighted]:text-white',
+            'col-start-1 flex items-center justify-center text-longhorn data-highlighted:text-white',
             className
         )}
         {...props}

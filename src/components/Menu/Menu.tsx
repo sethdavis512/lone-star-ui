@@ -21,8 +21,8 @@ export const MenuTrigger = React.forwardRef<
         className={cn(
             'inline-flex h-8 cursor-default items-center gap-1 rounded-sm px-3 text-sm font-medium text-pecan select-none outline-none',
             'hover:bg-mesa/60 focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-sky-500',
-            'data-[popup-open]:bg-mesa/60',
-            'data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+            'data-popup-open:bg-mesa/60',
+            'data-disabled:cursor-not-allowed data-disabled:opacity-50',
             className
         )}
         {...props}
@@ -51,8 +51,8 @@ export const MenuPopup = React.forwardRef<
         className={cn(
             'min-w-[8rem] rounded-md border border-pecan/15 bg-surface p-1 shadow-md',
             'origin-[var(--transform-origin)] transition-[transform,scale,opacity] duration-150',
-            'data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
-            'data-[ending-style]:scale-95 data-[ending-style]:opacity-0',
+            'data-starting-style:scale-95 data-starting-style:opacity-0',
+            'data-ending-style:scale-95 data-ending-style:opacity-0',
             className
         )}
         {...props}
@@ -81,8 +81,8 @@ MenuArrow.displayName = 'MenuArrow';
 
 const itemClasses =
     'relative flex cursor-default items-center gap-2 rounded-sm px-3 py-1.5 text-sm text-pecan select-none outline-none ' +
-    'data-[highlighted]:bg-mesa/60 data-[popup-open]:bg-mesa/40 ' +
-    'data-[disabled]:pointer-events-none data-[disabled]:opacity-50';
+    'data-highlighted:bg-mesa/60 data-popup-open:bg-mesa/40 ' +
+    'data-disabled:pointer-events-none data-disabled:opacity-50';
 
 export const MenuItem = React.forwardRef<
     HTMLDivElement,

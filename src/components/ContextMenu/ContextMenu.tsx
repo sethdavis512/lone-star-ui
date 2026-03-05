@@ -45,7 +45,7 @@ export const ContextMenuPopup = React.forwardRef<
         className={cn(
             'min-w-[8rem] rounded-md border border-pecan/15 bg-surface p-1 shadow-md',
             'transition-opacity duration-150',
-            'data-[starting-style]:opacity-0 data-[ending-style]:opacity-0',
+            'data-starting-style:opacity-0 data-ending-style:opacity-0',
             className
         )}
         {...props}
@@ -74,8 +74,8 @@ ContextMenuArrow.displayName = 'ContextMenuArrow';
 
 const itemClasses =
     'relative flex cursor-default items-center gap-2 rounded-sm px-3 py-1.5 text-sm text-pecan select-none outline-none ' +
-    'data-[highlighted]:bg-mesa/60 data-[popup-open]:bg-mesa/40 ' +
-    'data-[disabled]:pointer-events-none data-[disabled]:opacity-50';
+    'data-highlighted:bg-mesa/60 data-popup-open:bg-mesa/40 ' +
+    'data-disabled:pointer-events-none data-disabled:opacity-50';
 
 export const ContextMenuItem = React.forwardRef<
     HTMLDivElement,

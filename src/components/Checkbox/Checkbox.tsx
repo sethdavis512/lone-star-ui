@@ -58,7 +58,7 @@ export const CheckboxRoot = React.forwardRef<
     <BaseCheckbox.Root
         ref={ref}
         className={cn(
-            'flex size-5 shrink-0 items-center justify-center rounded-sm border border-pecan/30 bg-surface transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-[checked]:border-sky data-[checked]:bg-sky data-[indeterminate]:border-sky data-[indeterminate]:bg-sky data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+            'flex size-5 shrink-0 items-center justify-center rounded-sm border border-pecan/30 bg-surface transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-checked:border-sky data-checked:bg-sky data-indeterminate:border-sky data-indeterminate:bg-sky data-disabled:cursor-not-allowed data-disabled:opacity-50',
             className
         )}
         {...props}
@@ -75,7 +75,7 @@ export const CheckboxIndicator = React.forwardRef<
 >(({ className, children, indeterminate, ...props }, ref) => (
     <BaseCheckbox.Indicator
         ref={ref}
-        className={cn('flex text-white data-[unchecked]:hidden', className)}
+        className={cn('flex text-white data-unchecked:hidden', className)}
         {...props}
     >
         {children ?? (indeterminate ? <MinusIcon /> : <CheckIcon />)}

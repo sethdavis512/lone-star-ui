@@ -17,7 +17,7 @@ export const PopoverTrigger: React.ForwardRefExoticComponent<
     <BasePopover.Trigger
         ref={ref}
         className={cn(
-            'inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-surface px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-[popup-open]:bg-mesa',
+            'inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-surface px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-popup-open:bg-mesa',
             className
         )}
         {...props}
@@ -60,7 +60,7 @@ export const PopoverPopup = React.forwardRef<
     <BasePopover.Popup
         ref={ref}
         className={cn(
-            'origin-[var(--transform-origin)] rounded-lg border border-pecan/15 bg-surface p-4 text-pecan shadow-lg transition-[transform,opacity] duration-150 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[instant]:transition-none data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
+            'origin-[var(--transform-origin)] rounded-lg border border-pecan/15 bg-surface p-4 text-pecan shadow-lg transition-[transform,opacity] duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-instant:transition-none data-starting-style:scale-95 data-starting-style:opacity-0',
             className
         )}
         {...props}

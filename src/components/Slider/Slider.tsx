@@ -63,7 +63,7 @@ export const SliderThumb = React.forwardRef<
     <Slider.Thumb
         ref={ref}
         className={cn(
-            'block h-4 w-4 rounded-full border-2 border-sky bg-surface shadow-sm transition-[transform,colors] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-[dragging]:scale-110 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+            'block h-4 w-4 rounded-full border-2 border-sky bg-surface shadow-sm transition-[transform,colors] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 data-dragging:scale-110 data-disabled:pointer-events-none data-disabled:opacity-50',
             className
         )}
         {...props}
