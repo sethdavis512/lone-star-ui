@@ -7,6 +7,12 @@ import { AvatarLabel } from '../components/AvatarLabel';
 import { ConfirmDialog } from '../components/ConfirmDialog';
 import { Button } from '../components/Button';
 import { Badge } from '../components/Badge';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '../components/Card';
+import { Input } from '../components/Input';
+import { SwitchRoot, SwitchThumb } from '../components/Switch';
+import { FieldRoot, FieldLabel, FieldControl, FieldDescription } from '../components/Field';
+import { Alert, AlertTitle, AlertDescription } from '../components/Alert';
+import { TabsRoot, TabsList, TabsTab, TabsPanel } from '../components/Tabs';
 
 const meta: Meta = {
     title: 'Plains/Overview',
@@ -294,4 +300,508 @@ export const ContactProfile: Story = {
 export const ContactProfileIcons: Story = {
     name: 'Contact Profile — Barbara Jordan',
     render: () => <ContactProfilePage contact={CONTACTS[3]!} />
+};
+
+// ── Page: Dashboard ───────────────────────────────────────────────────────────
+
+function DashboardPage() {
+    const statusCounts = CONTACTS.reduce<Record<string, number>>((acc, c) => {
+        acc[c.status] = (acc[c.status] ?? 0) + 1;
+        return acc;
+    }, {});
+    const cityCount = new Set(CONTACTS.map((c) => c.city)).size;
+
+    return (
+        <div className="min-h-screen bg-mesa/20 font-sans text-pecan">
+            <div className="mx-auto max-w-5xl space-y-6 px-6 py-8">
+                <PageHeader
+                    title="Dashboard"
+                    subtitle="Your contact network at a glance"
+                    actions={<Button size="sm">New Contact</Button>}
+                />
+
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+                    {[
+                        { label: 'Total', value: CONTACTS.length, color: 'text-pecan' },
+                        { label: 'Friends', value: statusCounts['Friend'] ?? 0, color: 'text-longhorn' },
+                        { label: 'Colleagues', value: statusCounts['Colleague'] ?? 0, color: 'text-bluebonnet' },
+                        { label: 'Cities', value: cityCount, color: 'text-sky' }
+                    ].map(({ label, value, color }) => (
+                        <Card key={label}>
+                            <CardContent className="pt-6">
+                                <p className="text-xs font-medium uppercase tracking-wide text-pecan/40">
+                                    {label}
+                                </p>
+                                <p className={`mt-1 text-3xl font-semibold ${color}`}>{value}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+
+                <div className="grid gap-6 lg:grid-cols-[1fr_300px]">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>By Status</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-3">
+                            {Object.entries(statusCounts).map(([status, count]) => (
+                                <div key={status} className="flex items-center gap-3">
+                                    <span className="w-28 shrink-0 text-sm text-pecan/60">{status}</span>
+                                    <div className="h-2 flex-1 overflow-hidden rounded-full bg-pecan/10">
+                                        <div
+                                            className="h-full rounded-full bg-sky transition-all"
+                                            style={{ width: `${(count / CONTACTS.length) * 100}%` }}
+                                        />
+                                    </div>
+                                    <span className="w-4 text-right text-sm font-medium">{count}</span>
+                                </div>
+                            ))}
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Recent Contacts</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-3 pt-0">
+                            {CONTACTS.slice(0, 4).map((contact) => (
+                                <AvatarLabel
+                                    key={contact.id}
+                                    initials={contact.initials}
+                                    avatarColor={contact.color}
+                                    name={contact.name}
+                                    subtitle={contact.city}
+                                />
+                            ))}
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export const Dashboard: Story = {
+    name: 'Dashboard',
+    render: () => <DashboardPage />
+};
+
+// ── Page: New Contact ─────────────────────────────────────────────────────────
+
+const STATUS_OPTIONS = ['Friend', 'Colleague', 'Acquaintance', 'Family'] as const;
+
+function NewContactPage() {
+    const [firstName, setFirstName] = React.useState('');
+    const [lastName, setLastName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [phone, setPhone] = React.useState('');
+    const [city, setCity] = React.useState('');
+    const [status, setStatus] = React.useState<string>('Friend');
+    const [saved, setSaved] = React.useState(false);
+
+    function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        setSaved(true);
+    }
+
+    return (
+        <div className="min-h-screen bg-mesa/20 font-sans text-pecan">
+            <div className="mx-auto max-w-xl space-y-6 px-6 py-8">
+                <PageHeader eyebrow="Contacts" title="New Contact" />
+
+                {saved && (
+                    <Alert variant="info">
+                        <AlertTitle>Contact saved!</AlertTitle>
+                        <AlertDescription>
+                            {firstName} {lastName} has been added to your contacts.
+                        </AlertDescription>
+                    </Alert>
+                )}
+
+                <Card>
+                    <CardContent className="pt-6">
+                        <form onSubmit={handleSubmit} className="space-y-5">
+                            <div className="grid gap-4 sm:grid-cols-2">
+                                <FieldRoot name="firstName">
+                                    <FieldLabel>First name</FieldLabel>
+                                    <FieldControl
+                                        render={
+                                            <Input
+                                                placeholder="Willie"
+                                                value={firstName}
+                                                onChange={(e) => setFirstName(e.target.value)}
+                                            />
+                                        }
+                                    />
+                                </FieldRoot>
+                                <FieldRoot name="lastName">
+                                    <FieldLabel>Last name</FieldLabel>
+                                    <FieldControl
+                                        render={
+                                            <Input
+                                                placeholder="Nelson"
+                                                value={lastName}
+                                                onChange={(e) => setLastName(e.target.value)}
+                                            />
+                                        }
+                                    />
+                                </FieldRoot>
+                            </div>
+
+                            <FieldRoot name="email">
+                                <FieldLabel>Email</FieldLabel>
+                                <FieldControl
+                                    render={
+                                        <Input
+                                            type="email"
+                                            placeholder="willie@austin.tx"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                        />
+                                    }
+                                />
+                            </FieldRoot>
+
+                            <div className="grid gap-4 sm:grid-cols-2">
+                                <FieldRoot name="phone">
+                                    <FieldLabel>Phone</FieldLabel>
+                                    <FieldControl
+                                        render={
+                                            <Input
+                                                type="tel"
+                                                placeholder="(512) 555-0101"
+                                                value={phone}
+                                                onChange={(e) => setPhone(e.target.value)}
+                                            />
+                                        }
+                                    />
+                                </FieldRoot>
+                                <FieldRoot name="city">
+                                    <FieldLabel>City</FieldLabel>
+                                    <FieldControl
+                                        render={
+                                            <Input
+                                                placeholder="Austin"
+                                                value={city}
+                                                onChange={(e) => setCity(e.target.value)}
+                                            />
+                                        }
+                                    />
+                                </FieldRoot>
+                            </div>
+
+                            <div className="space-y-2">
+                                <p className="text-sm font-medium text-pecan">Status</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {STATUS_OPTIONS.map((s) => (
+                                        <button
+                                            key={s}
+                                            type="button"
+                                            onClick={() => setStatus(s)}
+                                            className={[
+                                                'rounded-full border px-3 py-1 text-sm transition-colors',
+                                                status === s
+                                                    ? 'border-sky bg-sky/10 font-medium text-sky'
+                                                    : 'border-pecan/20 text-pecan/60 hover:border-pecan/40'
+                                            ].join(' ')}
+                                        >
+                                            {s}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <CardFooter className="px-0 pt-2 justify-end gap-2">
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    onClick={() => {
+                                        setFirstName('');
+                                        setLastName('');
+                                        setEmail('');
+                                        setPhone('');
+                                        setCity('');
+                                        setStatus('Friend');
+                                        setSaved(false);
+                                    }}
+                                >
+                                    Clear
+                                </Button>
+                                <Button type="submit">Save Contact</Button>
+                            </CardFooter>
+                        </form>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    );
+}
+
+export const NewContact: Story = {
+    name: 'New Contact',
+    render: () => <NewContactPage />
+};
+
+// ── Page: Settings ────────────────────────────────────────────────────────────
+
+function SettingsPage() {
+    const [name, setName] = React.useState('Willie Nelson');
+    const [email, setEmail] = React.useState('willie@austin.tx');
+    const [profileSaved, setProfileSaved] = React.useState(false);
+
+    const [emailNotifs, setEmailNotifs] = React.useState(true);
+    const [pushNotifs, setPushNotifs] = React.useState(false);
+    const [weeklyDigest, setWeeklyDigest] = React.useState(true);
+
+    const [deleted, setDeleted] = React.useState(false);
+
+    if (deleted) {
+        return (
+            <div className="flex min-h-screen items-center justify-center bg-mesa/20 font-sans">
+                <div className="text-center text-pecan/60">
+                    <p className="text-lg font-medium">Account deleted.</p>
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        className="mt-3"
+                        onClick={() => setDeleted(false)}
+                    >
+                        Undo
+                    </Button>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="min-h-screen bg-mesa/20 font-sans text-pecan">
+            <div className="mx-auto max-w-2xl space-y-8 px-6 py-8">
+                <PageHeader title="Settings" subtitle="Manage your account and preferences" />
+
+                <TabsRoot defaultValue="profile">
+                    <TabsList>
+                        <TabsTab value="profile">Profile</TabsTab>
+                        <TabsTab value="notifications">Notifications</TabsTab>
+                        <TabsTab value="danger">Danger Zone</TabsTab>
+                    </TabsList>
+
+                    <TabsPanel value="profile" className="pt-6 space-y-6">
+                        {profileSaved && (
+                            <Alert variant="info">
+                                <AlertTitle>Profile updated</AlertTitle>
+                                <AlertDescription>Your changes have been saved.</AlertDescription>
+                            </Alert>
+                        )}
+                        <Card>
+                            <CardContent className="space-y-4 pt-6">
+                                <FieldRoot name="name">
+                                    <FieldLabel>Display name</FieldLabel>
+                                    <FieldControl
+                                        render={
+                                            <Input
+                                                value={name}
+                                                onChange={(e) => {
+                                                    setName(e.target.value);
+                                                    setProfileSaved(false);
+                                                }}
+                                            />
+                                        }
+                                    />
+                                </FieldRoot>
+                                <FieldRoot name="email">
+                                    <FieldLabel>Email address</FieldLabel>
+                                    <FieldControl
+                                        render={
+                                            <Input
+                                                type="email"
+                                                value={email}
+                                                onChange={(e) => {
+                                                    setEmail(e.target.value);
+                                                    setProfileSaved(false);
+                                                }}
+                                            />
+                                        }
+                                    />
+                                    <FieldDescription>
+                                        Used for notifications and sign-in.
+                                    </FieldDescription>
+                                </FieldRoot>
+                            </CardContent>
+                            <CardFooter className="justify-end">
+                                <Button onClick={() => setProfileSaved(true)}>
+                                    Save Changes
+                                </Button>
+                            </CardFooter>
+                        </Card>
+                    </TabsPanel>
+
+                    <TabsPanel value="notifications" className="pt-6">
+                        <Card>
+                            <CardContent className="divide-y divide-pecan/8 pt-6">
+                                {[
+                                    {
+                                        label: 'Email notifications',
+                                        description: 'Receive updates and activity via email.',
+                                        checked: emailNotifs,
+                                        onChange: setEmailNotifs
+                                    },
+                                    {
+                                        label: 'Push notifications',
+                                        description: 'Get alerts sent to your device.',
+                                        checked: pushNotifs,
+                                        onChange: setPushNotifs
+                                    },
+                                    {
+                                        label: 'Weekly digest',
+                                        description: 'A summary of activity every Monday.',
+                                        checked: weeklyDigest,
+                                        onChange: setWeeklyDigest
+                                    }
+                                ].map(({ label, description, checked, onChange }) => (
+                                    <div
+                                        key={label}
+                                        className="flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0"
+                                    >
+                                        <div>
+                                            <p className="text-sm font-medium text-pecan">{label}</p>
+                                            <p className="text-xs text-pecan/50">{description}</p>
+                                        </div>
+                                        <SwitchRoot
+                                            checked={checked}
+                                            onCheckedChange={onChange}
+                                            aria-label={label}
+                                        >
+                                            <SwitchThumb />
+                                        </SwitchRoot>
+                                    </div>
+                                ))}
+                            </CardContent>
+                        </Card>
+                    </TabsPanel>
+
+                    <TabsPanel value="danger" className="pt-6">
+                        <Card>
+                            <CardContent className="pt-6">
+                                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                    <div>
+                                        <p className="font-medium text-prickly-pear">Delete account</p>
+                                        <p className="mt-0.5 text-sm text-pecan/60">
+                                            Permanently remove your account and all associated data. This cannot be undone.
+                                        </p>
+                                    </div>
+                                    <ConfirmDialog
+                                        title="Delete your account?"
+                                        description="All your contacts and data will be permanently deleted. There is no way to recover this information."
+                                        confirmLabel="Delete account"
+                                        cancelLabel="Cancel"
+                                        variant="destructive"
+                                        onConfirm={() => setDeleted(true)}
+                                        trigger={
+                                            <Button variant="destructive">Delete Account</Button>
+                                        }
+                                    />
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </TabsPanel>
+                </TabsRoot>
+            </div>
+        </div>
+    );
+}
+
+export const Settings: Story = {
+    name: 'Settings',
+    render: () => <SettingsPage />
+};
+
+// ── Page: Notification Inbox ──────────────────────────────────────────────────
+
+type NotifType = 'mention' | 'reminder' | 'milestone' | 'system';
+
+interface Notification {
+    id: number;
+    type: NotifType;
+    message: string;
+    contact: Contact;
+    time: string;
+    read: boolean;
+}
+
+const NOTIFICATIONS: Notification[] = [
+    { id: 1, type: 'mention', message: 'Willie Nelson commented on your note.', contact: CONTACTS[0]!, time: '2m ago', read: false },
+    { id: 2, type: 'reminder', message: "Don't forget to follow up with Selena.", contact: CONTACTS[1]!, time: '1h ago', read: false },
+    { id: 3, type: 'milestone', message: 'Barbara Jordan joined 1 year ago today.', contact: CONTACTS[3]!, time: '3h ago', read: true },
+    { id: 4, type: 'system', message: 'Your export is ready to download.', contact: CONTACTS[4]!, time: 'Yesterday', read: true },
+    { id: 5, type: 'mention', message: 'Sam Houston was added to your colleagues.', contact: CONTACTS[5]!, time: '2d ago', read: true }
+];
+
+const NOTIF_BADGE: Record<NotifType, BadgeVariant> = {
+    mention: 'sky',
+    reminder: 'longhorn',
+    milestone: 'bluebonnet',
+    system: 'pecan'
+};
+
+function NotificationInboxPage() {
+    const [notifications, setNotifications] = React.useState(NOTIFICATIONS);
+
+    const unreadCount = notifications.filter((n) => !n.read).length;
+
+    function markAllRead() {
+        setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+    }
+
+    return (
+        <div className="min-h-screen bg-mesa/20 font-sans text-pecan">
+            <div className="mx-auto max-w-2xl space-y-6 px-6 py-8">
+                <PageHeader
+                    title="Notifications"
+                    subtitle={unreadCount > 0 ? `${unreadCount} unread` : 'All caught up'}
+                    actions={
+                        unreadCount > 0 ? (
+                            <Button variant="ghost" size="sm" onClick={markAllRead}>
+                                Mark all read
+                            </Button>
+                        ) : undefined
+                    }
+                />
+
+                <div className="space-y-2">
+                    {notifications.map((notif) => (
+                        <div
+                            key={notif.id}
+                            className={[
+                                'flex items-start gap-4 rounded-lg border px-5 py-4 transition-colors',
+                                notif.read
+                                    ? 'border-pecan/10 bg-surface'
+                                    : 'border-sky/20 bg-sky/5'
+                            ].join(' ')}
+                        >
+                            <AvatarLabel
+                                initials={notif.contact.initials}
+                                avatarColor={notif.contact.color}
+                                name=""
+                                subtitle=""
+                            />
+                            <div className="flex-1 space-y-1">
+                                <div className="flex items-start justify-between gap-3">
+                                    <p className="text-sm text-pecan">{notif.message}</p>
+                                    <span className="shrink-0 text-xs text-pecan/40">{notif.time}</span>
+                                </div>
+                                <Badge variant={NOTIF_BADGE[notif.type]} className="capitalize">
+                                    {notif.type}
+                                </Badge>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export const NotificationInbox: Story = {
+    name: 'Notification Inbox',
+    render: () => <NotificationInboxPage />
 };
