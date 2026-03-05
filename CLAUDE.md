@@ -51,8 +51,16 @@ Components follow these conventions:
 ### Styling
 
 - Tailwind CSS 4 with CSS custom properties in `src/styles.css` (oklch color space)
-- Design tokens: `--color-primary`, `--color-destructive`
+- Design tokens (Texas palette): `--color-sky`, `--color-longhorn`, `--color-pecan`, `--color-bluebonnet`, `--color-mesa`, `--color-prickly-pear`, `--color-surface`
 - Consumers must import `lone-star-ui/styles` for Tailwind classes to work
+
+### Dark Mode (Stars at Night)
+
+- Class-based toggle via `@custom-variant dark (&:where(.dark, .dark *))` in `src/styles.css`
+- The `.dark` scope in `src/styles.css` redefines all design tokens for dark backgrounds
+- Components use Tailwind's `dark:` modifier for dark-specific styles (e.g., `dark:bg-sky/15 dark:text-sky`)
+- Storybook uses `@storybook/addon-themes` with `withThemeByClassName` in `.storybook/preview.tsx` — this is the official addon for class-based theme switching
+- `.storybook/preview.css` contains Storybook-only CSS overrides (not shipped to consumers) that apply `var(--color-surface)` to the viewport and docs preview containers in dark mode
 
 ### Exports
 
@@ -62,6 +70,11 @@ Package supports subpath exports:
 - `lone-star-ui/button` — just Button
 - `lone-star-ui/styles` — CSS stylesheet
 
+### Releasing
+
+- **Do not run `npm publish` directly.** A GitHub Actions workflow handles publishing.
+- To release: bump the `version` in `package.json`, commit, and push to `main`. The workflow takes it from there.
+
 ### Key Files
 
 - `src/index.ts` — public API barrel export
@@ -70,3 +83,5 @@ Package supports subpath exports:
 - `build.ts` — Bun build script
 - `vitest.config.ts` — Vitest + Storybook test config
 - `.storybook/main.tsx` — Storybook config with Tailwind vite plugin
+- `.storybook/preview.tsx` — Storybook decorators and theme toggle config
+- `.storybook/preview.css` — Storybook-only dark mode CSS overrides
