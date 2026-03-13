@@ -2,7 +2,7 @@ import { Button as BaseButton } from '@base-ui/react/button';
 import { cva, type VariantProps } from 'cva';
 import { cn } from '../../utils/cn';
 
-const buttonVariants = cva({
+export const buttonVariants = cva({
     base: 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 data-disabled:pointer-events-none data-disabled:opacity-50',
     variants: {
         variant: {

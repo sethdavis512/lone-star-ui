@@ -1,13 +1,26 @@
+import { Glob } from 'bun';
+
+// Discover all component entrypoints
+const componentEntrypoints: string[] = [];
+const glob = new Glob('src/components/*/index.ts');
+for await (const file of glob.scan('.')) {
+    componentEntrypoints.push(file);
+}
+
 const result = await Bun.build({
-    entrypoints: ['src/index.ts'],
+    entrypoints: ['src/index.ts', ...componentEntrypoints, 'src/utils/cn.ts'],
     outdir: './dist',
+    root: './src',
     format: 'esm',
     target: 'browser',
+    splitting: true,
     external: [
         'react',
         'react-dom',
         'react/jsx-runtime',
-        'react/jsx-dev-runtime'
+        'react/jsx-dev-runtime',
+        '@base-ui/react',
+        '@base-ui/react/*'
     ],
     sourcemap: 'external',
     define: {
@@ -37,5 +50,7 @@ if (cssProc.exitCode !== 0) {
     console.error(cssProc.stderr.toString());
     process.exit(1);
 }
+
+await Bun.write('dist/fonts.css', Bun.file('src/fonts.css'));
 
 console.log('✓ Build complete');

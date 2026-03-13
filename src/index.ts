@@ -1,8 +1,8 @@
 // Components
-export { Button } from './components/Button';
+export { Button, buttonVariants } from './components/Button';
 export type { ButtonProps } from './components/Button';
 
-export { Input } from './components/Input';
+export { Input, inputVariants } from './components/Input';
 export type { InputProps } from './components/Input';
 
 export {
@@ -13,13 +13,13 @@ export {
     CardFooter
 } from './components/Card';
 
-export { Badge } from './components/Badge';
+export { Badge, badgeVariants } from './components/Badge';
 export type { BadgeProps } from './components/Badge';
 
-export { Alert, AlertTitle, AlertDescription } from './components/Alert';
+export { Alert, AlertTitle, AlertDescription, alertVariants } from './components/Alert';
 export type { AlertProps } from './components/Alert';
 
-export { Avatar } from './components/Avatar';
+export { Avatar, avatarVariants } from './components/Avatar';
 export type { AvatarProps } from './components/Avatar';
 
 export {
@@ -365,3 +365,6 @@ export {
 // Utilities — exporting cn is optional, but useful for consumers
 // who want consistent class merging with your library
 export { cn } from './utils/cn';
+
+// ── CVA utilities — for consumers building custom components ─────────────────
+export { cva, type VariantProps } from 'cva';

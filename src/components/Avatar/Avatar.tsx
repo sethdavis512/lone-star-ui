@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'cva';
 import { cn } from '../../utils/cn';
 import React from 'react';
 
-const avatarVariants = cva({
+export const avatarVariants = cva({
     base: 'inline-flex items-center justify-center rounded-full font-semibold shrink-0 overflow-hidden select-none align-middle',
     variants: {
         color: {

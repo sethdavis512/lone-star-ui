@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from 'cva';
 import { cn } from '../../utils/cn';
 
-const alertVariants = cva({
+export const alertVariants = cva({
     base: 'relative w-full rounded-lg border-l-4 p-4',
     variants: {
         variant: {

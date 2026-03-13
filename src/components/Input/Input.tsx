@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'cva';
 import { cn } from '../../utils/cn';
 import React from 'react';
 
-const inputVariants = cva({
+export const inputVariants = cva({
     base: 'flex w-full rounded-md border bg-surface px-3 text-sm text-pecan transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-pecan/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 data-disabled:cursor-not-allowed data-disabled:opacity-50',
     variants: {
         variant: {
