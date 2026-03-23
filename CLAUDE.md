@@ -46,7 +46,7 @@ Components follow these conventions:
 
 ### Build Pipeline
 
-`build.ts` uses `Bun.build()` with multiple entrypoints (`src/index.ts` + every `src/components/*/index.ts` + `src/utils/cn.ts`) and `splitting: true` to produce per-component JS bundles with shared chunks. CSS is processed separately by `@tailwindcss/cli`, which compiles `src/styles.css` → `dist/styles.css` with all utility classes pre-compiled and minified. This means consumers only need `@import 'lone-star-ui/styles'` — no `@source` directive required. React, ReactDOM, and `@base-ui/react` are externalized as peer deps. `tsc` generates declaration files only. `src/fonts.css` is copied to `dist/fonts.css` as an opt-in Google Fonts import.
+`build.ts` uses `Bun.build()` with multiple entrypoints (`src/index.ts` + every `src/components/*/index.ts` + `src/utils/cn.ts`) and `splitting: true` to produce per-component JS bundles with shared chunks. A post-build deduplication pass removes duplicate `export` statements that Bun emits when barrel re-exports overlap with inlined module exports (without this, Node's ESM loader and Vite reject the bundles). CSS is processed separately by `@tailwindcss/cli`, which compiles `src/styles.css` → `dist/styles.css` with all utility classes pre-compiled and minified. This means consumers only need `@import 'lone-star-ui/styles'` — no `@source` directive required. React, ReactDOM, and `@base-ui/react` are externalized as peer deps. `tsc` generates declaration files only. `src/fonts.css` and `src/theme.css` are copied to `dist/` as opt-in imports.
 
 ### Styling
 
@@ -71,7 +71,8 @@ Package supports subpath exports for every component (kebab-case):
 - `lone-star-ui/badge` — just Badge + badgeVariants
 - `lone-star-ui/<component>` — any component (see `package.json` exports map for full list)
 - `lone-star-ui/utils` — `cn()` utility only
-- `lone-star-ui/styles` — CSS stylesheet
+- `lone-star-ui/styles` — CSS stylesheet (pre-built bundle with all utilities)
+- `lone-star-ui/theme` — Tailwind v4 theme preset (design tokens + dark mode) for consumers who use Tailwind themselves
 - `lone-star-ui/fonts` — opt-in Google Fonts import (Zilla Slab)
 
 CVA variant configs (`buttonVariants`, `badgeVariants`, `alertVariants`, `inputVariants`, `avatarVariants`) are exported alongside their components so consumers can apply library styles to custom elements.
@@ -85,6 +86,7 @@ CVA variant configs (`buttonVariants`, `badgeVariants`, `alertVariants`, `inputV
 
 - `src/index.ts` — public API barrel export
 - `src/styles.css` — Tailwind config + design tokens (font import removed — see `src/fonts.css`)
+- `src/theme.css` — Tailwind v4 theme preset (tokens + dark mode) for consuming apps
 - `src/fonts.css` — opt-in Google Fonts import for Zilla Slab
 - `src/utils/cn.ts` — class name merging utility (clsx + twMerge)
 - `build.ts` — Bun build script

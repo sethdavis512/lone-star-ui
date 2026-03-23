@@ -555,3 +555,128 @@ export const CustomTheme: Story = {
     name: 'How to Apply a Custom Theme',
     render: () => <CustomThemeGuide />
 };
+
+/* ── Tailwind v4 Theme Preset Story ──────────────────────────── */
+
+function ThemePresetGuide() {
+    return (
+        <div className="min-w-[600px] max-w-2xl space-y-6 rounded-xl bg-surface p-8">
+            <div>
+                <h2 className="font-slab text-2xl font-bold text-pecan">
+                    Theme Preset for Tailwind v4
+                </h2>
+                <p className="mt-1 text-sm text-pecan/60">
+                    If your consuming app also uses Tailwind v4, import the{' '}
+                    <strong>theme preset</strong> instead of the pre-built
+                    stylesheet. This registers all design tokens directly in your
+                    Tailwind config so utilities like{' '}
+                    <code className="rounded bg-mesa px-1.5 py-0.5 font-mono text-xs text-pecan">
+                        text-sky/65
+                    </code>{' '}
+                    and{' '}
+                    <code className="rounded bg-mesa px-1.5 py-0.5 font-mono text-xs text-pecan">
+                        border-pecan/12
+                    </code>{' '}
+                    work without re-declaring token values.
+                </p>
+            </div>
+
+            <Alert variant="warning">
+                <AlertTitle>Why a separate preset?</AlertTitle>
+                <AlertDescription>
+                    The pre-built <code>lone-star-ui/styles</code> bundles all
+                    Tailwind utilities for the library's own components. If your
+                    app also runs Tailwind, importing that bundle plus your own
+                    Tailwind can cause double-reset conflicts and forces you to
+                    duplicate token values in your{' '}
+                    <code>@theme</code> block. The preset avoids both problems.
+                </AlertDescription>
+            </Alert>
+
+            {/* Option A */}
+            <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky/10 text-sm font-bold text-sky">
+                        A
+                    </span>
+                    <p className="font-semibold text-pecan">
+                        Pre-built bundle (non-Tailwind apps)
+                    </p>
+                </div>
+                <pre className="rounded-lg bg-mesa/40 p-4 text-xs text-pecan/80">{`// Just import the stylesheet — all utilities are pre-compiled
+import 'lone-star-ui/styles';`}</pre>
+                <p className="text-xs text-pecan/50">
+                    Best for apps that don't use Tailwind themselves, or where you
+                    don't need token-based utilities in your own code.
+                </p>
+            </div>
+
+            {/* Option B */}
+            <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-bluebonnet/10 text-sm font-bold text-bluebonnet">
+                        B
+                    </span>
+                    <p className="font-semibold text-pecan">
+                        Theme preset (Tailwind v4 apps)
+                    </p>
+                </div>
+                <pre className="rounded-lg bg-mesa/40 p-4 text-xs text-pecan/80">{`/* app.css */
+@import 'lone-star-ui/theme';
+@import 'tailwindcss';
+
+/* That's it — all Lone Star tokens are now registered.
+   You can use bg-sky/10, text-pecan, border-bluebonnet/30,
+   etc. in your own components without re-declaring values. */`}</pre>
+                <p className="text-xs text-pecan/50">
+                    The theme preset exports the{' '}
+                    <code className="font-mono">@theme</code> block, dark mode
+                    variant, and{' '}
+                    <code className="font-mono">.dark</code> token overrides.
+                    Lone Star UI remains the single source of truth for all token
+                    values.
+                </p>
+            </div>
+
+            {/* What's included */}
+            <div className="rounded-lg border border-pecan/10 bg-mesa/30 p-4">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-pecan/50">
+                    What the preset includes
+                </p>
+                <pre className="overflow-x-auto text-xs text-pecan/80">{`/* lone-star-ui/theme */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-slab: 'Zilla Slab', Georgia, serif;
+  --color-sky:          oklch(68% 0.17 205);
+  --color-longhorn:     oklch(71% 0.17 65);
+  --color-pecan:        oklch(35% 0.07 55);
+  --color-bluebonnet:   oklch(52% 0.19 282);
+  --color-mesa:         oklch(92% 0.02 78);
+  --color-prickly-pear: oklch(62% 0.22 345);
+  --color-surface:      #ffffff;
+}
+
+.dark { /* … all tokens redefined … */ }`}</pre>
+            </div>
+
+            <Alert variant="info">
+                <AlertTitle>Overriding tokens still works</AlertTitle>
+                <AlertDescription>
+                    After importing the preset, you can still override individual
+                    tokens in your own{' '}
+                    <code className="rounded bg-mesa px-1.5 py-0.5 font-mono text-xs text-pecan">
+                        :root
+                    </code>{' '}
+                    or scoped selectors — just like with the pre-built bundle.
+                </AlertDescription>
+            </Alert>
+        </div>
+    );
+}
+
+export const ThemePreset: Story = {
+    name: 'Theme Preset (Tailwind v4)',
+    render: () => <ThemePresetGuide />
+};

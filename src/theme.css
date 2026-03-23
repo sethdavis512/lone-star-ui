@@ -1,0 +1,52 @@
+/* lone-star-ui/theme — Tailwind v4 theme preset
+ *
+ * Import this file in consuming apps that also use Tailwind v4 so that
+ * lone-star-ui's design tokens are registered for utility generation
+ * (e.g. `text-sky/65`, `border-pecan/12`) without duplicating values.
+ *
+ * Usage:
+ *   @import 'lone-star-ui/theme';
+ *   @import 'tailwindcss';
+ */
+
+/* ── Dark mode: class-based toggle ─────────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    /* ── Lone Star UI — Texas Palette ─────────────────────────────── */
+    --font-slab: 'Zilla Slab', Georgia, serif;
+
+    --color-sky: oklch(
+        68% 0.17 205
+    ); /* wide-open Texas sky — teal/turquoise  */
+    --color-longhorn: oklch(
+        71% 0.17 65
+    ); /* burnt amber — UT orange territory     */
+    --color-pecan: oklch(
+        35% 0.07 55
+    ); /* warm brown — Texas state tree         */
+    --color-bluebonnet: oklch(
+        52% 0.19 282
+    ); /* violet/purple — Texas state flower    */
+    --color-mesa: oklch(
+        92% 0.02 78
+    ); /* warm sandstone — neutral backgrounds  */
+    --color-prickly-pear: oklch(
+        62% 0.22 345
+    ); /* pink-magenta — pop/destructive accent */
+
+    /* ── Semantic surface token ─────────────────────────────────── */
+    --color-surface: #ffffff;
+}
+
+/* ── Stars at Night — Dark Theme ───────────────────────────────── */
+.dark {
+    --color-sky: oklch(72% 0.15 205);
+    --color-longhorn: oklch(76% 0.15 65);
+    --color-pecan: oklch(85% 0.04 55);
+    --color-bluebonnet: oklch(62% 0.17 282);
+    --color-mesa: oklch(28% 0.02 78);
+    --color-prickly-pear: oklch(68% 0.2 345);
+    --color-surface: oklch(18% 0.015 78);
+    --tw-ring-offset-color: var(--color-surface);
+}
