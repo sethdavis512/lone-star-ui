@@ -88,6 +88,10 @@
             "import": "./dist/components/Input/index.js",
             "types": "./dist/components/Input/index.d.ts"
         },
+        "./textarea": {
+            "import": "./dist/components/Textarea/index.js",
+            "types": "./dist/components/Textarea/index.d.ts"
+        },
         "./menu": {
             "import": "./dist/components/Menu/index.js",
             "types": "./dist/components/Menu/index.d.ts"
