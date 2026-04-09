@@ -1,5 +1,11 @@
 # lone-star-ui
 
+## 0.11.0
+
+### Minor Changes
+
+- ab871c0: Add Textarea component with variant (default, error) and size (sm, md, lg) support
+
 ## 0.2.2
 
 ### Patch Changes
