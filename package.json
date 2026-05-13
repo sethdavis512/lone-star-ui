@@ -1,6 +1,6 @@
 {
     "name": "lone-star-ui",
-    "version": "0.10.2",
+    "version": "0.10.3",
     "module": "index.ts",
     "type": "module",
     "exports": {
@@ -188,9 +188,21 @@
             "import": "./dist/utils/cn.js",
             "types": "./dist/utils/cn.d.ts"
         },
-        "./styles": "./dist/styles.css",
-        "./theme": "./dist/theme.css",
-        "./fonts": "./dist/fonts.css"
+        "./styles": {
+            "types": "./dist/styles.d.ts",
+            "default": "./dist/styles.css"
+        },
+        "./styles.css": "./dist/styles.css",
+        "./theme": {
+            "types": "./dist/theme.d.ts",
+            "default": "./dist/theme.css"
+        },
+        "./theme.css": "./dist/theme.css",
+        "./fonts": {
+            "types": "./dist/fonts.d.ts",
+            "default": "./dist/fonts.css"
+        },
+        "./fonts.css": "./dist/fonts.css"
     },
     "types": "./dist/index.d.ts",
     "sideEffects": [

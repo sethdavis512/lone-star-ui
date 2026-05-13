@@ -84,4 +84,9 @@ if (cssProc.exitCode !== 0) {
 await Bun.write('dist/fonts.css', Bun.file('src/fonts.css'));
 await Bun.write('dist/theme.css', Bun.file('src/theme.css'));
 
+const cssTypeStub = 'export {};\n';
+await Bun.write('dist/styles.d.ts', cssTypeStub);
+await Bun.write('dist/fonts.d.ts', cssTypeStub);
+await Bun.write('dist/theme.d.ts', cssTypeStub);
+
 console.log('✓ Build complete');
