@@ -1,4 +1,4 @@
-import { DrawerPreview as BaseDrawer } from '@base-ui/react/drawer';
+import { Drawer as BaseDrawer } from '@base-ui/react/drawer';
 import React from 'react';
 import { cn } from '../../utils/cn';
 
