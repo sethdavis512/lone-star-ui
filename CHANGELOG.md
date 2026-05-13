@@ -1,5 +1,16 @@
 # lone-star-ui
 
+## 0.11.0
+
+### Minor Changes
+
+- ab871c0: Add Textarea component with variant (default, error) and size (sm, md, lg) support
+
+### Patch Changes
+
+- 8ec6161: Add type stubs for CSS subpath exports (`./styles`, `./theme`, `./fonts`) so TypeScript with `moduleResolution: bundler` / `nodenext` can resolve side-effect imports like `import 'lone-star-ui/styles'`. Also exposes `./styles.css`, `./theme.css`, `./fonts.css` aliases for bundlers that prefer explicit extensions.
+- 8ec6161: Fix Drawer import for @base-ui/react 1.3+ — the namespace export was renamed from `DrawerPreview` to `Drawer` when it graduated from preview. Bumped peer to 1.4.1.
+
 ## 0.2.2
 
 ### Patch Changes
