@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, within, waitFor } from 'storybook/test';
 import {
     PreviewCardRoot,
     PreviewCardPortal,
@@ -49,10 +49,14 @@ export const Default: StoryObj = {
         const canvas = within(canvasElement);
         const trigger = canvas.getByRole('link', { name: 'typography' });
         await userEvent.hover(trigger);
-        // PreviewCard has a delay before showing — wait for it
-        await new Promise((r) => setTimeout(r, 700));
-        const tooltip = within(document.body).getByRole('tooltip');
-        expect(tooltip).toBeVisible();
+        // PreviewCard has an open delay and enter animation — wait for the
+        // popup content to appear and finish animating in.
+        const popup = await within(document.body).findByText(
+            /arranging type to make written language/i,
+            undefined,
+            { timeout: 2000 }
+        );
+        await waitFor(() => expect(popup).toBeVisible());
     }
 };
 

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, within, waitFor } from 'storybook/test';
 import {
     AlertDialogRoot,
     AlertDialogPortal,
@@ -58,12 +58,16 @@ export const Default: StoryObj = {
         const canvas = within(canvasElement);
         const trigger = canvas.getByRole('button', { name: 'Delete Item' });
         await userEvent.click(trigger);
-        const dialog = within(document.body).getByRole('alertdialog');
-        expect(dialog).toBeVisible();
+        const dialog = await within(document.body).findByRole('alertdialog');
+        await waitFor(() => expect(dialog).toBeVisible());
         expect(within(dialog).getByText('Are you sure?')).toBeVisible();
         const cancel = within(dialog).getByRole('button', { name: 'Cancel' });
         await userEvent.click(cancel);
-        expect(within(document.body).queryByRole('alertdialog')).toBeNull();
+        await waitFor(() =>
+            expect(
+                within(document.body).queryByRole('alertdialog')
+            ).toBeNull()
+        );
     }
 };
 
@@ -106,12 +110,16 @@ export const SignOut: StoryObj = {
         const canvas = within(canvasElement);
         const trigger = canvas.getByRole('button', { name: 'Sign Out' });
         await userEvent.click(trigger);
-        const dialog = within(document.body).getByRole('alertdialog');
-        expect(dialog).toBeVisible();
+        const dialog = await within(document.body).findByRole('alertdialog');
+        await waitFor(() => expect(dialog).toBeVisible());
         const confirm = within(dialog).getByRole('button', {
             name: 'Sign Out'
         });
         await userEvent.click(confirm);
-        expect(within(document.body).queryByRole('alertdialog')).toBeNull();
+        await waitFor(() =>
+            expect(
+                within(document.body).queryByRole('alertdialog')
+            ).toBeNull()
+        );
     }
 };

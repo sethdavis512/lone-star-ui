@@ -40,7 +40,7 @@ export const Error: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
         const input = canvas.getByRole('textbox');
-        await expect(input).toHaveClass('border-red-500');
+        await expect(input).toHaveClass('border-prickly-pear');
     }
 };
 

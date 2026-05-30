@@ -17,42 +17,36 @@ type Story = StoryObj;
 
 export const Default: Story = {
     render: () => (
-        <div className="w-72 space-y-1">
+        <ProgressRoot value={60} className="w-72">
             <div className="flex items-center justify-between">
                 <ProgressLabel>Loading…</ProgressLabel>
                 <ProgressValue />
             </div>
-            <ProgressRoot value={60}>
-                <ProgressTrack>
-                    <ProgressIndicator />
-                </ProgressTrack>
-            </ProgressRoot>
-        </div>
+            <ProgressTrack>
+                <ProgressIndicator />
+            </ProgressTrack>
+        </ProgressRoot>
     )
 };
 
 export const Complete: Story = {
     render: () => (
-        <div className="w-72 space-y-1">
+        <ProgressRoot value={100} className="w-72">
             <ProgressLabel>Done</ProgressLabel>
-            <ProgressRoot value={100}>
-                <ProgressTrack>
-                    <ProgressIndicator />
-                </ProgressTrack>
-            </ProgressRoot>
-        </div>
+            <ProgressTrack>
+                <ProgressIndicator />
+            </ProgressTrack>
+        </ProgressRoot>
     )
 };
 
 export const Indeterminate: Story = {
     render: () => (
-        <div className="w-72 space-y-1">
+        <ProgressRoot value={null} className="w-72">
             <ProgressLabel>Processing…</ProgressLabel>
-            <ProgressRoot value={null}>
-                <ProgressTrack>
-                    <ProgressIndicator />
-                </ProgressTrack>
-            </ProgressRoot>
-        </div>
+            <ProgressTrack>
+                <ProgressIndicator />
+            </ProgressTrack>
+        </ProgressRoot>
     )
 };

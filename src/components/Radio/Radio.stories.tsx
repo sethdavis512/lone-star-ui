@@ -78,7 +78,7 @@ export const Disabled: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
         const radios = canvas.getAllByRole('radio');
-        await expect(radios[0]).toBeDisabled();
+        await expect(radios[0]).toHaveAttribute('aria-disabled', 'true');
     }
 };
 

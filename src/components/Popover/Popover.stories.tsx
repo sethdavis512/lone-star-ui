@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, within, waitFor } from 'storybook/test';
 import {
     PopoverRoot,
     PopoverPortal,
@@ -49,12 +49,14 @@ export const Default: StoryObj = {
         const canvas = within(canvasElement);
         const trigger = canvas.getByRole('button', { name: 'Open Popover' });
         await userEvent.click(trigger);
-        const dialog = within(document.body).getByRole('dialog');
-        expect(dialog).toBeVisible();
+        const dialog = await within(document.body).findByRole('dialog');
+        await waitFor(() => expect(dialog).toBeVisible());
         expect(within(dialog).getByText('Notifications')).toBeVisible();
         const close = within(dialog).getByRole('button', { name: 'Dismiss' });
         await userEvent.click(close);
-        expect(within(document.body).queryByRole('dialog')).toBeNull();
+        await waitFor(() =>
+            expect(within(document.body).queryByRole('dialog')).toBeNull()
+        );
     }
 };
 

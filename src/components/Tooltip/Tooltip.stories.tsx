@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, within, waitFor } from 'storybook/test';
 import {
     TooltipProvider,
     TooltipRoot,
@@ -39,10 +39,19 @@ export const Default: StoryObj = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
         const trigger = canvas.getByRole('button', { name: 'Save' });
-        await userEvent.hover(trigger);
-        const tooltip = within(document.body).getByRole('tooltip');
-        expect(tooltip).toBeVisible();
-        expect(tooltip).toHaveTextContent('Save your changes');
+        // Open via keyboard focus rather than hover: Base UI's hover relies on
+        // floating-ui mousemove tracking that user-event does not emit, whereas
+        // focus opens the tooltip deterministically. The popup has no
+        // `role="tooltip"` (Base UI wires it up via aria-describedby), so query
+        // it by its text content.
+        await userEvent.tab();
+        await expect(trigger).toHaveFocus();
+        const tooltip = await within(document.body).findByText(
+            'Save your changes',
+            undefined,
+            { timeout: 3000 }
+        );
+        await waitFor(() => expect(tooltip).toBeVisible());
     }
 };
 

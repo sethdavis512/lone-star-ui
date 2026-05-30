@@ -62,7 +62,7 @@ export const Disabled: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
         const switchEl = canvas.getByRole('switch');
-        await expect(switchEl).toBeDisabled();
+        await expect(switchEl).toHaveAttribute('aria-disabled', 'true');
     }
 };
 

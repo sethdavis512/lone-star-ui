@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, within, waitFor } from 'storybook/test';
 import {
     DialogRoot,
     DialogPortal,
@@ -53,12 +53,14 @@ export const Default: StoryObj = {
         const canvas = within(canvasElement);
         const trigger = canvas.getByRole('button', { name: 'Open Dialog' });
         await userEvent.click(trigger);
-        const dialog = within(document.body).getByRole('dialog');
-        expect(dialog).toBeVisible();
+        const dialog = await within(document.body).findByRole('dialog');
+        await waitFor(() => expect(dialog).toBeVisible());
         expect(within(dialog).getByText('Example Dialog')).toBeVisible();
         const close = within(dialog).getByRole('button', { name: 'Confirm' });
         await userEvent.click(close);
-        expect(within(document.body).queryByRole('dialog')).toBeNull();
+        await waitFor(() =>
+            expect(within(document.body).queryByRole('dialog')).toBeNull()
+        );
     }
 };
 
@@ -131,8 +133,8 @@ export const DestructiveAction: StoryObj = {
         const canvas = within(canvasElement);
         const trigger = canvas.getByRole('button', { name: 'Delete Account' });
         await userEvent.click(trigger);
-        const dialog = within(document.body).getByRole('dialog');
-        expect(dialog).toBeVisible();
+        const dialog = await within(document.body).findByRole('dialog');
+        await waitFor(() => expect(dialog).toBeVisible());
         expect(within(dialog).getByText('Delete Account?')).toBeVisible();
         const cancel = within(dialog).getByRole('button', { name: 'Cancel' });
         await userEvent.click(cancel);
