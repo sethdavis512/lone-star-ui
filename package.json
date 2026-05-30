@@ -112,6 +112,10 @@
             "import": "./dist/components/NumberField/index.js",
             "types": "./dist/components/NumberField/index.d.ts"
         },
+        "./otp-field": {
+            "import": "./dist/components/OtpField/index.js",
+            "types": "./dist/components/OtpField/index.d.ts"
+        },
         "./page-header": {
             "import": "./dist/components/PageHeader/index.js",
             "types": "./dist/components/PageHeader/index.d.ts"

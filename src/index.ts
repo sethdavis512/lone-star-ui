@@ -305,6 +305,12 @@ export {
 } from './components/NumberField';
 
 export {
+    OtpFieldRoot,
+    OtpFieldInput,
+    OtpFieldSeparator
+} from './components/OtpField';
+
+export {
     ScrollAreaRoot,
     ScrollAreaViewport,
     ScrollAreaContent,
