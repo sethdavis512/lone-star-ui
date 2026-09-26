@@ -5,5 +5,7 @@ export {
     TooltipTrigger,
     TooltipPositioner,
     TooltipPopup,
-    TooltipArrow
+    TooltipViewport,
+    TooltipArrow,
+    createTooltipHandle
 } from './Tooltip';

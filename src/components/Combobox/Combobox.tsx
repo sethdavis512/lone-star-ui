@@ -10,6 +10,39 @@ export const ComboboxValue = BaseCombobox.Value;
 export const ComboboxChips = BaseCombobox.Chips;
 export const ComboboxChip = BaseCombobox.Chip;
 export const ComboboxChipRemove = BaseCombobox.ChipRemove;
+export const useComboboxFilter = BaseCombobox.useFilter;
+export const useComboboxFilteredItems = BaseCombobox.useFilteredItems;
+export const createComboboxItems = BaseCombobox.createItems;
+
+export const ComboboxLabel = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BaseCombobox.Label>
+>(({ className, ...props }, ref) => (
+    <BaseCombobox.Label
+        ref={ref}
+        className={cn(
+            'cursor-default text-sm font-medium leading-none text-pecan data-disabled:text-pecan/50',
+            className
+        )}
+        {...props}
+    />
+));
+ComboboxLabel.displayName = 'ComboboxLabel';
+
+export const ComboboxInputGroup = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BaseCombobox.InputGroup>
+>(({ className, ...props }, ref) => (
+    <BaseCombobox.InputGroup
+        ref={ref}
+        className={cn(
+            'relative flex w-full items-center data-disabled:opacity-50',
+            className
+        )}
+        {...props}
+    />
+));
+ComboboxInputGroup.displayName = 'ComboboxInputGroup';
 
 export const ComboboxInput = React.forwardRef<
     HTMLInputElement,
@@ -69,6 +102,18 @@ export const ComboboxPositioner = React.forwardRef<
 ));
 ComboboxPositioner.displayName = 'ComboboxPositioner';
 
+export const ComboboxBackdrop = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BaseCombobox.Backdrop>
+>(({ className, ...props }, ref) => (
+    <BaseCombobox.Backdrop
+        ref={ref}
+        className={cn('fixed inset-0', className)}
+        {...props}
+    />
+));
+ComboboxBackdrop.displayName = 'ComboboxBackdrop';
+
 export const ComboboxPopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.Popup>
@@ -84,6 +129,21 @@ export const ComboboxPopup = React.forwardRef<
 ));
 ComboboxPopup.displayName = 'ComboboxPopup';
 
+export const ComboboxArrow = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BaseCombobox.Arrow>
+>(({ className, ...props }, ref) => (
+    <BaseCombobox.Arrow
+        ref={ref}
+        className={cn(
+            'flex data-[side=bottom]:top-[-8px] data-[side=bottom]:rotate-0 data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180',
+            className
+        )}
+        {...props}
+    />
+));
+ComboboxArrow.displayName = 'ComboboxArrow';
+
 export const ComboboxList = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof BaseCombobox.List>
@@ -95,6 +155,18 @@ export const ComboboxList = React.forwardRef<
     />
 ));
 ComboboxList.displayName = 'ComboboxList';
+
+export const ComboboxRow = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BaseCombobox.Row>
+>(({ className, ...props }, ref) => (
+    <BaseCombobox.Row
+        ref={ref}
+        className={cn('grid auto-cols-fr grid-flow-col', className)}
+        {...props}
+    />
+));
+ComboboxRow.displayName = 'ComboboxRow';
 
 export const ComboboxItem = React.forwardRef<
     HTMLDivElement,

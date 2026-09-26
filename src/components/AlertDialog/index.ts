@@ -7,5 +7,6 @@ export {
     AlertDialogTitle,
     AlertDialogDescription,
     AlertDialogClose,
-    AlertDialogTrigger
+    AlertDialogTrigger,
+    createAlertDialogHandle
 } from './AlertDialog';

@@ -1,6 +1,12 @@
 export {
     DrawerRoot,
     DrawerPortal,
+    DrawerProvider,
+    DrawerVirtualKeyboardProvider,
+    DrawerIndent,
+    DrawerIndentBackground,
+    DrawerSwipeArea,
+    createDrawerHandle,
     DrawerTrigger,
     DrawerBackdrop,
     DrawerViewport,

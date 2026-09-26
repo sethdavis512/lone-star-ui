@@ -4,6 +4,7 @@ import { cn } from '../../utils/cn';
 
 export const AlertDialogRoot = BaseAlertDialog.Root;
 export const AlertDialogPortal = BaseAlertDialog.Portal;
+export const createAlertDialogHandle = BaseAlertDialog.createHandle;
 
 export const AlertDialogBackdrop = React.forwardRef<
     HTMLDivElement,

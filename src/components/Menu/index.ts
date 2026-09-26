@@ -5,6 +5,7 @@ export {
     MenuBackdrop,
     MenuPositioner,
     MenuPopup,
+    MenuViewport,
     MenuArrow,
     MenuItem,
     MenuLinkItem,
@@ -17,5 +18,6 @@ export {
     MenuCheckboxItem,
     MenuCheckboxItemIndicator,
     MenuSubmenuRoot,
-    MenuSubmenuTrigger
+    MenuSubmenuTrigger,
+    createMenuHandle
 } from './Menu';

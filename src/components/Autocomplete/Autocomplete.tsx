@@ -7,6 +7,23 @@ export const AutocompleteValue = Autocomplete.Value;
 export const AutocompletePortal = Autocomplete.Portal;
 export const AutocompleteGroup = Autocomplete.Group;
 export const AutocompleteCollection = Autocomplete.Collection;
+export const useAutocompleteFilter = Autocomplete.useFilter;
+export const useAutocompleteFilteredItems = Autocomplete.useFilteredItems;
+
+export const AutocompleteInputGroup = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof Autocomplete.InputGroup>
+>(({ className, ...props }, ref) => (
+    <Autocomplete.InputGroup
+        ref={ref}
+        className={cn(
+            'relative flex w-full items-center data-disabled:opacity-50',
+            className
+        )}
+        {...props}
+    />
+));
+AutocompleteInputGroup.displayName = 'AutocompleteInputGroup';
 
 export const AutocompleteInput = React.forwardRef<
     HTMLInputElement,
@@ -95,6 +112,18 @@ export const AutocompletePositioner = React.forwardRef<
 ));
 AutocompletePositioner.displayName = 'AutocompletePositioner';
 
+export const AutocompleteBackdrop = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof Autocomplete.Backdrop>
+>(({ className, ...props }, ref) => (
+    <Autocomplete.Backdrop
+        ref={ref}
+        className={cn('fixed inset-0', className)}
+        {...props}
+    />
+));
+AutocompleteBackdrop.displayName = 'AutocompleteBackdrop';
+
 export const AutocompletePopup = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.Popup>
@@ -110,6 +139,21 @@ export const AutocompletePopup = React.forwardRef<
 ));
 AutocompletePopup.displayName = 'AutocompletePopup';
 
+export const AutocompleteArrow = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof Autocomplete.Arrow>
+>(({ className, ...props }, ref) => (
+    <Autocomplete.Arrow
+        ref={ref}
+        className={cn(
+            'flex data-[side=bottom]:top-[-8px] data-[side=bottom]:rotate-0 data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180',
+            className
+        )}
+        {...props}
+    />
+));
+AutocompleteArrow.displayName = 'AutocompleteArrow';
+
 export const AutocompleteList = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof Autocomplete.List>
@@ -121,6 +165,18 @@ export const AutocompleteList = React.forwardRef<
     />
 ));
 AutocompleteList.displayName = 'AutocompleteList';
+
+export const AutocompleteRow = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof Autocomplete.Row>
+>(({ className, ...props }, ref) => (
+    <Autocomplete.Row
+        ref={ref}
+        className={cn('grid auto-cols-fr grid-flow-col', className)}
+        {...props}
+    />
+));
+AutocompleteRow.displayName = 'AutocompleteRow';
 
 export const AutocompleteItem = React.forwardRef<
     HTMLDivElement,
@@ -164,3 +220,30 @@ export const AutocompleteGroupLabel = React.forwardRef<
     />
 ));
 AutocompleteGroupLabel.displayName = 'AutocompleteGroupLabel';
+
+export const AutocompleteSeparator = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof Autocomplete.Separator>
+>(({ className, ...props }, ref) => (
+    <Autocomplete.Separator
+        ref={ref}
+        className={cn('my-1 mx-2 h-px bg-pecan/10', className)}
+        {...props}
+    />
+));
+AutocompleteSeparator.displayName = 'AutocompleteSeparator';
+
+export const AutocompleteStatus = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof Autocomplete.Status>
+>(({ className, ...props }, ref) => (
+    <Autocomplete.Status
+        ref={ref}
+        className={cn(
+            'flex items-center gap-2 px-3 py-1.5 text-sm text-pecan/60 empty:hidden',
+            className
+        )}
+        {...props}
+    />
+));
+AutocompleteStatus.displayName = 'AutocompleteStatus';

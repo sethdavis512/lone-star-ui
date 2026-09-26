@@ -6,7 +6,9 @@ import {
     PreviewCardTrigger,
     PreviewCardPositioner,
     PreviewCardPopup,
-    PreviewCardArrow
+    PreviewCardViewport,
+    PreviewCardArrow,
+    createPreviewCardHandle
 } from './PreviewCard';
 
 const meta = {
@@ -101,4 +103,86 @@ export const WithArrow: StoryObj = {
             and its principles.
         </p>
     )
+};
+
+const detachedCards = {
+    typography: {
+        href: 'https://en.wikipedia.org/wiki/Typography',
+        summary:
+            'Typography is the art and science of arranging type to make written language legible.'
+    },
+    color: {
+        href: 'https://en.wikipedia.org/wiki/Color_theory',
+        summary:
+            'Color theory is a body of practical guidance for mixing colors and the visual effects of combinations.'
+    }
+} as const;
+
+const detachedPreviewCard =
+    createPreviewCardHandle<keyof typeof detachedCards>();
+
+export const DetachedTriggers: StoryObj = {
+    render: () => (
+        <>
+            <p className="m-0 text-base leading-6 text-pecan">
+                Good design leans on{' '}
+                <PreviewCardTrigger
+                    handle={detachedPreviewCard}
+                    payload="typography"
+                    href={detachedCards.typography.href}
+                >
+                    typography
+                </PreviewCardTrigger>{' '}
+                and{' '}
+                <PreviewCardTrigger
+                    handle={detachedPreviewCard}
+                    payload="color"
+                    href={detachedCards.color.href}
+                >
+                    color
+                </PreviewCardTrigger>
+                .
+            </p>
+            <PreviewCardRoot handle={detachedPreviewCard}>
+                {({ payload }) => (
+                    <PreviewCardPortal>
+                        <PreviewCardPositioner className="h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none">
+                            <PreviewCardPopup className="relative h-[var(--popup-height,auto)] w-[var(--popup-width,auto)] transition-[width,height,opacity,scale] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)]">
+                                <PreviewCardViewport>
+                                    {payload && (
+                                        <div className="w-56 p-3">
+                                            <p className="m-0 text-sm leading-5 text-pecan">
+                                                {detachedCards[payload].summary}
+                                            </p>
+                                        </div>
+                                    )}
+                                </PreviewCardViewport>
+                            </PreviewCardPopup>
+                        </PreviewCardPositioner>
+                    </PreviewCardPortal>
+                )}
+            </PreviewCardRoot>
+        </>
+    ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const body = within(document.body);
+
+        await userEvent.hover(canvas.getByRole('link', { name: 'color' }));
+        const colorCard = await body.findByText(
+            /body of practical guidance for mixing colors/i,
+            undefined,
+            { timeout: 2000 }
+        );
+        await waitFor(() => expect(colorCard).toBeVisible());
+
+        await userEvent.unhover(canvas.getByRole('link', { name: 'color' }));
+        await userEvent.hover(canvas.getByRole('link', { name: 'typography' }));
+        const typographyCard = await body.findByText(
+            /arranging type to make written language legible/i,
+            undefined,
+            { timeout: 2000 }
+        );
+        await waitFor(() => expect(typographyCard).toBeVisible());
+    }
 };

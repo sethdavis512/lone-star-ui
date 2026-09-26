@@ -4,6 +4,7 @@ import { cn } from '../../utils/cn';
 
 export const PreviewCardRoot = BasePreviewCard.Root;
 export const PreviewCardPortal = BasePreviewCard.Portal;
+export const createPreviewCardHandle = BasePreviewCard.createHandle;
 
 // PreviewCard.Trigger renders an <a> element — use HTMLAnchorElement
 export const PreviewCardTrigger = React.forwardRef<
@@ -60,6 +61,30 @@ export const PreviewCardPopup = React.forwardRef<
     />
 ));
 PreviewCardPopup.displayName = 'PreviewCardPopup';
+
+export const PreviewCardViewport = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BasePreviewCard.Viewport>
+>(({ className, ...props }, ref) => (
+    <BasePreviewCard.Viewport
+        ref={ref}
+        className={cn(
+            'relative h-full w-full overflow-clip [--viewport-inline-padding:0px] px-[var(--viewport-inline-padding)] py-0',
+            '[&_[data-current]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))] [&_[data-previous]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]',
+            '[&_[data-current]]:translate-x-0 [&_[data-current]]:opacity-100 [&_[data-previous]]:translate-x-0 [&_[data-previous]]:opacity-100',
+            '[&_[data-current]]:transition-[translate,opacity] [&_[data-current]]:duration-[350ms,175ms] [&_[data-current]]:ease-[cubic-bezier(0.22,1,0.36,1)]',
+            '[&_[data-previous]]:transition-[translate,opacity] [&_[data-previous]]:duration-[350ms,175ms] [&_[data-previous]]:ease-[cubic-bezier(0.22,1,0.36,1)]',
+            "data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:-translate-x-1/2 data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:opacity-0",
+            "data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:translate-x-1/2 data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:opacity-0",
+            "data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:translate-x-1/2 data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:opacity-0",
+            "data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:-translate-x-1/2 data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:opacity-0",
+            'data-instant:[&_[data-current]]:transition-none data-instant:[&_[data-previous]]:transition-none',
+            className
+        )}
+        {...props}
+    />
+));
+PreviewCardViewport.displayName = 'PreviewCardViewport';
 
 export const PreviewCardArrow = React.forwardRef<
     HTMLDivElement,

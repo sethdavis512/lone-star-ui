@@ -82,3 +82,18 @@ export const SliderValue = React.forwardRef<
     />
 ));
 SliderValue.displayName = 'SliderValue';
+
+export const SliderLabel = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof Slider.Label>
+>(({ className, ...props }, ref) => (
+    <Slider.Label
+        ref={ref}
+        className={cn(
+            'text-sm font-medium leading-none text-pecan data-disabled:text-pecan/50',
+            className
+        )}
+        {...props}
+    />
+));
+SliderLabel.displayName = 'SliderLabel';

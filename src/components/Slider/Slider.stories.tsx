@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import {
     SliderRoot,
     SliderControl,
     SliderTrack,
     SliderIndicator,
     SliderThumb,
-    SliderValue
+    SliderValue,
+    SliderLabel
 } from './Slider';
 
 const meta: Meta = {
@@ -62,4 +64,28 @@ export const Disabled: Story = {
             </SliderRoot>
         </div>
     )
+};
+
+export const WithLabel: Story = {
+    render: () => (
+        <div className="w-72">
+            <SliderRoot defaultValue={65}>
+                <div className="flex w-full items-center justify-between">
+                    <SliderLabel>Volume</SliderLabel>
+                    <SliderValue />
+                </div>
+                <SliderControl>
+                    <SliderTrack>
+                        <SliderIndicator />
+                        <SliderThumb />
+                    </SliderTrack>
+                </SliderControl>
+            </SliderRoot>
+        </div>
+    ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const slider = canvas.getByRole('slider', { name: 'Volume' });
+        await expect(slider).toHaveValue('65');
+    }
 };

@@ -9,6 +9,7 @@ export const MenuBackdrop = Menu.Backdrop;
 export const MenuGroup = Menu.Group;
 export const MenuRadioGroup = Menu.RadioGroup;
 export const MenuSubmenuRoot = Menu.SubmenuRoot;
+export const createMenuHandle = Menu.createHandle;
 
 // Styled parts
 
@@ -20,7 +21,7 @@ export const MenuTrigger = React.forwardRef<
         ref={ref}
         className={cn(
             'inline-flex h-8 cursor-default items-center gap-1 rounded-sm px-3 text-sm font-medium text-pecan select-none outline-none',
-            'hover:bg-mesa/60 focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-sky-500',
+            'hover:bg-mesa/60 focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-sky',
             'data-popup-open:bg-mesa/60',
             'data-disabled:cursor-not-allowed data-disabled:opacity-50',
             className
@@ -59,6 +60,30 @@ export const MenuPopup = React.forwardRef<
     />
 ));
 MenuPopup.displayName = 'MenuPopup';
+
+export const MenuViewport = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof Menu.Viewport>
+>(({ className, ...props }, ref) => (
+    <Menu.Viewport
+        ref={ref}
+        className={cn(
+            'relative h-full w-full overflow-clip [--viewport-inline-padding:0.25rem] px-[var(--viewport-inline-padding)] py-1',
+            '[&_[data-current]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))] [&_[data-previous]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]',
+            '[&_[data-current]]:translate-x-0 [&_[data-current]]:opacity-100 [&_[data-previous]]:translate-x-0 [&_[data-previous]]:opacity-100',
+            '[&_[data-current]]:transition-[translate,opacity] [&_[data-current]]:duration-[350ms,175ms] [&_[data-current]]:ease-[cubic-bezier(0.22,1,0.36,1)]',
+            '[&_[data-previous]]:transition-[translate,opacity] [&_[data-previous]]:duration-[350ms,175ms] [&_[data-previous]]:ease-[cubic-bezier(0.22,1,0.36,1)]',
+            "data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:-translate-x-1/2 data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:opacity-0",
+            "data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:translate-x-1/2 data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:opacity-0",
+            "data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:translate-x-1/2 data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:opacity-0",
+            "data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:-translate-x-1/2 data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:opacity-0",
+            'data-instant:[&_[data-current]]:transition-none data-instant:[&_[data-previous]]:transition-none',
+            className
+        )}
+        {...props}
+    />
+));
+MenuViewport.displayName = 'MenuViewport';
 
 export const MenuArrow = React.forwardRef<
     HTMLDivElement,

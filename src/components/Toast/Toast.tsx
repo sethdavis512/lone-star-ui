@@ -133,6 +133,21 @@ export const ToastPositioner = React.forwardRef<
 ));
 ToastPositioner.displayName = 'ToastPositioner';
 
+export const ToastArrow = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof Toast.Arrow>
+>(({ className, ...props }, ref) => (
+    <Toast.Arrow
+        ref={ref}
+        className={cn(
+            'flex data-[side=bottom]:top-[-8px] data-[side=bottom]:rotate-0 data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180',
+            className
+        )}
+        {...props}
+    />
+));
+ToastArrow.displayName = 'ToastArrow';
+
 // Convenience component: renders all active toasts. Place inside ToastProvider.
 export function Toaster() {
     const { toasts } = Toast.useToastManager();

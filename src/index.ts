@@ -47,7 +47,15 @@ export {
     ComboboxSeparator,
     ComboboxGroupLabel,
     ComboboxStatus,
-    ComboboxIcon
+    ComboboxIcon,
+    ComboboxLabel,
+    ComboboxInputGroup,
+    ComboboxBackdrop,
+    ComboboxArrow,
+    ComboboxRow,
+    useComboboxFilter,
+    useComboboxFilteredItems,
+    createComboboxItems
 } from './components/Combobox';
 
 export {
@@ -77,7 +85,9 @@ export {
     SelectItemIndicator,
     SelectGroupLabel,
     SelectScrollUpArrow,
-    SelectScrollDownArrow
+    SelectScrollDownArrow,
+    SelectLabel,
+    SelectArrow
 } from './components/Select';
 
 export {
@@ -101,7 +111,8 @@ export {
     DialogTitle,
     DialogDescription,
     DialogClose,
-    DialogTrigger
+    DialogTrigger,
+    createDialogHandle
 } from './components/Dialog';
 
 export {
@@ -113,7 +124,8 @@ export {
     AlertDialogTitle,
     AlertDialogDescription,
     AlertDialogClose,
-    AlertDialogTrigger
+    AlertDialogTrigger,
+    createAlertDialogHandle
 } from './components/AlertDialog';
 
 export {
@@ -127,7 +139,13 @@ export {
     DrawerHandle,
     DrawerTitle,
     DrawerDescription,
-    DrawerClose
+    DrawerClose,
+    DrawerProvider,
+    DrawerVirtualKeyboardProvider,
+    DrawerIndent,
+    DrawerIndentBackground,
+    DrawerSwipeArea,
+    createDrawerHandle
 } from './components/Drawer';
 
 export {
@@ -137,7 +155,9 @@ export {
     TooltipTrigger,
     TooltipPositioner,
     TooltipPopup,
-    TooltipArrow
+    TooltipArrow,
+    TooltipViewport,
+    createTooltipHandle
 } from './components/Tooltip';
 
 export {
@@ -150,7 +170,9 @@ export {
     PopoverTitle,
     PopoverDescription,
     PopoverClose,
-    PopoverArrow
+    PopoverArrow,
+    PopoverViewport,
+    createPopoverHandle
 } from './components/Popover';
 
 export {
@@ -160,7 +182,9 @@ export {
     PreviewCardBackdrop,
     PreviewCardPositioner,
     PreviewCardPopup,
-    PreviewCardArrow
+    PreviewCardArrow,
+    PreviewCardViewport,
+    createPreviewCardHandle
 } from './components/PreviewCard';
 
 export {
@@ -208,7 +232,9 @@ export {
     MenuCheckboxItem,
     MenuCheckboxItemIndicator,
     MenuSubmenuRoot,
-    MenuSubmenuTrigger
+    MenuSubmenuTrigger,
+    MenuViewport,
+    createMenuHandle
 } from './components/Menu';
 
 export {
@@ -271,7 +297,8 @@ export {
     SliderTrack,
     SliderIndicator,
     SliderThumb,
-    SliderValue
+    SliderValue,
+    SliderLabel
 } from './components/Slider';
 
 export {
@@ -332,6 +359,7 @@ export {
     ToastClose,
     ToastAction,
     ToastPositioner,
+    ToastArrow,
     Toaster,
     useToastManager,
     createToastManager
@@ -348,7 +376,9 @@ export {
     NavigationMenuViewport,
     NavigationMenuPopup,
     NavigationMenuContent,
-    NavigationMenuLink
+    NavigationMenuLink,
+    NavigationMenuArrow,
+    NavigationMenuBackdrop
 } from './components/NavigationMenu';
 
 export {
@@ -366,7 +396,15 @@ export {
     AutocompleteList,
     AutocompleteItem,
     AutocompleteEmpty,
-    AutocompleteGroupLabel
+    AutocompleteGroupLabel,
+    AutocompleteInputGroup,
+    AutocompleteBackdrop,
+    AutocompleteArrow,
+    AutocompleteRow,
+    AutocompleteSeparator,
+    AutocompleteStatus,
+    useAutocompleteFilter,
+    useAutocompleteFilteredItems
 } from './components/Autocomplete';
 
 // ── Utilities ─────────────────────────────────────────────────────────────────

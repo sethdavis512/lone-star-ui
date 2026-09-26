@@ -9,7 +9,8 @@ import {
     AlertDialogTitle,
     AlertDialogDescription,
     AlertDialogClose,
-    AlertDialogTrigger
+    AlertDialogTrigger,
+    createAlertDialogHandle
 } from './AlertDialog';
 
 const meta = {
@@ -120,6 +121,97 @@ export const SignOut: StoryObj = {
             expect(
                 within(document.body).queryByRole('alertdialog')
             ).toBeNull()
+        );
+    }
+};
+
+type DetachedAlertPayload = { title: string; confirmLabel: string };
+
+const detachedAlertDialog = createAlertDialogHandle<DetachedAlertPayload>();
+
+export const DetachedTriggers: StoryObj = {
+    render: () => (
+        <div className="flex flex-wrap gap-2">
+            <AlertDialogTrigger
+                handle={detachedAlertDialog}
+                payload={{ title: 'Delete file?', confirmLabel: 'Delete' }}
+            >
+                Delete file
+            </AlertDialogTrigger>
+            <AlertDialogTrigger
+                handle={detachedAlertDialog}
+                payload={{ title: 'Archive file?', confirmLabel: 'Archive' }}
+            >
+                Archive file
+            </AlertDialogTrigger>
+            <button
+                type="button"
+                className="inline-flex h-9 items-center justify-center rounded-md border border-pecan/25 bg-surface px-4 text-sm font-medium text-pecan transition-colors select-none hover:bg-mesa focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2"
+                onClick={() =>
+                    detachedAlertDialog.openWithPayload({
+                        title: 'Empty trash?',
+                        confirmLabel: 'Empty'
+                    })
+                }
+            >
+                Open imperatively
+            </button>
+            <AlertDialogRoot handle={detachedAlertDialog}>
+                {({ payload }) => (
+                    <AlertDialogPortal>
+                        <AlertDialogBackdrop />
+                        <AlertDialogViewport>
+                            <AlertDialogPopup>
+                                <AlertDialogTitle>
+                                    {payload?.title}
+                                </AlertDialogTitle>
+                                <AlertDialogDescription>
+                                    This action cannot be undone.
+                                </AlertDialogDescription>
+                                <div className="flex justify-end gap-2">
+                                    <AlertDialogClose>Cancel</AlertDialogClose>
+                                    <AlertDialogClose className="border-prickly-pear/40 text-prickly-pear hover:bg-prickly-pear/5">
+                                        {payload?.confirmLabel}
+                                    </AlertDialogClose>
+                                </div>
+                            </AlertDialogPopup>
+                        </AlertDialogViewport>
+                    </AlertDialogPortal>
+                )}
+            </AlertDialogRoot>
+        </div>
+    ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const body = within(document.body);
+
+        await userEvent.click(
+            canvas.getByRole('button', { name: 'Archive file' })
+        );
+        let dialog = await body.findByRole('alertdialog');
+        await waitFor(() => expect(dialog).toBeVisible());
+        expect(within(dialog).getByText('Archive file?')).toBeVisible();
+        expect(
+            within(dialog).getByRole('button', { name: 'Archive' })
+        ).toBeVisible();
+        await userEvent.click(
+            within(dialog).getByRole('button', { name: 'Cancel' })
+        );
+        await waitFor(() =>
+            expect(body.queryByRole('alertdialog')).toBeNull()
+        );
+
+        await userEvent.click(
+            canvas.getByRole('button', { name: 'Open imperatively' })
+        );
+        dialog = await body.findByRole('alertdialog');
+        await waitFor(() => expect(dialog).toBeVisible());
+        expect(within(dialog).getByText('Empty trash?')).toBeVisible();
+        await userEvent.click(
+            within(dialog).getByRole('button', { name: 'Cancel' })
+        );
+        await waitFor(() =>
+            expect(body.queryByRole('alertdialog')).toBeNull()
         );
     }
 };

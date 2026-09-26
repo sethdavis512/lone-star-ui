@@ -1,14 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { expect, within } from 'storybook/test';
+import { expect, userEvent, within } from 'storybook/test';
 import React from 'react';
 import {
     SelectRoot,
+    SelectLabel,
     SelectTrigger,
     SelectValue,
     SelectIcon,
     SelectPortal,
     SelectPositioner,
     SelectPopup,
+    SelectArrow,
     SelectList,
     SelectItem,
     SelectItemText,
@@ -171,5 +173,58 @@ export const Grouped: Story = {
                 </SelectPortal>
             </SelectRoot>
         );
+    }
+};
+
+export const WithLabelAndArrow: Story = {
+    render: () => (
+        <SelectRoot items={texasCities}>
+            <div className="flex flex-col gap-2">
+                <SelectLabel>Home city</SelectLabel>
+                <SelectTrigger>
+                    <SelectValue placeholder="Select a city..." />
+                    <SelectIcon />
+                </SelectTrigger>
+            </div>
+            <SelectPortal>
+                <SelectPositioner alignItemWithTrigger={false} sideOffset={10}>
+                    <SelectPopup>
+                        <SelectArrow data-testid="select-arrow">
+                            <svg
+                                width="20"
+                                height="10"
+                                viewBox="0 0 20 10"
+                                fill="none"
+                                aria-hidden
+                            >
+                                <path
+                                    d="M9.66437 2.60207L4.80758 6.97318C4.07308 7.63423 3.11989 8 2.13172 8H0V10H20V8H18.5349C17.5468 8 16.5936 7.63423 15.8591 6.97318L11.0023 2.60207C10.622 2.2598 10.0447 2.25979 9.66437 2.60207Z"
+                                    className="fill-surface"
+                                />
+                            </svg>
+                        </SelectArrow>
+                        <SelectList>
+                            {texasCities.map(({ label, value }) => (
+                                <SelectItem key={value} value={value}>
+                                    <SelectItemIndicator />
+                                    <SelectItemText>{label}</SelectItemText>
+                                </SelectItem>
+                            ))}
+                        </SelectList>
+                    </SelectPopup>
+                </SelectPositioner>
+            </SelectPortal>
+        </SelectRoot>
+    ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const trigger = canvas.getByRole('combobox', { name: 'Home city' });
+        await expect(trigger).toBeInTheDocument();
+
+        await userEvent.click(trigger);
+        const body = within(document.body);
+        await body.findByRole('listbox', undefined, { timeout: 3000 });
+        const arrow = await body.findByTestId('select-arrow');
+        await expect(arrow).toHaveAttribute('data-side', 'bottom');
     }
 };

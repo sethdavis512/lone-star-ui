@@ -9,7 +9,8 @@ import {
     DialogTitle,
     DialogDescription,
     DialogClose,
-    DialogTrigger
+    DialogTrigger,
+    createDialogHandle
 } from './Dialog';
 
 const meta = {
@@ -184,4 +185,80 @@ export const Nested: StoryObj = {
             </DialogPortal>
         </DialogRoot>
     )
+};
+
+type DetachedDialogPayload = { title: string; description: string };
+
+const detachedDialog = createDialogHandle<DetachedDialogPayload>();
+
+export const DetachedTriggers: StoryObj = {
+    render: () => (
+        <div className="flex gap-2">
+            <DialogTrigger
+                handle={detachedDialog}
+                payload={{
+                    title: 'Edit profile',
+                    description: 'Update your name, photo, and bio.'
+                }}
+            >
+                Edit profile
+            </DialogTrigger>
+            <DialogTrigger
+                handle={detachedDialog}
+                payload={{
+                    title: 'Invite teammate',
+                    description: 'Send an invite link to a new teammate.'
+                }}
+            >
+                Invite teammate
+            </DialogTrigger>
+            <DialogRoot handle={detachedDialog}>
+                {({ payload }) => (
+                    <DialogPortal>
+                        <DialogBackdrop />
+                        <DialogViewport>
+                            <DialogPopup>
+                                <DialogTitle>{payload?.title}</DialogTitle>
+                                <DialogDescription>
+                                    {payload?.description}
+                                </DialogDescription>
+                                <div className="flex justify-end gap-2">
+                                    <DialogClose>Close</DialogClose>
+                                </div>
+                            </DialogPopup>
+                        </DialogViewport>
+                    </DialogPortal>
+                )}
+            </DialogRoot>
+        </div>
+    ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const body = within(document.body);
+
+        await userEvent.click(
+            canvas.getByRole('button', { name: 'Invite teammate' })
+        );
+        let dialog = await body.findByRole('dialog');
+        await waitFor(() => expect(dialog).toBeVisible());
+        expect(within(dialog).getByText('Invite teammate')).toBeVisible();
+        await userEvent.click(
+            within(dialog).getByRole('button', { name: 'Close' })
+        );
+        await waitFor(() => expect(body.queryByRole('dialog')).toBeNull());
+
+        await userEvent.click(
+            canvas.getByRole('button', { name: 'Edit profile' })
+        );
+        dialog = await body.findByRole('dialog');
+        await waitFor(() => expect(dialog).toBeVisible());
+        expect(within(dialog).getByText('Edit profile')).toBeVisible();
+        expect(
+            within(dialog).getByText('Update your name, photo, and bio.')
+        ).toBeVisible();
+        await userEvent.click(
+            within(dialog).getByRole('button', { name: 'Close' })
+        );
+        await waitFor(() => expect(body.queryByRole('dialog')).toBeNull());
+    }
 };

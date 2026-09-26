@@ -4,6 +4,7 @@ import { cn } from '../../utils/cn';
 
 export const DialogRoot = BaseDialog.Root;
 export const DialogPortal = BaseDialog.Portal;
+export const createDialogHandle = BaseDialog.createHandle;
 
 export const DialogBackdrop = React.forwardRef<
     HTMLDivElement,

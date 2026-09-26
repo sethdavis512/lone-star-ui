@@ -5,8 +5,10 @@ export {
     PopoverBackdrop,
     PopoverPositioner,
     PopoverPopup,
+    PopoverViewport,
     PopoverTitle,
     PopoverDescription,
     PopoverClose,
-    PopoverArrow
+    PopoverArrow,
+    createPopoverHandle
 } from './Popover';

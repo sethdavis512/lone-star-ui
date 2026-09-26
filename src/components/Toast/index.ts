@@ -9,6 +9,7 @@ export {
     ToastClose,
     ToastAction,
     ToastPositioner,
+    ToastArrow,
     Toaster,
     useToastManager,
     createToastManager

@@ -4,5 +4,6 @@ export {
     SliderTrack,
     SliderIndicator,
     SliderThumb,
-    SliderValue
+    SliderValue,
+    SliderLabel
 } from './Slider';

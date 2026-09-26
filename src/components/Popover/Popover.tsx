@@ -4,6 +4,7 @@ import { cn } from '../../utils/cn';
 
 export const PopoverRoot = BasePopover.Root;
 export const PopoverPortal = BasePopover.Portal;
+export const createPopoverHandle = BasePopover.createHandle;
 
 export const PopoverTrigger: React.ForwardRefExoticComponent<
     React.ComponentPropsWithoutRef<typeof BasePopover.Trigger> &
@@ -62,6 +63,30 @@ export const PopoverPopup = React.forwardRef<
     />
 ));
 PopoverPopup.displayName = 'PopoverPopup';
+
+export const PopoverViewport = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BasePopover.Viewport>
+>(({ className, ...props }, ref) => (
+    <BasePopover.Viewport
+        ref={ref}
+        className={cn(
+            'relative h-full w-full overflow-clip [--viewport-inline-padding:1rem] px-[var(--viewport-inline-padding)] py-4',
+            '[&_[data-current]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))] [&_[data-previous]]:w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))]',
+            '[&_[data-current]]:translate-x-0 [&_[data-current]]:opacity-100 [&_[data-previous]]:translate-x-0 [&_[data-previous]]:opacity-100',
+            '[&_[data-current]]:transition-[translate,opacity] [&_[data-current]]:duration-[350ms,175ms] [&_[data-current]]:ease-[cubic-bezier(0.22,1,0.36,1)]',
+            '[&_[data-previous]]:transition-[translate,opacity] [&_[data-previous]]:duration-[350ms,175ms] [&_[data-previous]]:ease-[cubic-bezier(0.22,1,0.36,1)]',
+            "data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:-translate-x-1/2 data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:opacity-0",
+            "data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:translate-x-1/2 data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:opacity-0",
+            "data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:translate-x-1/2 data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:opacity-0",
+            "data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:-translate-x-1/2 data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:opacity-0",
+            'data-instant:[&_[data-current]]:transition-none data-instant:[&_[data-previous]]:transition-none',
+            className
+        )}
+        {...props}
+    />
+));
+PopoverViewport.displayName = 'PopoverViewport';
 
 export const PopoverTitle = React.forwardRef<
     HTMLHeadingElement,

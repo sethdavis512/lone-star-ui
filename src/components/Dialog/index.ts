@@ -7,5 +7,6 @@ export {
     DialogTitle,
     DialogDescription,
     DialogClose,
-    DialogTrigger
+    DialogTrigger,
+    createDialogHandle
 } from './Dialog';

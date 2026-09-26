@@ -4,14 +4,22 @@ export {
     AutocompletePortal,
     AutocompleteGroup,
     AutocompleteCollection,
+    useAutocompleteFilter,
+    useAutocompleteFilteredItems,
+    AutocompleteInputGroup,
     AutocompleteInput,
     AutocompleteTrigger,
     AutocompleteIcon,
     AutocompleteClear,
+    AutocompleteBackdrop,
     AutocompletePositioner,
     AutocompletePopup,
+    AutocompleteArrow,
     AutocompleteList,
+    AutocompleteRow,
     AutocompleteItem,
     AutocompleteEmpty,
-    AutocompleteGroupLabel
+    AutocompleteGroupLabel,
+    AutocompleteSeparator,
+    AutocompleteStatus
 } from './Autocomplete';

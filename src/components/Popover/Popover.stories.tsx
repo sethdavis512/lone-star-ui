@@ -6,9 +6,11 @@ import {
     PopoverTrigger,
     PopoverPositioner,
     PopoverPopup,
+    PopoverViewport,
     PopoverTitle,
     PopoverDescription,
-    PopoverClose
+    PopoverClose,
+    createPopoverHandle
 } from './Popover';
 
 const meta = {
@@ -110,4 +112,88 @@ export const OpenOnHover: StoryObj = {
             </PopoverPortal>
         </PopoverRoot>
     )
+};
+
+const detachedPanels = {
+    notifications: {
+        title: 'Notifications',
+        description: "You're all caught up. Good job!"
+    },
+    activity: {
+        title: 'Activity',
+        description: 'Three teammates commented on your pull request today.'
+    }
+} as const;
+
+const detachedPopover = createPopoverHandle<keyof typeof detachedPanels>();
+
+export const DetachedTriggers: StoryObj = {
+    render: () => (
+        <div className="flex gap-2">
+            <PopoverTrigger handle={detachedPopover} payload="notifications">
+                Notifications
+            </PopoverTrigger>
+            <PopoverTrigger handle={detachedPopover} payload="activity">
+                Activity
+            </PopoverTrigger>
+            <PopoverRoot handle={detachedPopover}>
+                {({ payload }) => (
+                    <PopoverPortal>
+                        {/* Positioner and popup size variables let the popup morph between panels */}
+                        <PopoverPositioner className="h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none">
+                            <PopoverPopup className="relative h-[var(--popup-height,auto)] w-[var(--popup-width,auto)] max-w-80 p-0 transition-[width,height,opacity,scale] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)]">
+                                <PopoverViewport>
+                                    {payload && (
+                                        <div>
+                                            <PopoverTitle>
+                                                {detachedPanels[payload].title}
+                                            </PopoverTitle>
+                                            <PopoverDescription>
+                                                {
+                                                    detachedPanels[payload]
+                                                        .description
+                                                }
+                                            </PopoverDescription>
+                                        </div>
+                                    )}
+                                </PopoverViewport>
+                            </PopoverPopup>
+                        </PopoverPositioner>
+                    </PopoverPortal>
+                )}
+            </PopoverRoot>
+        </div>
+    ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const body = within(document.body);
+
+        await userEvent.click(canvas.getByRole('button', { name: 'Activity' }));
+        const popover = await body.findByRole('dialog');
+        await waitFor(() => expect(popover).toBeVisible());
+        expect(
+            await within(popover).findByText(
+                'Three teammates commented on your pull request today.'
+            )
+        ).toBeVisible();
+
+        // Clicking another detached trigger swaps the content in place
+        await userEvent.click(
+            canvas.getByRole('button', { name: 'Notifications' })
+        );
+        const switched = await body.findByText(
+            "You're all caught up. Good job!"
+        );
+        await waitFor(() => expect(switched).toBeVisible());
+        await waitFor(() =>
+            expect(
+                body.queryByText(
+                    'Three teammates commented on your pull request today.'
+                )
+            ).toBeNull()
+        );
+
+        await userEvent.keyboard('{Escape}');
+        await waitFor(() => expect(body.queryByRole('dialog')).toBeNull());
+    }
 };

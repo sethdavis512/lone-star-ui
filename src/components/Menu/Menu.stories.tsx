@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import * as React from 'react';
+import { expect, userEvent, within, waitFor } from 'storybook/test';
 import {
     MenuRoot,
     MenuTrigger,
     MenuPortal,
     MenuPositioner,
     MenuPopup,
+    MenuViewport,
     MenuItem,
     MenuSeparator,
     MenuCheckboxItem,
@@ -16,7 +18,8 @@ import {
     MenuGroup,
     MenuGroupLabel,
     MenuSubmenuRoot,
-    MenuSubmenuTrigger
+    MenuSubmenuTrigger,
+    createMenuHandle
 } from './Menu';
 
 const meta: Meta = {
@@ -215,4 +218,86 @@ export const WithSubmenu: Story = {
             </MenuPortal>
         </MenuRoot>
     )
+};
+
+const detachedMenus = {
+    library: {
+        heading: 'Library',
+        items: ['Add to Library', 'Add to Playlist…', 'Download']
+    },
+    playback: {
+        heading: 'Playback',
+        items: ['Play Next', 'Play Last']
+    }
+} as const;
+
+const detachedMenu = createMenuHandle<keyof typeof detachedMenus>();
+
+export const DetachedTriggers: Story = {
+    render: () => (
+        <div className="flex gap-2">
+            <MenuTrigger handle={detachedMenu} payload="library">
+                Library
+            </MenuTrigger>
+            <MenuTrigger handle={detachedMenu} payload="playback">
+                Playback
+            </MenuTrigger>
+            <MenuRoot handle={detachedMenu} modal={false}>
+                {({ payload }) => (
+                    <MenuPortal>
+                        <MenuPositioner
+                            sideOffset={8}
+                            align="start"
+                            className="h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none"
+                        >
+                            <MenuPopup className="relative h-[var(--popup-height,auto)] w-[var(--popup-width,auto)] p-0 transition-[width,height,opacity,scale] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)]">
+                                <MenuViewport>
+                                    {payload && (
+                                        <MenuGroup>
+                                            <MenuGroupLabel>
+                                                {detachedMenus[payload].heading}
+                                            </MenuGroupLabel>
+                                            {detachedMenus[payload].items.map(
+                                                (item) => (
+                                                    <MenuItem key={item}>
+                                                        {item}
+                                                    </MenuItem>
+                                                )
+                                            )}
+                                        </MenuGroup>
+                                    )}
+                                </MenuViewport>
+                            </MenuPopup>
+                        </MenuPositioner>
+                    </MenuPortal>
+                )}
+            </MenuRoot>
+        </div>
+    ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const body = within(document.body);
+
+        await userEvent.click(canvas.getByRole('button', { name: 'Library' }));
+        const menu = await body.findByRole('menu');
+        await waitFor(() => expect(menu).toBeVisible());
+        expect(
+            await within(menu).findByRole('menuitem', { name: 'Download' })
+        ).toBeVisible();
+
+        // Clicking another detached trigger swaps the menu content in place
+        await userEvent.click(canvas.getByRole('button', { name: 'Playback' }));
+        const playNext = await body.findByRole('menuitem', {
+            name: 'Play Next'
+        });
+        await waitFor(() => expect(playNext).toBeVisible());
+        await waitFor(() =>
+            expect(
+                body.queryByRole('menuitem', { name: 'Download' })
+            ).toBeNull()
+        );
+
+        await userEvent.keyboard('{Escape}');
+        await waitFor(() => expect(body.queryByRole('menu')).toBeNull());
+    }
 };

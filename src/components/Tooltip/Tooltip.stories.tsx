@@ -7,7 +7,9 @@ import {
     TooltipTrigger,
     TooltipPositioner,
     TooltipPopup,
-    TooltipArrow
+    TooltipViewport,
+    TooltipArrow,
+    createTooltipHandle
 } from './Tooltip';
 
 const meta = {
@@ -106,4 +108,69 @@ export const MultipleTooltips: StoryObj = {
             </div>
         </TooltipProvider>
     )
+};
+
+const detachedTooltip = createTooltipHandle<string>();
+
+const detachedTriggerClassName =
+    'flex h-8 items-center justify-center rounded border border-pecan/25 bg-surface px-3 text-xs font-medium text-pecan transition-colors hover:bg-mesa data-popup-open:bg-mesa';
+
+export const DetachedTriggers: StoryObj = {
+    render: () => (
+        <TooltipProvider>
+            <div className="flex gap-2">
+                <TooltipTrigger
+                    className={detachedTriggerClassName}
+                    handle={detachedTooltip}
+                    payload="Copy link"
+                >
+                    Copy
+                </TooltipTrigger>
+                <TooltipTrigger
+                    className={detachedTriggerClassName}
+                    handle={detachedTooltip}
+                    payload="Delete: this action cannot be undone"
+                >
+                    Delete
+                </TooltipTrigger>
+            </div>
+            <TooltipRoot handle={detachedTooltip}>
+                {({ payload }) => (
+                    <TooltipPortal>
+                        <TooltipPositioner className="h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none">
+                            <TooltipPopup className="relative h-[var(--popup-height,auto)] w-[var(--popup-width,auto)] max-w-80 p-0 transition-[width,height,opacity,scale] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)]">
+                                <TooltipViewport>{payload}</TooltipViewport>
+                            </TooltipPopup>
+                        </TooltipPositioner>
+                    </TooltipPortal>
+                )}
+            </TooltipRoot>
+        </TooltipProvider>
+    ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const body = within(document.body);
+
+        // Focus opens the tooltip deterministically (see Default story)
+        await userEvent.tab();
+        await expect(
+            canvas.getByRole('button', { name: 'Copy' })
+        ).toHaveFocus();
+        const first = await body.findByText('Copy link', undefined, {
+            timeout: 3000
+        });
+        await waitFor(() => expect(first).toBeVisible());
+
+        // Moving focus to the next detached trigger swaps the shared popup's content
+        await userEvent.tab();
+        await expect(
+            canvas.getByRole('button', { name: 'Delete' })
+        ).toHaveFocus();
+        const second = await body.findByText(
+            'Delete: this action cannot be undone',
+            undefined,
+            { timeout: 3000 }
+        );
+        await waitFor(() => expect(second).toBeVisible());
+    }
 };

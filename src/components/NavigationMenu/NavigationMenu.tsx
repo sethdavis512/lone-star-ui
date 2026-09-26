@@ -90,6 +90,18 @@ export const NavigationMenuIcon = React.forwardRef<
 ));
 NavigationMenuIcon.displayName = 'NavigationMenuIcon';
 
+export const NavigationMenuBackdrop = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof NavigationMenu.Backdrop>
+>(({ className, ...props }, ref) => (
+    <NavigationMenu.Backdrop
+        ref={ref}
+        className={cn('fixed inset-0', className)}
+        {...props}
+    />
+));
+NavigationMenuBackdrop.displayName = 'NavigationMenuBackdrop';
+
 export const NavigationMenuPositioner = React.forwardRef<
     HTMLDivElement,
     React.ComponentPropsWithoutRef<typeof NavigationMenu.Positioner>
@@ -129,6 +141,21 @@ export const NavigationMenuPopup = React.forwardRef<
     />
 ));
 NavigationMenuPopup.displayName = 'NavigationMenuPopup';
+
+export const NavigationMenuArrow = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof NavigationMenu.Arrow>
+>(({ className, ...props }, ref) => (
+    <NavigationMenu.Arrow
+        ref={ref}
+        className={cn(
+            'flex data-[side=bottom]:top-[-8px] data-[side=bottom]:rotate-0 data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180',
+            className
+        )}
+        {...props}
+    />
+));
+NavigationMenuArrow.displayName = 'NavigationMenuArrow';
 
 export const NavigationMenuContent = React.forwardRef<
     HTMLDivElement,

@@ -4,6 +4,54 @@ import { cn } from '../../utils/cn';
 
 export const DrawerRoot = BaseDrawer.Root;
 export const DrawerPortal = BaseDrawer.Portal;
+export const DrawerProvider = BaseDrawer.Provider;
+export const DrawerVirtualKeyboardProvider = BaseDrawer.VirtualKeyboardProvider;
+export const createDrawerHandle = BaseDrawer.createHandle;
+
+// Background layer placed before DrawerIndent; visible around the scaled indent while a drawer is open
+export const DrawerIndentBackground = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BaseDrawer.IndentBackground>
+>(({ className, ...props }, ref) => (
+    <BaseDrawer.IndentBackground
+        ref={ref}
+        className={cn('absolute inset-0 bg-pecan', className)}
+        {...props}
+    />
+));
+DrawerIndentBackground.displayName = 'DrawerIndentBackground';
+
+// Wraps the app's main UI; scales down and rounds its top corners while any drawer in the DrawerProvider is open
+export const DrawerIndent = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BaseDrawer.Indent>
+>(({ className, ...props }, ref) => (
+    <BaseDrawer.Indent
+        ref={ref}
+        className={cn(
+            'relative origin-[center_top] bg-surface text-pecan will-change-transform [--indent-radius:calc(1rem*(1-var(--drawer-swipe-progress)))] [--indent-transition:calc(1-clamp(0,calc(var(--drawer-swipe-progress)*100000),1))] [transition:transform_calc(400ms*var(--indent-transition))_cubic-bezier(0.32,0.72,0,1),border-radius_calc(250ms*var(--indent-transition))_cubic-bezier(0.32,0.72,0,1)] [transform:scale(1)_translateY(0)] data-active:[transform:scale(calc(0.98+(0.02*var(--drawer-swipe-progress))))_translateY(calc(0.5rem*(1-var(--drawer-swipe-progress))))] data-active:rounded-t-(--indent-radius)',
+            className
+        )}
+        {...props}
+    />
+));
+DrawerIndent.displayName = 'DrawerIndent';
+
+// Invisible edge area for swipe-to-open; positions itself on the edge matching its swipe direction
+export const DrawerSwipeArea = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BaseDrawer.SwipeArea>
+>(({ className, ...props }, ref) => (
+    <BaseDrawer.SwipeArea
+        ref={ref}
+        className={cn(
+            'fixed z-[1] touch-none data-disabled:pointer-events-none data-[swipe-direction=up]:inset-x-0 data-[swipe-direction=up]:bottom-0 data-[swipe-direction=up]:h-10 data-[swipe-direction=down]:inset-x-0 data-[swipe-direction=down]:top-0 data-[swipe-direction=down]:h-10 data-[swipe-direction=left]:inset-y-0 data-[swipe-direction=left]:right-0 data-[swipe-direction=left]:w-10 data-[swipe-direction=right]:inset-y-0 data-[swipe-direction=right]:left-0 data-[swipe-direction=right]:w-10',
+            className
+        )}
+        {...props}
+    />
+));
+DrawerSwipeArea.displayName = 'DrawerSwipeArea';
 
 export const DrawerTrigger = React.forwardRef<
     HTMLButtonElement,

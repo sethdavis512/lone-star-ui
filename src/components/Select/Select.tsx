@@ -41,6 +41,21 @@ export const SelectBackdrop = BaseSelect.Backdrop;
 export const SelectGroup = BaseSelect.Group;
 export const SelectSeparator = BaseSelect.Separator;
 
+export const SelectLabel = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BaseSelect.Label>
+>(({ className, ...props }, ref) => (
+    <BaseSelect.Label
+        ref={ref}
+        className={cn(
+            'text-sm font-medium leading-none text-pecan data-disabled:text-pecan/50',
+            className
+        )}
+        {...props}
+    />
+));
+SelectLabel.displayName = 'SelectLabel';
+
 export const SelectTrigger = React.forwardRef<
     HTMLButtonElement,
     React.ComponentPropsWithoutRef<typeof BaseSelect.Trigger>
@@ -109,6 +124,21 @@ export const SelectPopup = React.forwardRef<
     />
 ));
 SelectPopup.displayName = 'SelectPopup';
+
+export const SelectArrow = React.forwardRef<
+    HTMLDivElement,
+    React.ComponentPropsWithoutRef<typeof BaseSelect.Arrow>
+>(({ className, ...props }, ref) => (
+    <BaseSelect.Arrow
+        ref={ref}
+        className={cn(
+            'flex data-[side=bottom]:top-[-8px] data-[side=bottom]:rotate-0 data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180',
+            className
+        )}
+        {...props}
+    />
+));
+SelectArrow.displayName = 'SelectArrow';
 
 export const SelectList = React.forwardRef<
     HTMLDivElement,

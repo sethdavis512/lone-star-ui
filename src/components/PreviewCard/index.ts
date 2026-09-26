@@ -5,5 +5,7 @@ export {
     PreviewCardBackdrop,
     PreviewCardPositioner,
     PreviewCardPopup,
-    PreviewCardArrow
+    PreviewCardViewport,
+    PreviewCardArrow,
+    createPreviewCardHandle
 } from './PreviewCard';
